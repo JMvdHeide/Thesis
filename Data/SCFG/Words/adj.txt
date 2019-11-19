@@ -1,0 +1,11 @@
+friendly	vriendelijke
+pretty	mooie
+big	grote
+nice	aardige
+little	kleine
+pale	bleke
+happy	blije
+angry	boze
+excited	opgewonden
+ugly	lelijke
+ignorant	onwetende

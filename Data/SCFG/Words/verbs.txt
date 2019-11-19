@@ -1,0 +1,11 @@
+hears	hoort
+sees	ziet
+follows	volgt
+calls	roept
+hugs	knuffelt
+admires	bewondert
+hits	slaat
+pets	aait
+pushes	duwt
+teases	plaagt
+insults	beledigt

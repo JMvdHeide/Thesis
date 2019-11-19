@@ -1,0 +1,11 @@
+horse	paard2
+dog	hond1
+cat	kat1
+doctor	dokter1
+man	man1
+woman	vrouw1
+pig	varken2
+rooster	haan1
+bear	beer1
+creature	wezen2
+butterfly	vlinder1

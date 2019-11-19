@@ -1,0 +1,15 @@
+swipl -l Data/SCFG/Rules/scfg_svo_na.pl 2> Data/SCFG/output.log > Data/SCFG/Compiled/data_svo_na.txt
+compile_scfg:generate_all().
+ctrl + Z
+
+swipl -l Data/SCFG/Rules/scfg_svo_an.pl 2> Data/SCFG/output.log > Data/SCFG/Compiled/data_svo_an.txt
+compile_scfg:generate_all().
+ctrl + Z
+
+swipl -l Data/SCFG/Rules/scfg_sov_na.pl 2> Data/SCFG/output.log > Data/SCFG/Compiled/data_sov_na.txt
+compile_scfg:generate_all().
+ctrl + Z
+
+swipl -l Data/SCFG/Rules/scfg_sov_an.pl 2> Data/SCFG/output.log > Data/SCFG/Compiled/data_sov_an.txt
+compile_scfg:generate_all().
+ctrl + Z
