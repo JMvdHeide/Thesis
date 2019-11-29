@@ -12,13 +12,13 @@ onmt_preprocess -train_src Data/SOV_NA/src-train.txt -train_tgt Data/SOV_NA/tgt-
 
 Train:
 
-onmt_train -data Data/SVO_AN -save_model Data/SVO_AN_model
+onmt_train -data Data/SVO_AN/prepro -save_model Data/SVO_AN_model
 
-onmt_train -data Data/SVO_NA -save_model Data/SVO_NA_model
+onmt_train -data Data/SVO_NA/prepro -save_model Data/SVO_NA_model
 
-onmt_train -data Data/SOV_AN -save_model Data/SOV_AN_model
+onmt_train -data Data/SOV_AN/prepro -save_model Data/SOV_AN_model
 
-onmt_train -data Data/SOV_NA -save_model Data/SOV_NA_model
+onmt_train -data Data/SOV_NA/prepro -save_model Data/SOV_NA_model
 
 ------------------------------------------------------------------------------------------------
 

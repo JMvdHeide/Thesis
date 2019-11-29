@@ -1,0 +1,7 @@
+First test:
+Short partition
+No GPU
+default early_stopping, default valid_steps
+100% acc after 400 steps
+100000 steps
++- 40s per 50 steps
