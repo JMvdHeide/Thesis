@@ -15,7 +15,7 @@ onmt_preprocess -train_src Data/SVO_AN/src-train.txt -train_tgt Data/SVO_AN/tgt-
 # onmt_preprocess -train_src Data/SOV_NA/src-train.txt -train_tgt Data/SOV_NA/tgt-train.txt -valid_src Data/SOV_NA/src-val.txt -valid_tgt Data/SOV_NA/tgt-val.txt -save_data Data/SOV_NA/prepro
 
 
-onmt_train -data Data/SVO_AN -save_model Results/SVO_AN_model
+onmt_train -data Data/SVO_AN -save_model Models/SVO_AN_model
 
 # onmt_train -data Data/SVO_AN -early_stopping 3 -valid_steps 1000 -save_model Results/SVO_AN_model
 
