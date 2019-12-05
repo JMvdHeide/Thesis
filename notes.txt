@@ -1,3 +1,6 @@
+Same test data for each set.
+Dont trust SCFG generetor, so look at specific sentences.
+
 First test:
 Short partition
 No GPU
