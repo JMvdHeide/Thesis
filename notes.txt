@@ -1,10 +1,48 @@
 Same test data for each set.
-Dont trust SCFG generetor, so look at specific sentences.
+Dont trust SCFG generator, so look at specific sentences.
 
-First test:
+Number of training steps:
+128841 pairs / 64 (batch size) = 2014 steps
+Source: https://github.com/OpenNMT/OpenNMT-py/issues/866
+
+1st test:
 Short partition
 No GPU
-default early_stopping, default valid_steps
+default early_stopping (0), default valid_steps (10000)
 100% acc after 400 steps
 100000 steps
 +- 40s per 50 steps
+canceled
+
+2nd test:
+Short partition
+No GPU
+default early_stopping (0), default valid_steps (10000)
+100% acc after 400 steps
+-train_steps 2014
++- 160s per 50 steps
+canceled
+
+3rd test: 
+Short partition
+No GPU
+- early_stopping 3, -valid_steps 50
+Validation takes a long time
+100% acc after 400 steps
+-train_steps 2014
+canceled
+
+4th test: 
+GPU partition
+- early_stopping 3 -valid_steps 50 -train_steps 2014
+Out of memory after nearly 30s. (reserved memory 2GB)
+Oom-kill event (Out of memory)
+
+5th test:
+GPU partition
+- early_stopping 3 -valid_steps 50 -train_steps 2014
+Reserverd extra memory, 20GB. unnecessary, max memory used was 2.76GB
+Was only on one training set (SVO_AN)
+Early stop after 500 steps!
+Best model found at 300 steps.
+Completed!

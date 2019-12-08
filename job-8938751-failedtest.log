@@ -1,0 +1,83 @@
+Restoring modules from user's default
+Lmod Warning: The following modules were not loaded: PyTorch SciPy-bundle
+
+
+
+
+Lmod Warning: One or more modules in your default collection have changed:
+"LibTIFF", "Python".
+To see the contents of this collection execute:
+  $ module describe default
+To rebuild the collection, load the modules you wish, then execute:
+  $ module save default
+If you no longer want this module collection execute:
+  $ rm ~/.lmod.d/default
+
+For more information execute 'module help' or see http://lmod.readthedocs.org/
+No change in modules loaded.
+
+
+
+
+The system default contains no modules
+  (env var: LMOD_SYSTEM_DEFAULT_MODULES is empty)
+  No changes in loaded modules
+
+Traceback (most recent call last):
+  File "/home/s2964007/Thesis/VirtualEnv/bin/onmt_preprocess", line 7, in <module>
+    from onmt.bin.preprocess import main
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/__init__.py", line 4, in <module>
+    import onmt.inputters
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/inputters/__init__.py", line 6, in <module>
+    from onmt.inputters.inputter import \
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/inputters/inputter.py", line 10, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+Traceback (most recent call last):
+  File "/home/s2964007/Thesis/VirtualEnv/bin/onmt_train", line 7, in <module>
+    from onmt.bin.train import main
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/__init__.py", line 4, in <module>
+    import onmt.inputters
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/inputters/__init__.py", line 6, in <module>
+    from onmt.inputters.inputter import \
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/inputters/inputter.py", line 10, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+
+
+###############################################################################
+Peregrine Cluster
+Job 8938751 for user 's2964007'
+Finished at: Sun Dec  8 16:07:54 CET 2019
+
+Job details:
+============
+
+Name                : allocation
+User                : s2964007
+Partition           : 
+Nodes               : pg-gpu30
+Cores               : 12
+State               : FAILED
+Submit              : 2019-12-08T16:07:51
+Start               : 2019-12-08T16:07:51
+End                 : 2019-12-08T16:07:54
+Reserved walltime   : --
+Used walltime       : 00:00:03
+Used CPU time       : 00:00:02 (efficiency:  5.82%)
+% User (Computation): 75.61%
+% System (I/O)      : 24.34%
+Mem reserved        : 0/node
+Max Mem used        : 0.00  (pg-gpu30)
+Max Disk Write      : 0.00  (pg-gpu30)
+Max Disk Read       : 0.00  (pg-gpu30)
+
+
+Acknowledgements:
+=================
+
+Please see this page if you want to acknowledge Peregrine in your publications:
+
+https://redmine.hpc.rug.nl/redmine/projects/peregrine/wiki/ScientificOutput
+
+################################################################################
