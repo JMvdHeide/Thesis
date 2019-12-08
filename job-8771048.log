@@ -1,0 +1,127 @@
+Restoring modules from user's default
+Lmod Warning: The system MODULEPATH has changed: please rebuild your saved
+collection.
+
+
+
+The system default contains no modules
+  (env var: LMOD_SYSTEM_DEFAULT_MODULES is empty)
+  No changes in loaded modules
+
+[2019-11-29 16:51:20,813 INFO] Extracting features...
+[2019-11-29 16:51:20,964 INFO]  * number of source features: 0.
+[2019-11-29 16:51:20,964 INFO]  * number of target features: 0.
+[2019-11-29 16:51:20,964 INFO] Building `Fields` object...
+[2019-11-29 16:51:20,964 INFO] Building & saving training data...
+[2019-11-29 16:51:20,966 WARNING] Shards for corpus train already exist, won't be overwritten, pass the `-overwrite` option if you want to.
+[2019-11-29 16:51:20,966 INFO] Building & saving validation data...
+[2019-11-29 16:51:20,967 WARNING] Shards for corpus valid already exist, won't be overwritten, pass the `-overwrite` option if you want to.
+[2019-11-29 16:51:21,874 INFO]  * src vocab size = 38
+[2019-11-29 16:51:21,874 INFO]  * tgt vocab size = 42
+[2019-11-29 16:51:21,874 INFO] Building model...
+[2019-11-29 16:51:22,045 INFO] NMTModel(
+  (encoder): RNNEncoder(
+    (embeddings): Embeddings(
+      (make_embedding): Sequential(
+        (emb_luts): Elementwise(
+          (0): Embedding(38, 500, padding_idx=1)
+        )
+      )
+    )
+    (rnn): LSTM(500, 500, num_layers=2, dropout=0.3)
+  )
+  (decoder): InputFeedRNNDecoder(
+    (embeddings): Embeddings(
+      (make_embedding): Sequential(
+        (emb_luts): Elementwise(
+          (0): Embedding(42, 500, padding_idx=1)
+        )
+      )
+    )
+    (dropout): Dropout(p=0.3)
+    (rnn): StackedLSTM(
+      (dropout): Dropout(p=0.3)
+      (layers): ModuleList(
+        (0): LSTMCell(1000, 500)
+        (1): LSTMCell(500, 500)
+      )
+    )
+    (attn): GlobalAttention(
+      (linear_in): Linear(in_features=500, out_features=500, bias=False)
+      (linear_out): Linear(in_features=1000, out_features=500, bias=False)
+    )
+  )
+  (generator): Sequential(
+    (0): Linear(in_features=500, out_features=42, bias=True)
+    (1): Cast()
+    (2): LogSoftmax()
+  )
+)
+[2019-11-29 16:51:22,046 INFO] encoder: 4027000
+[2019-11-29 16:51:22,046 INFO] decoder: 5800042
+[2019-11-29 16:51:22,046 INFO] * number of parameters: 9827042
+[2019-11-29 16:51:22,048 INFO] Starting training on CPU, could be very slow
+[2019-11-29 16:51:22,048 INFO] Start training loop and validate every 10000 steps...
+[2019-11-29 16:51:22,048 INFO] Loading dataset from Data/SVO_AN/prepro.train.0.pt
+[2019-11-29 16:51:23,202 INFO] number of examples: 128841
+[2019-11-29 16:52:02,122 INFO] Step 50/100000; acc:  13.71; ppl: 154.86; xent: 5.04; lr: 1.00000; 639/719 tok/s;     40 sec
+[2019-11-29 16:52:40,281 INFO] Step 100/100000; acc:  20.08; ppl: 35.71; xent: 3.58; lr: 1.00000; 671/755 tok/s;     78 sec
+[2019-11-29 16:53:18,562 INFO] Step 150/100000; acc:  42.17; ppl:  5.40; xent: 1.69; lr: 1.00000; 669/752 tok/s;    117 sec
+[2019-11-29 16:53:56,748 INFO] Step 200/100000; acc:  45.70; ppl:  4.85; xent: 1.58; lr: 1.00000; 670/754 tok/s;    155 sec
+[2019-11-29 16:54:34,556 INFO] Step 250/100000; acc:  51.41; ppl:  4.18; xent: 1.43; lr: 1.00000; 666/749 tok/s;    193 sec
+[2019-11-29 16:55:12,289 INFO] Step 300/100000; acc:  82.78; ppl:  1.70; xent: 0.53; lr: 1.00000; 678/763 tok/s;    230 sec
+[2019-11-29 16:55:50,187 INFO] Step 350/100000; acc:  97.31; ppl:  1.10; xent: 0.10; lr: 1.00000; 676/760 tok/s;    268 sec
+[2019-11-29 16:56:28,476 INFO] Step 400/100000; acc: 100.00; ppl:  1.00; xent: 0.00; lr: 1.00000; 669/752 tok/s;    306 sec
+[2019-11-29 16:57:06,266 INFO] Step 450/100000; acc: 100.00; ppl:  1.00; xent: 0.00; lr: 1.00000; 677/762 tok/s;    344 sec
+[2019-11-29 16:57:43,625 INFO] Step 500/100000; acc: 100.00; ppl:  1.00; xent: 0.00; lr: 1.00000; 685/771 tok/s;    382 sec
+[2019-11-29 16:58:21,627 INFO] Step 550/100000; acc: 100.00; ppl:  1.00; xent: 0.00; lr: 1.00000; 674/758 tok/s;    420 sec
+[2019-11-29 16:58:59,747 INFO] Step 600/100000; acc: 100.00; ppl:  1.00; xent: 0.00; lr: 1.00000; 672/756 tok/s;    458 sec
+[2019-11-29 16:59:37,800 INFO] Step 650/100000; acc: 100.00; ppl:  1.00; xent: 0.00; lr: 1.00000; 673/757 tok/s;    496 sec
+[2019-11-29 17:00:15,915 INFO] Step 700/100000; acc: 100.00; ppl:  1.00; xent: 0.00; lr: 1.00000; 672/756 tok/s;    534 sec
+[2019-11-29 17:00:54,288 INFO] Step 750/100000; acc: 100.00; ppl:  1.00; xent: 0.00; lr: 1.00000; 667/751 tok/s;    572 sec
+[2019-11-29 17:01:32,699 INFO] Step 800/100000; acc: 100.00; ppl:  1.00; xent: 0.00; lr: 1.00000; 666/750 tok/s;    611 sec
+[2019-11-29 17:02:11,192 INFO] Step 850/100000; acc: 100.00; ppl:  1.00; xent: 0.00; lr: 1.00000; 665/748 tok/s;    649 sec
+[2019-11-29 17:02:49,524 INFO] Step 900/100000; acc: 100.00; ppl:  1.00; xent: 0.00; lr: 1.00000; 668/751 tok/s;    687 sec
+[2019-11-29 17:03:27,762 INFO] Step 950/100000; acc: 100.00; ppl:  1.00; xent: 0.00; lr: 1.00000; 669/753 tok/s;    726 sec
+[2019-11-29 17:04:06,161 INFO] Step 1000/100000; acc: 100.00; ppl:  1.00; xent: 0.00; lr: 1.00000; 667/750 tok/s;    764 sec
+[2019-11-29 17:04:44,382 INFO] Step 1050/100000; acc: 100.00; ppl:  1.00; xent: 0.00; lr: 1.00000; 670/754 tok/s;    802 sec
+[2019-11-29 17:05:22,733 INFO] Step 1100/100000; acc: 100.00; ppl:  1.00; xent: 0.00; lr: 1.00000; 668/751 tok/s;    841 sec
+slurmstepd: error: *** JOB 8771048 ON pg-node196 CANCELLED AT 2019-11-29T17:05:43 ***
+
+
+###############################################################################
+Peregrine Cluster
+Job 8771048 for user 's2964007'
+Finished at: Fri Nov 29 17:05:45 CET 2019
+
+Job details:
+============
+
+Name                : onmt_test
+User                : s2964007
+Partition           : short
+Nodes               : pg-node196
+Cores               : 1
+State               : CANCELLED,CANCELLED by 32964007
+Submit              : 2019-11-29T16:51:10
+Start               : 2019-11-29T16:51:10
+End                 : 2019-11-29T17:05:44
+Reserved walltime   : 00:20:00
+Used walltime       : 00:14:34
+Used CPU time       : 00:14:19 (efficiency: 98.34%)
+% User (Computation): 95.29%
+% System (I/O)      :  4.71%
+Mem reserved        : 2000M/node
+Max Mem used        : 508.64M (pg-node196)
+Max Disk Write      : 0.00  (pg-node196)
+Max Disk Read       : 16.68M (pg-node196)
+
+
+Acknowledgements:
+=================
+
+Please see this page if you want to acknowledge Peregrine in your publications:
+
+https://redmine.hpc.rug.nl/redmine/projects/peregrine/wiki/ScientificOutput
+
+################################################################################

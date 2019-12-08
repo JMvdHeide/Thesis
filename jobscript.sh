@@ -4,11 +4,14 @@
 #SBATCH --ntasks=1
 #SBATCH --mem=2000
 #SBATCH --output=job-%j.log
-#SBATCH --partition=short
+#SBATCH --partition=gpu
+#SBATCH --gres=gpu:1
 
 module restore
 
 source VirtualEnv/bin/activate
+
+export CUDA_VISIBLE_DEVICES=0
 
 onmt_preprocess -train_src Data/SVO_AN/src-train.txt -train_tgt Data/SVO_AN/tgt-train.txt -valid_src Data/SVO_AN/src-val.txt -valid_tgt Data/SVO_AN/tgt-val.txt -save_data Data/SVO_AN/prepro
 
@@ -19,7 +22,7 @@ onmt_preprocess -train_src Data/SVO_AN/src-train.txt -train_tgt Data/SVO_AN/tgt-
 # onmt_preprocess -train_src Data/SOV_NA/src-train.txt -train_tgt Data/SOV_NA/tgt-train.txt -valid_src Data/SOV_NA/src-val.txt -valid_tgt Data/SOV_NA/tgt-val.txt -save_data Data/SOV_NA/prepro
 
 
-onmt_train -data Data/SVO_AN/prepro -train_steps 2013 -save_model Models/SVO_AN_model
+onmt_train -data Data/SVO_AN/prepro -world_size 1 -gpu_ranks 0 1 -train_steps 2013 -save_model Models/SVO_AN_model
 
 # onmt_train -data Data/SVO_AN/prepro -early_stopping 3 -valid_steps 1000 -save_model Results/SVO_AN_model
 
