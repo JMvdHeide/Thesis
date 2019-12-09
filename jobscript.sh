@@ -39,4 +39,4 @@ onmt_train -data Data/SVO_AN/prepro -world_size 1 -gpu_ranks 0 -train_steps 2014
 # onmt_train -data Data/SOV_NA/prepro --early_stopping 3 -valid_steps 1000 -save_model Results/SOV_NA_model
 
 
-onmt_translate -model Models/SVO_AN -src Data/SVO_AN/tgt-test.txt -output Results/SVO_AN_pred.txt -replace_unk -verbose
+onmt_translate -model Models/SVO_AN_*.pt -src Data/SVO_AN/tgt-test.txt -output Results/SVO_AN_pred.txt -replace_unk -verbose
