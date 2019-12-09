@@ -2,18 +2,19 @@
 #SBATCH --job-name=onmt_test
 #SBATCH --time=20:00
 #SBATCH --ntasks=1
-#SBATCH --mem=20000
+#SBATCH --mem=5000
 #SBATCH --output=Logs/job-%j.log
 #SBATCH --partition=gpu
 #SBATCH --gres=gpu:v100:1
 
-source VirtualEnv/bin/activate
 module load Python
-pip install --upgrade pip
-pip install torch
-pip install torchvision
-pip install torchtext
-pip install configargparse
+source VirtualEnv/bin/activate
+# pip install --upgrade pip
+# pip install torch
+# pip install torchvision
+# pip install torchtext
+# pip install configargparse
+# pip install OpenNMT-py
 
 
 export CUDA_VISIBLE_DEVICES=0
