@@ -46,3 +46,10 @@ Was only on one training set (SVO_AN)
 Early stop after 500 steps!
 Best model found at 300 steps.
 Completed!
+
+6th test:
+GPU partition
+- early_stopping 3 -valid_steps 50 -train_steps 2014
+Early stop after 550 steps, best model found at 400.
+Model predicts almost always one of three sentences.
+Completed!
