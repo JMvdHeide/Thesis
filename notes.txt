@@ -53,3 +53,10 @@ GPU partition
 Early stop after 550 steps, best model found at 400.
 Model predicts almost always one of three sentences.
 Completed!
+
+7th test:
+GPU
+- early_stopping 3 -valid_steps 50 -train_steps 2014
+Early stop after 550 steps, best model found at 400
+Model predicts almost always one of three sentences.
+Completed!
