@@ -1,0 +1,70 @@
+Requirement already up-to-date: pip in ./VirtualEnv/lib/python3.7/site-packages (19.3.1)
+Requirement already satisfied: torch in ./VirtualEnv/lib/python3.7/site-packages (1.3.1)
+Requirement already satisfied: numpy in ./VirtualEnv/lib/python3.7/site-packages (from torch) (1.17.4)
+Requirement already satisfied: torchvision in ./VirtualEnv/lib/python3.7/site-packages (0.4.2)
+Requirement already satisfied: numpy in ./VirtualEnv/lib/python3.7/site-packages (from torchvision) (1.17.4)
+Requirement already satisfied: six in ./VirtualEnv/lib/python3.7/site-packages (from torchvision) (1.13.0)
+Requirement already satisfied: torch==1.3.1 in ./VirtualEnv/lib/python3.7/site-packages (from torchvision) (1.3.1)
+Requirement already satisfied: pillow>=4.1.1 in ./VirtualEnv/lib/python3.7/site-packages (from torchvision) (6.2.1)
+Requirement already satisfied: torchtext in ./VirtualEnv/lib/python3.7/site-packages (0.4.0)
+Requirement already satisfied: numpy in ./VirtualEnv/lib/python3.7/site-packages (from torchtext) (1.17.4)
+Requirement already satisfied: torch in ./VirtualEnv/lib/python3.7/site-packages (from torchtext) (1.3.1)
+Requirement already satisfied: tqdm in ./VirtualEnv/lib/python3.7/site-packages (from torchtext) (4.30.0)
+Requirement already satisfied: requests in ./VirtualEnv/lib/python3.7/site-packages (from torchtext) (2.22.0)
+Requirement already satisfied: six in ./VirtualEnv/lib/python3.7/site-packages (from torchtext) (1.13.0)
+Requirement already satisfied: idna<2.9,>=2.5 in ./VirtualEnv/lib/python3.7/site-packages (from requests->torchtext) (2.8)
+Requirement already satisfied: certifi>=2017.4.17 in ./VirtualEnv/lib/python3.7/site-packages (from requests->torchtext) (2019.11.28)
+Requirement already satisfied: urllib3!=1.25.0,!=1.25.1,<1.26,>=1.21.1 in ./VirtualEnv/lib/python3.7/site-packages (from requests->torchtext) (1.25.7)
+Requirement already satisfied: chardet<3.1.0,>=3.0.2 in ./VirtualEnv/lib/python3.7/site-packages (from requests->torchtext) (3.0.4)
+Requirement already satisfied: configargparse in ./VirtualEnv/lib/python3.7/site-packages (0.15.1)
+[2019-12-08 18:14:18,184 INFO] Extracting features...
+[2019-12-08 18:14:18,206 INFO]  * number of source features: 0.
+[2019-12-08 18:14:18,207 INFO]  * number of target features: 0.
+[2019-12-08 18:14:18,207 INFO] Building `Fields` object...
+[2019-12-08 18:14:18,207 INFO] Building & saving training data...
+[2019-12-08 18:14:18,209 WARNING] Shards for corpus train already exist, won't be overwritten, pass the `-overwrite` option if you want to.
+[2019-12-08 18:14:18,209 INFO] Building & saving validation data...
+[2019-12-08 18:14:18,211 WARNING] Shards for corpus valid already exist, won't be overwritten, pass the `-overwrite` option if you want to.
+[2019-12-08 18:14:19,719 INFO]  * src vocab size = 38
+[2019-12-08 18:14:19,720 INFO]  * tgt vocab size = 42
+[2019-12-08 18:14:19,720 INFO] Building model...
+/var/spool/slurmd/job8939310/slurm_script: line 30: 15799 Killed                  onmt_train -data Data/SVO_AN/prepro -world_size 1 -gpu_ranks 0 -train_steps 2014 -early_stopping 3 -valid_steps 50 -save_model Models/SVO_AN_model
+slurmstepd: error: Detected 1 oom-kill event(s) in step 8939310.batch cgroup. Some of your processes may have been killed by the cgroup out-of-memory handler.
+
+
+###############################################################################
+Peregrine Cluster
+Job 8939310 for user 's2964007'
+Finished at: Sun Dec  8 18:14:28 CET 2019
+
+Job details:
+============
+
+Name                : onmt_test
+User                : s2964007
+Partition           : gpu
+Nodes               : pg-gpu14
+Cores               : 12
+State               : OUT_OF_MEMORY
+Submit              : 2019-12-08T18:05:54
+Start               : 2019-12-08T18:14:01
+End                 : 2019-12-08T18:14:28
+Reserved walltime   : 00:20:00
+Used walltime       : 00:00:27
+Used CPU time       : 00:00:14 (efficiency:  4.37%)
+% User (Computation): 48.61%
+% System (I/O)      : 51.39%
+Mem reserved        : 2000M/node
+Max Mem used        : 0.00  (pg-gpu14)
+Max Disk Write      : 0.00  (pg-gpu14)
+Max Disk Read       : 0.00  (pg-gpu14)
+
+
+Acknowledgements:
+=================
+
+Please see this page if you want to acknowledge Peregrine in your publications:
+
+https://redmine.hpc.rug.nl/redmine/projects/peregrine/wiki/ScientificOutput
+
+################################################################################
