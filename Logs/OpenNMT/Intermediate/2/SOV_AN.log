@@ -1,0 +1,294 @@
+[2019-12-26 12:49:53,591 INFO]  * src vocab size = 38
+[2019-12-26 12:49:53,593 INFO]  * tgt vocab size = 42
+[2019-12-26 12:49:53,593 INFO] Building model...
+[2019-12-26 12:49:57,744 INFO] NMTModel(
+  (encoder): RNNEncoder(
+    (embeddings): Embeddings(
+      (make_embedding): Sequential(
+        (emb_luts): Elementwise(
+          (0): Embedding(38, 500, padding_idx=1)
+        )
+      )
+    )
+    (rnn): LSTM(500, 500, num_layers=2, dropout=0.3)
+  )
+  (decoder): InputFeedRNNDecoder(
+    (embeddings): Embeddings(
+      (make_embedding): Sequential(
+        (emb_luts): Elementwise(
+          (0): Embedding(42, 500, padding_idx=1)
+        )
+      )
+    )
+    (dropout): Dropout(p=0.3, inplace=False)
+    (rnn): StackedLSTM(
+      (dropout): Dropout(p=0.3, inplace=False)
+      (layers): ModuleList(
+        (0): LSTMCell(1000, 500)
+        (1): LSTMCell(500, 500)
+      )
+    )
+    (attn): GlobalAttention(
+      (linear_in): Linear(in_features=500, out_features=500, bias=False)
+      (linear_out): Linear(in_features=1000, out_features=500, bias=False)
+    )
+  )
+  (generator): Sequential(
+    (0): Linear(in_features=500, out_features=42, bias=True)
+    (1): Cast()
+    (2): LogSoftmax()
+  )
+)
+[2019-12-26 12:49:57,747 INFO] encoder: 4027000
+[2019-12-26 12:49:57,747 INFO] decoder: 5800042
+[2019-12-26 12:49:57,748 INFO] * number of parameters: 9827042
+[2019-12-26 12:49:57,751 INFO] Starting training on GPU: [0]
+[2019-12-26 12:49:57,751 INFO] Start training loop and validate every 25 steps...
+[2019-12-26 12:49:57,751 INFO] Loading dataset from Data/SOV_AN/prepro.train.0.pt
+[2019-12-26 12:49:59,102 INFO] number of examples: 128841
+[2019-12-26 12:50:00,240 INFO] Loading dataset from Data/SOV_AN/prepro.valid.0.pt
+[2019-12-26 12:50:00,634 INFO] number of examples: 16105
+[2019-12-26 12:50:06,077 INFO] Validation perplexity: 150.705
+[2019-12-26 12:50:06,077 INFO] Validation accuracy: 11.1111
+[2019-12-26 12:50:06,077 INFO] Model is improving ppl: inf --> 150.705.
+[2019-12-26 12:50:06,077 INFO] Model is improving acc: -inf --> 11.1111.
+[2019-12-26 12:50:06,764 INFO] Step 50/ 1000; acc:  12.10; ppl: 464.37; xent: 6.14; lr: 1.00000; 2840/3196 tok/s;      9 sec
+[2019-12-26 12:50:06,764 INFO] Loading dataset from Data/SOV_AN/prepro.valid.0.pt
+[2019-12-26 12:50:06,840 INFO] number of examples: 16105
+[2019-12-26 12:50:11,913 INFO] Validation perplexity: 171.714
+[2019-12-26 12:50:11,913 INFO] Validation accuracy: 15.1547
+[2019-12-26 12:50:11,914 INFO] Stalled patience: 2/3
+[2019-12-26 12:50:12,552 INFO] Loading dataset from Data/SOV_AN/prepro.valid.0.pt
+[2019-12-26 12:50:12,910 INFO] number of examples: 16105
+[2019-12-26 12:50:18,103 INFO] Validation perplexity: 69.7285
+[2019-12-26 12:50:18,106 INFO] Validation accuracy: 19.4536
+[2019-12-26 12:50:18,106 INFO] Model is improving ppl: 150.705 --> 69.7285.
+[2019-12-26 12:50:18,106 INFO] Model is improving acc: 11.1111 --> 19.4536.
+[2019-12-26 12:50:18,779 INFO] Step 100/ 1000; acc:  22.09; ppl: 35.14; xent: 3.56; lr: 1.00000; 2131/2397 tok/s;     21 sec
+[2019-12-26 12:50:18,780 INFO] Loading dataset from Data/SOV_AN/prepro.valid.0.pt
+[2019-12-26 12:50:18,846 INFO] number of examples: 16105
+[2019-12-26 12:50:23,996 INFO] Validation perplexity: 7.43708
+[2019-12-26 12:50:23,997 INFO] Validation accuracy: 43.0494
+[2019-12-26 12:50:23,997 INFO] Model is improving ppl: 69.7285 --> 7.43708.
+[2019-12-26 12:50:23,997 INFO] Model is improving acc: 19.4536 --> 43.0494.
+[2019-12-26 12:50:24,657 INFO] Loading dataset from Data/SOV_AN/prepro.valid.0.pt
+[2019-12-26 12:50:25,031 INFO] number of examples: 16105
+[2019-12-26 12:50:30,052 INFO] Validation perplexity: 4.7492
+[2019-12-26 12:50:30,053 INFO] Validation accuracy: 38.3428
+[2019-12-26 12:50:30,053 INFO] Stalled patience: 2/3
+[2019-12-26 12:50:30,683 INFO] Step 150/ 1000; acc:  41.76; ppl:  5.38; xent: 1.68; lr: 1.00000; 2151/2419 tok/s;     33 sec
+[2019-12-26 12:50:30,683 INFO] Loading dataset from Data/SOV_AN/prepro.valid.0.pt
+[2019-12-26 12:50:30,747 INFO] number of examples: 16105
+[2019-12-26 12:50:35,850 INFO] Validation perplexity: 3.9375
+[2019-12-26 12:50:35,851 INFO] Validation accuracy: 45.3758
+[2019-12-26 12:50:35,851 INFO] Model is improving ppl: 7.43708 --> 3.9375.
+[2019-12-26 12:50:35,851 INFO] Model is improving acc: 43.0494 --> 45.3758.
+[2019-12-26 12:50:36,484 INFO] Loading dataset from Data/SOV_AN/prepro.valid.0.pt
+[2019-12-26 12:50:36,550 INFO] number of examples: 16105
+[2019-12-26 12:50:41,640 INFO] Validation perplexity: 4.01431
+[2019-12-26 12:50:41,640 INFO] Validation accuracy: 45.4379
+[2019-12-26 12:50:41,640 INFO] Stalled patience: 2/3
+[2019-12-26 12:50:42,274 INFO] Step 200/ 1000; acc:  45.10; ppl:  4.00; xent: 1.39; lr: 1.00000; 2209/2485 tok/s;     45 sec
+[2019-12-26 12:50:42,275 INFO] Loading dataset from Data/SOV_AN/prepro.valid.0.pt
+[2019-12-26 12:50:42,634 INFO] number of examples: 16105
+[2019-12-26 12:50:47,723 INFO] Validation perplexity: 3.89715
+[2019-12-26 12:50:47,723 INFO] Validation accuracy: 41.3095
+[2019-12-26 12:50:47,724 INFO] Stalled patience: 1/3
+[2019-12-26 12:50:48,371 INFO] Loading dataset from Data/SOV_AN/prepro.valid.0.pt
+[2019-12-26 12:50:48,435 INFO] number of examples: 16105
+[2019-12-26 12:50:53,496 INFO] Validation perplexity: 4.09267
+[2019-12-26 12:50:53,496 INFO] Validation accuracy: 45.8188
+[2019-12-26 12:50:53,496 INFO] Stalled patience: 0/3
+[2019-12-26 12:50:53,496 INFO] Training finished after stalled validations. Early Stop!
+[2019-12-26 12:50:53,496 INFO] Best model found at step 150
+[2019-12-26 12:50:53,507 INFO] Saving checkpoint Models/SOV_AN_model_step_225.pt
+[2019-12-26 16:05:43,880 INFO]  * src vocab size = 38
+[2019-12-26 16:05:43,909 INFO]  * tgt vocab size = 42
+[2019-12-26 16:05:43,909 INFO] Building model...
+[2019-12-26 16:05:48,097 INFO] NMTModel(
+  (encoder): RNNEncoder(
+    (embeddings): Embeddings(
+      (make_embedding): Sequential(
+        (emb_luts): Elementwise(
+          (0): Embedding(38, 500, padding_idx=1)
+        )
+      )
+    )
+    (rnn): LSTM(500, 500, num_layers=2, dropout=0.3)
+  )
+  (decoder): InputFeedRNNDecoder(
+    (embeddings): Embeddings(
+      (make_embedding): Sequential(
+        (emb_luts): Elementwise(
+          (0): Embedding(42, 500, padding_idx=1)
+        )
+      )
+    )
+    (dropout): Dropout(p=0.3, inplace=False)
+    (rnn): StackedLSTM(
+      (dropout): Dropout(p=0.3, inplace=False)
+      (layers): ModuleList(
+        (0): LSTMCell(1000, 500)
+        (1): LSTMCell(500, 500)
+      )
+    )
+    (attn): GlobalAttention(
+      (linear_in): Linear(in_features=500, out_features=500, bias=False)
+      (linear_out): Linear(in_features=1000, out_features=500, bias=False)
+    )
+  )
+  (generator): Sequential(
+    (0): Linear(in_features=500, out_features=42, bias=True)
+    (1): Cast()
+    (2): LogSoftmax()
+  )
+)
+[2019-12-26 16:05:48,097 INFO] encoder: 4027000
+[2019-12-26 16:05:48,097 INFO] decoder: 5800042
+[2019-12-26 16:05:48,097 INFO] * number of parameters: 9827042
+[2019-12-26 16:05:48,101 INFO] Starting training on GPU: [0]
+[2019-12-26 16:05:48,101 INFO] Start training loop and validate every 25 steps...
+[2019-12-26 16:05:48,101 INFO] Loading dataset from Data/SOV_AN/prepro.train.0.pt
+[2019-12-26 16:05:49,680 INFO] number of examples: 128841
+[2019-12-26 16:05:50,764 INFO] Loading dataset from Data/SOV_AN/prepro.valid.0.pt
+[2019-12-26 16:05:51,295 INFO] number of examples: 16105
+[2019-12-26 16:05:56,124 INFO] Validation perplexity: 100.309
+[2019-12-26 16:05:56,124 INFO] Validation accuracy: 19.1852
+[2019-12-26 16:05:56,125 INFO] Model is improving ppl: inf --> 100.309.
+[2019-12-26 16:05:56,125 INFO] Model is improving acc: -inf --> 19.1852.
+[2019-12-26 16:05:56,732 INFO] Step 50/ 1000; acc:  13.27; ppl: 170.49; xent: 5.14; lr: 1.00000; 2966/3337 tok/s;      9 sec
+[2019-12-26 16:05:56,732 INFO] Loading dataset from Data/SOV_AN/prepro.valid.0.pt
+[2019-12-26 16:05:56,807 INFO] number of examples: 16105
+[2019-12-26 16:06:01,628 INFO] Validation perplexity: 445.462
+[2019-12-26 16:06:01,628 INFO] Validation accuracy: 19.4543
+[2019-12-26 16:06:01,629 INFO] Stalled patience: 2/3
+[2019-12-26 16:06:02,233 INFO] Loading dataset from Data/SOV_AN/prepro.valid.0.pt
+[2019-12-26 16:06:02,577 INFO] number of examples: 16105
+[2019-12-26 16:06:07,402 INFO] Validation perplexity: 387.347
+[2019-12-26 16:06:07,402 INFO] Validation accuracy: 27.2145
+[2019-12-26 16:06:07,402 INFO] Stalled patience: 1/3
+[2019-12-26 16:06:08,020 INFO] Step 100/ 1000; acc:  23.69; ppl: 30.44; xent: 3.42; lr: 1.00000; 2268/2551 tok/s;     20 sec
+[2019-12-26 16:06:08,020 INFO] Loading dataset from Data/SOV_AN/prepro.valid.0.pt
+[2019-12-26 16:06:08,083 INFO] number of examples: 16105
+[2019-12-26 16:06:12,953 INFO] Validation perplexity: 22.0239
+[2019-12-26 16:06:12,953 INFO] Validation accuracy: 11.1504
+[2019-12-26 16:06:12,953 INFO] Stalled patience: 0/3
+[2019-12-26 16:06:12,953 INFO] Training finished after stalled validations. Early Stop!
+[2019-12-26 16:06:12,953 INFO] Best model found at step 25
+[2019-12-26 16:06:12,964 INFO] Saving checkpoint Models/SOV_AN_model_step_100.pt
+[2019-12-26 19:14:42,018 INFO]  * src vocab size = 38
+[2019-12-26 19:14:42,037 INFO]  * tgt vocab size = 42
+[2019-12-26 19:14:42,037 INFO] Building model...
+[2019-12-26 19:14:46,216 INFO] NMTModel(
+  (encoder): RNNEncoder(
+    (embeddings): Embeddings(
+      (make_embedding): Sequential(
+        (emb_luts): Elementwise(
+          (0): Embedding(38, 500, padding_idx=1)
+        )
+      )
+    )
+    (rnn): LSTM(500, 500, num_layers=2, dropout=0.3)
+  )
+  (decoder): InputFeedRNNDecoder(
+    (embeddings): Embeddings(
+      (make_embedding): Sequential(
+        (emb_luts): Elementwise(
+          (0): Embedding(42, 500, padding_idx=1)
+        )
+      )
+    )
+    (dropout): Dropout(p=0.3, inplace=False)
+    (rnn): StackedLSTM(
+      (dropout): Dropout(p=0.3, inplace=False)
+      (layers): ModuleList(
+        (0): LSTMCell(1000, 500)
+        (1): LSTMCell(500, 500)
+      )
+    )
+    (attn): GlobalAttention(
+      (linear_in): Linear(in_features=500, out_features=500, bias=False)
+      (linear_out): Linear(in_features=1000, out_features=500, bias=False)
+    )
+  )
+  (generator): Sequential(
+    (0): Linear(in_features=500, out_features=42, bias=True)
+    (1): Cast()
+    (2): LogSoftmax()
+  )
+)
+[2019-12-26 19:14:46,217 INFO] encoder: 4027000
+[2019-12-26 19:14:46,217 INFO] decoder: 5800042
+[2019-12-26 19:14:46,217 INFO] * number of parameters: 9827042
+[2019-12-26 19:14:46,222 INFO] Starting training on GPU: [0]
+[2019-12-26 19:14:46,222 INFO] Start training loop and validate every 50 steps...
+[2019-12-26 19:14:46,222 INFO] Loading dataset from Data/SOV_AN/prepro.train.0.pt
+[2019-12-26 19:14:47,217 INFO] number of examples: 128841
+[2019-12-26 19:14:48,966 INFO] Step 50/ 1000; acc:  12.12; ppl: 177.35; xent: 5.18; lr: 1.00000; 9328/10494 tok/s;      3 sec
+[2019-12-26 19:14:48,967 INFO] Loading dataset from Data/SOV_AN/prepro.valid.0.pt
+[2019-12-26 19:14:49,280 INFO] number of examples: 16105
+[2019-12-26 19:14:54,303 INFO] Validation perplexity: 245.879
+[2019-12-26 19:14:54,304 INFO] Validation accuracy: 20.2097
+[2019-12-26 19:14:54,304 INFO] Model is improving ppl: inf --> 245.879.
+[2019-12-26 19:14:54,304 INFO] Model is improving acc: -inf --> 20.2097.
+[2019-12-26 19:14:55,567 INFO] Step 100/ 1000; acc:  21.09; ppl: 39.91; xent: 3.69; lr: 1.00000; 3879/4364 tok/s;      9 sec
+[2019-12-26 19:14:55,567 INFO] Loading dataset from Data/SOV_AN/prepro.valid.0.pt
+[2019-12-26 19:14:55,638 INFO] number of examples: 16105
+[2019-12-26 19:15:00,607 INFO] Validation perplexity: 13.2652
+[2019-12-26 19:15:00,607 INFO] Validation accuracy: 27.2138
+[2019-12-26 19:15:00,607 INFO] Model is improving ppl: 245.879 --> 13.2652.
+[2019-12-26 19:15:00,607 INFO] Model is improving acc: 20.2097 --> 27.2138.
+[2019-12-26 19:15:01,870 INFO] Step 150/ 1000; acc:  39.04; ppl:  8.07; xent: 2.09; lr: 1.00000; 4061/4569 tok/s;     16 sec
+[2019-12-26 19:15:01,870 INFO] Loading dataset from Data/SOV_AN/prepro.valid.0.pt
+[2019-12-26 19:15:02,225 INFO] number of examples: 16105
+[2019-12-26 19:15:07,166 INFO] Validation perplexity: 5.30747
+[2019-12-26 19:15:07,166 INFO] Validation accuracy: 48.0817
+[2019-12-26 19:15:07,166 INFO] Model is improving ppl: 13.2652 --> 5.30747.
+[2019-12-26 19:15:07,166 INFO] Model is improving acc: 27.2138 --> 48.0817.
+[2019-12-26 19:15:08,428 INFO] Step 200/ 1000; acc:  45.57; ppl:  4.77; xent: 1.56; lr: 1.00000; 3904/4392 tok/s;     22 sec
+[2019-12-26 19:15:08,428 INFO] Loading dataset from Data/SOV_AN/prepro.valid.0.pt
+[2019-12-26 19:15:08,493 INFO] number of examples: 16105
+[2019-12-26 19:15:13,398 INFO] Validation perplexity: 6.73917
+[2019-12-26 19:15:13,398 INFO] Validation accuracy: 46.1278
+[2019-12-26 19:15:13,398 INFO] Decreasing patience: 2/3
+[2019-12-26 19:15:14,632 INFO] Step 250/ 1000; acc:  62.03; ppl:  2.94; xent: 1.08; lr: 1.00000; 4127/4642 tok/s;     28 sec
+[2019-12-26 19:15:14,632 INFO] Loading dataset from Data/SOV_AN/prepro.valid.0.pt
+[2019-12-26 19:15:14,985 INFO] number of examples: 16105
+[2019-12-26 19:15:19,922 INFO] Validation perplexity: 1.54572
+[2019-12-26 19:15:19,922 INFO] Validation accuracy: 83.5124
+[2019-12-26 19:15:19,922 INFO] Model is improving ppl: 5.30747 --> 1.54572.
+[2019-12-26 19:15:19,922 INFO] Model is improving acc: 48.0817 --> 83.5124.
+[2019-12-26 19:15:21,151 INFO] Step 300/ 1000; acc:  88.47; ppl:  1.43; xent: 0.36; lr: 1.00000; 3860/4342 tok/s;     35 sec
+[2019-12-26 19:15:21,151 INFO] Loading dataset from Data/SOV_AN/prepro.valid.0.pt
+[2019-12-26 19:15:21,215 INFO] number of examples: 16105
+[2019-12-26 19:15:26,023 INFO] Validation perplexity: 1.65055
+[2019-12-26 19:15:26,023 INFO] Validation accuracy: 86.935
+[2019-12-26 19:15:26,023 INFO] Stalled patience: 2/3
+[2019-12-26 19:15:27,240 INFO] Step 350/ 1000; acc:  98.71; ppl:  1.05; xent: 0.05; lr: 1.00000; 4204/4730 tok/s;     41 sec
+[2019-12-26 19:15:27,241 INFO] Loading dataset from Data/SOV_AN/prepro.valid.0.pt
+[2019-12-26 19:15:27,305 INFO] number of examples: 16105
+[2019-12-26 19:15:32,113 INFO] Validation perplexity: 1.00118
+[2019-12-26 19:15:32,113 INFO] Validation accuracy: 100
+[2019-12-26 19:15:32,113 INFO] Model is improving ppl: 1.54572 --> 1.00118.
+[2019-12-26 19:15:32,113 INFO] Model is improving acc: 83.5124 --> 100.
+[2019-12-26 19:15:33,305 INFO] Step 400/ 1000; acc: 100.00; ppl:  1.00; xent: 0.00; lr: 1.00000; 4222/4749 tok/s;     47 sec
+[2019-12-26 19:15:33,305 INFO] Loading dataset from Data/SOV_AN/prepro.valid.0.pt
+[2019-12-26 19:15:33,649 INFO] number of examples: 16105
+[2019-12-26 19:15:38,432 INFO] Validation perplexity: 1.00045
+[2019-12-26 19:15:38,433 INFO] Validation accuracy: 100
+[2019-12-26 19:15:38,433 INFO] Stalled patience: 2/3
+[2019-12-26 19:15:39,633 INFO] Step 450/ 1000; acc: 100.00; ppl:  1.00; xent: 0.00; lr: 1.00000; 4046/4551 tok/s;     53 sec
+[2019-12-26 19:15:39,633 INFO] Loading dataset from Data/SOV_AN/prepro.valid.0.pt
+[2019-12-26 19:15:39,697 INFO] number of examples: 16105
+[2019-12-26 19:15:44,488 INFO] Validation perplexity: 1.00026
+[2019-12-26 19:15:44,489 INFO] Validation accuracy: 100
+[2019-12-26 19:15:44,489 INFO] Stalled patience: 1/3
+[2019-12-26 19:15:45,700 INFO] Step 500/ 1000; acc: 100.00; ppl:  1.00; xent: 0.00; lr: 1.00000; 4220/4747 tok/s;     59 sec
+[2019-12-26 19:15:45,700 INFO] Loading dataset from Data/SOV_AN/prepro.valid.0.pt
+[2019-12-26 19:15:46,044 INFO] number of examples: 16105
+[2019-12-26 19:15:50,836 INFO] Validation perplexity: 1.00018
+[2019-12-26 19:15:50,836 INFO] Validation accuracy: 100
+[2019-12-26 19:15:50,836 INFO] Stalled patience: 0/3
+[2019-12-26 19:15:50,836 INFO] Training finished after stalled validations. Early Stop!
+[2019-12-26 19:15:50,836 INFO] Best model found at step 350
+[2019-12-26 19:15:50,846 INFO] Saving checkpoint Models/SOV_AN_model_step_500.pt
