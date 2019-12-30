@@ -1,0 +1,759 @@
+rm: kan ‘Results/Intermediate’ niet verwijderen: Is een map
+[2019-12-27 11:47:42,458 INFO] Extracting features...
+[2019-12-27 11:47:42,650 INFO]  * number of source features: 0.
+[2019-12-27 11:47:42,650 INFO]  * number of target features: 0.
+[2019-12-27 11:47:42,651 INFO] Building `Fields` object...
+[2019-12-27 11:47:42,651 INFO] Building & saving training data...
+[2019-12-27 11:47:42,654 WARNING] Shards for corpus train already exist, won't be overwritten, pass the `-overwrite` option if you want to.
+[2019-12-27 11:47:42,654 INFO] Building & saving validation data...
+[2019-12-27 11:47:42,656 WARNING] Shards for corpus valid already exist, won't be overwritten, pass the `-overwrite` option if you want to.
+[2019-12-27 11:47:44,531 INFO] Extracting features...
+[2019-12-27 11:47:44,616 INFO]  * number of source features: 0.
+[2019-12-27 11:47:44,616 INFO]  * number of target features: 0.
+[2019-12-27 11:47:44,616 INFO] Building `Fields` object...
+[2019-12-27 11:47:44,617 INFO] Building & saving training data...
+[2019-12-27 11:47:44,620 WARNING] Shards for corpus train already exist, won't be overwritten, pass the `-overwrite` option if you want to.
+[2019-12-27 11:47:44,620 INFO] Building & saving validation data...
+[2019-12-27 11:47:44,622 WARNING] Shards for corpus valid already exist, won't be overwritten, pass the `-overwrite` option if you want to.
+[2019-12-27 11:47:46,266 INFO] Extracting features...
+[2019-12-27 11:47:46,459 INFO]  * number of source features: 0.
+[2019-12-27 11:47:46,459 INFO]  * number of target features: 0.
+[2019-12-27 11:47:46,459 INFO] Building `Fields` object...
+[2019-12-27 11:47:46,459 INFO] Building & saving training data...
+[2019-12-27 11:47:46,463 WARNING] Shards for corpus train already exist, won't be overwritten, pass the `-overwrite` option if you want to.
+[2019-12-27 11:47:46,463 INFO] Building & saving validation data...
+[2019-12-27 11:47:46,464 WARNING] Shards for corpus valid already exist, won't be overwritten, pass the `-overwrite` option if you want to.
+[2019-12-27 11:47:48,193 INFO] Extracting features...
+[2019-12-27 11:47:48,254 INFO]  * number of source features: 0.
+[2019-12-27 11:47:48,255 INFO]  * number of target features: 0.
+[2019-12-27 11:47:48,255 INFO] Building `Fields` object...
+[2019-12-27 11:47:48,255 INFO] Building & saving training data...
+[2019-12-27 11:47:48,258 WARNING] Shards for corpus train already exist, won't be overwritten, pass the `-overwrite` option if you want to.
+[2019-12-27 11:47:48,258 INFO] Building & saving validation data...
+[2019-12-27 11:47:48,260 WARNING] Shards for corpus valid already exist, won't be overwritten, pass the `-overwrite` option if you want to.
+[2019-12-27 11:47:50,335 INFO]  * src vocab size = 38
+[2019-12-27 11:47:50,352 INFO]  * tgt vocab size = 42
+[2019-12-27 11:47:50,352 INFO] Building model...
+[2019-12-27 11:47:58,161 INFO] NMTModel(
+  (encoder): RNNEncoder(
+    (embeddings): Embeddings(
+      (make_embedding): Sequential(
+        (emb_luts): Elementwise(
+          (0): Embedding(38, 500, padding_idx=1)
+        )
+      )
+    )
+    (rnn): LSTM(500, 500, num_layers=2, dropout=0.3)
+  )
+  (decoder): InputFeedRNNDecoder(
+    (embeddings): Embeddings(
+      (make_embedding): Sequential(
+        (emb_luts): Elementwise(
+          (0): Embedding(42, 500, padding_idx=1)
+        )
+      )
+    )
+    (dropout): Dropout(p=0.3, inplace=False)
+    (rnn): StackedLSTM(
+      (dropout): Dropout(p=0.3, inplace=False)
+      (layers): ModuleList(
+        (0): LSTMCell(1000, 500)
+        (1): LSTMCell(500, 500)
+      )
+    )
+    (attn): GlobalAttention(
+      (linear_in): Linear(in_features=500, out_features=500, bias=False)
+      (linear_out): Linear(in_features=1000, out_features=500, bias=False)
+    )
+  )
+  (generator): Sequential(
+    (0): Linear(in_features=500, out_features=42, bias=True)
+    (1): Cast()
+    (2): LogSoftmax()
+  )
+)
+[2019-12-27 11:47:58,162 INFO] encoder: 4027000
+[2019-12-27 11:47:58,162 INFO] decoder: 5800042
+[2019-12-27 11:47:58,162 INFO] * number of parameters: 9827042
+[2019-12-27 11:47:58,170 INFO] Starting training on GPU: [0]
+[2019-12-27 11:47:58,170 INFO] Start training loop and validate every 25 steps...
+[2019-12-27 11:47:58,170 INFO] Loading dataset from Data/SVO_AN/prepro.train.0.pt
+[2019-12-27 11:47:59,361 INFO] number of examples: 128841
+[2019-12-27 11:48:01,699 INFO] Step 25/  500; acc:  12.89; ppl: 271.78; xent: 5.61; lr: 1.00000; 3627/4080 tok/s;      4 sec
+[2019-12-27 11:48:01,700 INFO] Loading dataset from Data/SVO_AN/prepro.valid.0.pt
+[2019-12-27 11:48:02,129 INFO] number of examples: 16105
+[2019-12-27 11:48:07,354 INFO] Validation perplexity: 1963.1
+[2019-12-27 11:48:07,354 INFO] Validation accuracy: 8.03684
+[2019-12-27 11:48:08,027 INFO] Step 50/  500; acc:  14.31; ppl: 139.42; xent: 4.94; lr: 1.00000; 2023/2276 tok/s;     10 sec
+[2019-12-27 11:48:08,027 INFO] Loading dataset from Data/SVO_AN/prepro.valid.0.pt
+[2019-12-27 11:48:08,101 INFO] number of examples: 16105
+[2019-12-27 11:48:13,420 INFO] Validation perplexity: 201.577
+[2019-12-27 11:48:13,420 INFO] Validation accuracy: 20.1166
+[2019-12-27 11:48:13,421 INFO] Saving checkpoint Models/SVO_AN/SVO_AN_model_step_50.pt
+[2019-12-27 11:48:14,147 INFO] Step 75/  500; acc:  16.00; ppl: 120.60; xent: 4.79; lr: 1.00000; 2092/2353 tok/s;     16 sec
+[2019-12-27 11:48:14,147 INFO] Loading dataset from Data/SVO_AN/prepro.valid.0.pt
+[2019-12-27 11:48:14,509 INFO] number of examples: 16105
+[2019-12-27 11:48:19,609 INFO] Validation perplexity: 35.533
+[2019-12-27 11:48:19,610 INFO] Validation accuracy: 30.3308
+[2019-12-27 11:48:20,248 INFO] Step 100/  500; acc:  20.47; ppl: 29.92; xent: 3.40; lr: 1.00000; 2098/2360 tok/s;     22 sec
+[2019-12-27 11:48:20,248 INFO] Loading dataset from Data/SVO_AN/prepro.valid.0.pt
+[2019-12-27 11:48:20,312 INFO] number of examples: 16105
+[2019-12-27 11:48:25,380 INFO] Validation perplexity: 17.8326
+[2019-12-27 11:48:25,380 INFO] Validation accuracy: 16.142
+[2019-12-27 11:48:25,381 INFO] Saving checkpoint Models/SVO_AN/SVO_AN_model_step_100.pt
+[2019-12-27 11:48:26,073 INFO] Step 125/  500; acc:  33.81; ppl: 10.07; xent: 2.31; lr: 1.00000; 2198/2472 tok/s;     28 sec
+[2019-12-27 11:48:26,073 INFO] Loading dataset from Data/SVO_AN/prepro.valid.0.pt
+[2019-12-27 11:48:26,449 INFO] number of examples: 16105
+[2019-12-27 11:48:31,561 INFO] Validation perplexity: 8.15263
+[2019-12-27 11:48:31,561 INFO] Validation accuracy: 38.4629
+[2019-12-27 11:48:32,220 INFO] Step 150/  500; acc:  41.76; ppl:  5.82; xent: 1.76; lr: 1.00000; 2082/2342 tok/s;     34 sec
+[2019-12-27 11:48:32,221 INFO] Loading dataset from Data/SVO_AN/prepro.valid.0.pt
+[2019-12-27 11:48:32,286 INFO] number of examples: 16105
+[2019-12-27 11:48:37,543 INFO] Validation perplexity: 4.53127
+[2019-12-27 11:48:37,543 INFO] Validation accuracy: 44.3396
+[2019-12-27 11:48:37,544 INFO] Saving checkpoint Models/SVO_AN/SVO_AN_model_step_150.pt
+[2019-12-27 11:48:38,243 INFO] Step 175/  500; acc:  44.97; ppl:  4.14; xent: 1.42; lr: 1.00000; 2126/2391 tok/s;     40 sec
+[2019-12-27 11:48:38,243 INFO] Loading dataset from Data/SVO_AN/prepro.valid.0.pt
+[2019-12-27 11:48:38,309 INFO] number of examples: 16105
+[2019-12-27 11:48:43,546 INFO] Validation perplexity: 3.88462
+[2019-12-27 11:48:43,546 INFO] Validation accuracy: 45.302
+[2019-12-27 11:48:44,185 INFO] Step 200/  500; acc:  44.12; ppl:  4.01; xent: 1.39; lr: 1.00000; 2154/2423 tok/s;     46 sec
+[2019-12-27 11:48:44,186 INFO] Loading dataset from Data/SVO_AN/prepro.valid.0.pt
+[2019-12-27 11:48:44,557 INFO] number of examples: 16105
+[2019-12-27 11:48:49,682 INFO] Validation perplexity: 3.89207
+[2019-12-27 11:48:49,682 INFO] Validation accuracy: 46.3893
+[2019-12-27 11:48:49,683 INFO] Saving checkpoint Models/SVO_AN/SVO_AN_model_step_200.pt
+[2019-12-27 11:48:50,419 INFO] Step 225/  500; acc:  46.94; ppl:  3.97; xent: 1.38; lr: 1.00000; 2053/2310 tok/s;     52 sec
+[2019-12-27 11:48:50,420 INFO] Loading dataset from Data/SVO_AN/prepro.valid.0.pt
+[2019-12-27 11:48:50,485 INFO] number of examples: 16105
+[2019-12-27 11:48:55,688 INFO] Validation perplexity: 3.84666
+[2019-12-27 11:48:55,688 INFO] Validation accuracy: 46.7329
+[2019-12-27 11:48:56,339 INFO] Step 250/  500; acc:  46.73; ppl:  4.23; xent: 1.44; lr: 1.00000; 2162/2433 tok/s;     58 sec
+[2019-12-27 11:48:56,339 INFO] Loading dataset from Data/SVO_AN/prepro.valid.0.pt
+[2019-12-27 11:48:56,704 INFO] number of examples: 16105
+[2019-12-27 11:49:01,877 INFO] Validation perplexity: 3.85542
+[2019-12-27 11:49:01,877 INFO] Validation accuracy: 50.3474
+[2019-12-27 11:49:01,878 INFO] Saving checkpoint Models/SVO_AN/SVO_AN_model_step_250.pt
+[2019-12-27 11:49:02,613 INFO] Step 275/  500; acc:  48.97; ppl:  3.98; xent: 1.38; lr: 1.00000; 2040/2295 tok/s;     64 sec
+[2019-12-27 11:49:02,614 INFO] Loading dataset from Data/SVO_AN/prepro.valid.0.pt
+[2019-12-27 11:49:02,679 INFO] number of examples: 16105
+[2019-12-27 11:49:07,923 INFO] Validation perplexity: 2.8998
+[2019-12-27 11:49:07,924 INFO] Validation accuracy: 56.4
+[2019-12-27 11:49:08,556 INFO] Step 300/  500; acc:  54.74; ppl:  3.84; xent: 1.35; lr: 1.00000; 2154/2423 tok/s;     70 sec
+[2019-12-27 11:49:08,556 INFO] Loading dataset from Data/SVO_AN/prepro.valid.0.pt
+[2019-12-27 11:49:08,935 INFO] number of examples: 16105
+[2019-12-27 11:49:14,163 INFO] Validation perplexity: 2.38182
+[2019-12-27 11:49:14,163 INFO] Validation accuracy: 66.2582
+[2019-12-27 11:49:14,164 INFO] Saving checkpoint Models/SVO_AN/SVO_AN_model_step_300.pt
+[2019-12-27 11:49:14,889 INFO] Step 325/  500; acc:  68.12; ppl:  2.31; xent: 0.84; lr: 1.00000; 2021/2274 tok/s;     77 sec
+[2019-12-27 11:49:14,889 INFO] Loading dataset from Data/SVO_AN/prepro.valid.0.pt
+[2019-12-27 11:49:14,956 INFO] number of examples: 16105
+[2019-12-27 11:49:20,253 INFO] Validation perplexity: 2.68846
+[2019-12-27 11:49:20,254 INFO] Validation accuracy: 65.6304
+[2019-12-27 11:49:20,988 INFO] Step 350/  500; acc:  80.44; ppl:  1.83; xent: 0.61; lr: 1.00000; 2099/2361 tok/s;     83 sec
+[2019-12-27 11:49:20,988 INFO] Loading dataset from Data/SVO_AN/prepro.valid.0.pt
+[2019-12-27 11:49:21,056 INFO] number of examples: 16105
+[2019-12-27 11:49:26,301 INFO] Validation perplexity: 1.04401
+[2019-12-27 11:49:26,301 INFO] Validation accuracy: 99.5177
+[2019-12-27 11:49:26,302 INFO] Saving checkpoint Models/SVO_AN/SVO_AN_model_step_350.pt
+[2019-12-27 11:49:27,072 INFO] Step 375/  500; acc:  99.96; ppl:  1.01; xent: 0.01; lr: 1.00000; 2104/2367 tok/s;     89 sec
+[2019-12-27 11:49:27,073 INFO] Loading dataset from Data/SVO_AN/prepro.valid.0.pt
+[2019-12-27 11:49:27,419 INFO] number of examples: 16105
+[2019-12-27 11:49:32,581 INFO] Validation perplexity: 1.00284
+[2019-12-27 11:49:32,581 INFO] Validation accuracy: 100
+[2019-12-27 11:49:33,231 INFO] Step 400/  500; acc: 100.00; ppl:  1.00; xent: 0.00; lr: 1.00000; 2079/2338 tok/s;     95 sec
+[2019-12-27 11:49:33,231 INFO] Loading dataset from Data/SVO_AN/prepro.valid.0.pt
+[2019-12-27 11:49:33,297 INFO] number of examples: 16105
+[2019-12-27 11:49:38,527 INFO] Validation perplexity: 1.0012
+[2019-12-27 11:49:38,527 INFO] Validation accuracy: 100
+[2019-12-27 11:49:38,528 INFO] Saving checkpoint Models/SVO_AN/SVO_AN_model_step_400.pt
+[2019-12-27 11:49:39,257 INFO] Step 425/  500; acc: 100.00; ppl:  1.00; xent: 0.00; lr: 1.00000; 2124/2390 tok/s;    101 sec
+[2019-12-27 11:49:39,258 INFO] Loading dataset from Data/SVO_AN/prepro.valid.0.pt
+[2019-12-27 11:49:39,628 INFO] number of examples: 16105
+[2019-12-27 11:49:44,973 INFO] Validation perplexity: 1.00074
+[2019-12-27 11:49:44,973 INFO] Validation accuracy: 100
+[2019-12-27 11:49:45,612 INFO] Step 450/  500; acc: 100.00; ppl:  1.00; xent: 0.00; lr: 1.00000; 2014/2266 tok/s;    107 sec
+[2019-12-27 11:49:45,612 INFO] Loading dataset from Data/SVO_AN/prepro.valid.0.pt
+[2019-12-27 11:49:45,677 INFO] number of examples: 16105
+[2019-12-27 11:49:50,769 INFO] Validation perplexity: 1.00052
+[2019-12-27 11:49:50,769 INFO] Validation accuracy: 100
+[2019-12-27 11:49:50,770 INFO] Saving checkpoint Models/SVO_AN/SVO_AN_model_step_450.pt
+[2019-12-27 11:49:51,508 INFO] Step 475/  500; acc: 100.00; ppl:  1.00; xent: 0.00; lr: 1.00000; 2096/2358 tok/s;    113 sec
+[2019-12-27 11:49:51,509 INFO] Loading dataset from Data/SVO_AN/prepro.valid.0.pt
+[2019-12-27 11:49:51,872 INFO] number of examples: 16105
+[2019-12-27 11:49:57,051 INFO] Validation perplexity: 1.0004
+[2019-12-27 11:49:57,051 INFO] Validation accuracy: 100
+[2019-12-27 11:49:57,724 INFO] Step 500/  500; acc: 100.00; ppl:  1.00; xent: 0.00; lr: 1.00000; 2059/2317 tok/s;    120 sec
+[2019-12-27 11:49:57,724 INFO] Loading dataset from Data/SVO_AN/prepro.valid.0.pt
+[2019-12-27 11:49:57,793 INFO] number of examples: 16105
+[2019-12-27 11:50:04,115 INFO] Validation perplexity: 1.00032
+[2019-12-27 11:50:04,116 INFO] Validation accuracy: 100
+[2019-12-27 11:50:04,117 INFO] Saving checkpoint Models/SVO_AN/SVO_AN_model_step_500.pt
+[2019-12-27 11:50:07,744 INFO]  * src vocab size = 38
+[2019-12-27 11:50:07,760 INFO]  * tgt vocab size = 42
+[2019-12-27 11:50:07,761 INFO] Building model...
+[2019-12-27 11:50:12,224 INFO] NMTModel(
+  (encoder): RNNEncoder(
+    (embeddings): Embeddings(
+      (make_embedding): Sequential(
+        (emb_luts): Elementwise(
+          (0): Embedding(38, 500, padding_idx=1)
+        )
+      )
+    )
+    (rnn): LSTM(500, 500, num_layers=2, dropout=0.3)
+  )
+  (decoder): InputFeedRNNDecoder(
+    (embeddings): Embeddings(
+      (make_embedding): Sequential(
+        (emb_luts): Elementwise(
+          (0): Embedding(42, 500, padding_idx=1)
+        )
+      )
+    )
+    (dropout): Dropout(p=0.3, inplace=False)
+    (rnn): StackedLSTM(
+      (dropout): Dropout(p=0.3, inplace=False)
+      (layers): ModuleList(
+        (0): LSTMCell(1000, 500)
+        (1): LSTMCell(500, 500)
+      )
+    )
+    (attn): GlobalAttention(
+      (linear_in): Linear(in_features=500, out_features=500, bias=False)
+      (linear_out): Linear(in_features=1000, out_features=500, bias=False)
+    )
+  )
+  (generator): Sequential(
+    (0): Linear(in_features=500, out_features=42, bias=True)
+    (1): Cast()
+    (2): LogSoftmax()
+  )
+)
+[2019-12-27 11:50:12,225 INFO] encoder: 4027000
+[2019-12-27 11:50:12,225 INFO] decoder: 5800042
+[2019-12-27 11:50:12,225 INFO] * number of parameters: 9827042
+[2019-12-27 11:50:12,229 INFO] Starting training on GPU: [0]
+[2019-12-27 11:50:12,230 INFO] Start training loop and validate every 25 steps...
+[2019-12-27 11:50:12,230 INFO] Loading dataset from Data/SVO_NA/prepro.train.0.pt
+[2019-12-27 11:50:13,609 INFO] number of examples: 128841
+[2019-12-27 11:50:15,010 INFO] Step 25/  500; acc:  11.84; ppl: 1037.52; xent: 6.94; lr: 1.00000; 4604/5180 tok/s;      3 sec
+[2019-12-27 11:50:15,010 INFO] Loading dataset from Data/SVO_NA/prepro.valid.0.pt
+[2019-12-27 11:50:15,619 INFO] number of examples: 16105
+[2019-12-27 11:50:20,981 INFO] Validation perplexity: 10491.1
+[2019-12-27 11:50:20,981 INFO] Validation accuracy: 10.1328
+[2019-12-27 11:50:21,680 INFO] Step 50/  500; acc:  13.65; ppl: 352.42; xent: 5.86; lr: 1.00000; 1919/2159 tok/s;      9 sec
+[2019-12-27 11:50:21,680 INFO] Loading dataset from Data/SVO_NA/prepro.valid.0.pt
+[2019-12-27 11:50:21,764 INFO] number of examples: 16105
+[2019-12-27 11:50:28,116 INFO] Validation perplexity: 41.5882
+[2019-12-27 11:50:28,116 INFO] Validation accuracy: 11.1111
+[2019-12-27 11:50:28,117 INFO] Saving checkpoint Models//SVO_NA/SVO_NA_model_step_50.pt
+[2019-12-27 11:50:28,949 INFO] Step 75/  500; acc:  16.46; ppl: 66.88; xent: 4.20; lr: 1.00000; 1761/1981 tok/s;     17 sec
+[2019-12-27 11:50:28,950 INFO] Loading dataset from Data/SVO_NA/prepro.valid.0.pt
+[2019-12-27 11:50:29,508 INFO] number of examples: 16105
+[2019-12-27 11:50:34,950 INFO] Validation perplexity: 23.1226
+[2019-12-27 11:50:34,951 INFO] Validation accuracy: 24.3016
+[2019-12-27 11:50:35,615 INFO] Step 100/  500; acc:  28.79; ppl: 17.45; xent: 2.86; lr: 1.00000; 1920/2160 tok/s;     23 sec
+[2019-12-27 11:50:35,616 INFO] Loading dataset from Data/SVO_NA/prepro.valid.0.pt
+[2019-12-27 11:50:35,682 INFO] number of examples: 16105
+[2019-12-27 11:50:41,057 INFO] Validation perplexity: 12.5576
+[2019-12-27 11:50:41,057 INFO] Validation accuracy: 33.1609
+[2019-12-27 11:50:41,058 INFO] Saving checkpoint Models//SVO_NA/SVO_NA_model_step_100.pt
+[2019-12-27 11:50:41,965 INFO] Step 125/  500; acc:  40.08; ppl:  6.20; xent: 1.82; lr: 1.00000; 2016/2268 tok/s;     30 sec
+[2019-12-27 11:50:41,965 INFO] Loading dataset from Data/SVO_NA/prepro.valid.0.pt
+[2019-12-27 11:50:42,359 INFO] number of examples: 16105
+[2019-12-27 11:50:47,704 INFO] Validation perplexity: 4.6502
+[2019-12-27 11:50:47,704 INFO] Validation accuracy: 44.4665
+[2019-12-27 11:50:48,341 INFO] Step 150/  500; acc:  45.00; ppl:  4.25; xent: 1.45; lr: 1.00000; 2008/2258 tok/s;     36 sec
+[2019-12-27 11:50:48,342 INFO] Loading dataset from Data/SVO_NA/prepro.valid.0.pt
+[2019-12-27 11:50:48,407 INFO] number of examples: 16105
+[2019-12-27 11:50:53,774 INFO] Validation perplexity: 3.93709
+[2019-12-27 11:50:53,774 INFO] Validation accuracy: 46.3955
+[2019-12-27 11:50:53,775 INFO] Saving checkpoint Models//SVO_NA/SVO_NA_model_step_150.pt
+[2019-12-27 11:50:54,567 INFO] Step 175/  500; acc:  46.65; ppl:  3.96; xent: 1.38; lr: 1.00000; 2056/2313 tok/s;     42 sec
+[2019-12-27 11:50:54,568 INFO] Loading dataset from Data/SVO_NA/prepro.valid.0.pt
+[2019-12-27 11:50:54,639 INFO] number of examples: 16105
+[2019-12-27 11:50:59,689 INFO] Validation perplexity: 3.78364
+[2019-12-27 11:50:59,689 INFO] Validation accuracy: 49.3449
+[2019-12-27 11:51:00,367 INFO] Step 200/  500; acc:  45.10; ppl:  4.42; xent: 1.49; lr: 1.00000; 2207/2483 tok/s;     48 sec
+[2019-12-27 11:51:00,367 INFO] Loading dataset from Data/SVO_NA/prepro.valid.0.pt
+[2019-12-27 11:51:00,755 INFO] number of examples: 16105
+[2019-12-27 11:51:06,220 INFO] Validation perplexity: 3.82541
+[2019-12-27 11:51:06,220 INFO] Validation accuracy: 47.4628
+[2019-12-27 11:51:06,221 INFO] Saving checkpoint Models//SVO_NA/SVO_NA_model_step_200.pt
+[2019-12-27 11:51:07,004 INFO] Step 225/  500; acc:  44.68; ppl:  5.19; xent: 1.65; lr: 1.00000; 1929/2170 tok/s;     55 sec
+[2019-12-27 11:51:07,005 INFO] Loading dataset from Data/SVO_NA/prepro.valid.0.pt
+[2019-12-27 11:51:07,075 INFO] number of examples: 16105
+[2019-12-27 11:51:12,373 INFO] Validation perplexity: 3.80813
+[2019-12-27 11:51:12,373 INFO] Validation accuracy: 46.577
+[2019-12-27 11:51:13,029 INFO] Step 250/  500; acc:  50.53; ppl:  4.13; xent: 1.42; lr: 1.00000; 2125/2390 tok/s;     61 sec
+[2019-12-27 11:51:13,030 INFO] Loading dataset from Data/SVO_NA/prepro.valid.0.pt
+[2019-12-27 11:51:13,397 INFO] number of examples: 16105
+[2019-12-27 11:51:18,553 INFO] Validation perplexity: 4.40432
+[2019-12-27 11:51:18,553 INFO] Validation accuracy: 51.7665
+[2019-12-27 11:51:18,554 INFO] Saving checkpoint Models//SVO_NA/SVO_NA_model_step_250.pt
+[2019-12-27 11:51:19,393 INFO] Step 275/  500; acc:  58.92; ppl:  3.17; xent: 1.15; lr: 1.00000; 2011/2263 tok/s;     67 sec
+[2019-12-27 11:51:19,394 INFO] Loading dataset from Data/SVO_NA/prepro.valid.0.pt
+[2019-12-27 11:51:19,459 INFO] number of examples: 16105
+[2019-12-27 11:51:24,588 INFO] Validation perplexity: 3.76383
+[2019-12-27 11:51:24,588 INFO] Validation accuracy: 61.9704
+[2019-12-27 11:51:25,253 INFO] Step 300/  500; acc:  68.95; ppl:  2.47; xent: 0.91; lr: 1.00000; 2185/2458 tok/s;     73 sec
+[2019-12-27 11:51:25,253 INFO] Loading dataset from Data/SVO_NA/prepro.valid.0.pt
+[2019-12-27 11:51:25,629 INFO] number of examples: 16105
+[2019-12-27 11:51:30,713 INFO] Validation perplexity: 2.68423
+[2019-12-27 11:51:30,713 INFO] Validation accuracy: 71.1649
+[2019-12-27 11:51:30,714 INFO] Saving checkpoint Models//SVO_NA/SVO_NA_model_step_300.pt
+[2019-12-27 11:51:31,495 INFO] Step 325/  500; acc:  72.67; ppl:  2.58; xent: 0.95; lr: 1.00000; 2051/2307 tok/s;     79 sec
+[2019-12-27 11:51:31,496 INFO] Loading dataset from Data/SVO_NA/prepro.valid.0.pt
+[2019-12-27 11:51:31,563 INFO] number of examples: 16105
+[2019-12-27 11:51:36,650 INFO] Validation perplexity: 1.44847
+[2019-12-27 11:51:36,650 INFO] Validation accuracy: 88.3335
+[2019-12-27 11:51:37,282 INFO] Step 350/  500; acc:  89.97; ppl:  1.32; xent: 0.28; lr: 1.00000; 2212/2489 tok/s;     85 sec
+[2019-12-27 11:51:37,282 INFO] Loading dataset from Data/SVO_NA/prepro.valid.0.pt
+[2019-12-27 11:51:37,348 INFO] number of examples: 16105
+[2019-12-27 11:51:42,427 INFO] Validation perplexity: 1.25742
+[2019-12-27 11:51:42,428 INFO] Validation accuracy: 92.1694
+[2019-12-27 11:51:42,428 INFO] Saving checkpoint Models//SVO_NA/SVO_NA_model_step_350.pt
+[2019-12-27 11:51:43,158 INFO] Step 375/  500; acc:  96.67; ppl:  1.12; xent: 0.11; lr: 1.00000; 2178/2451 tok/s;     91 sec
+[2019-12-27 11:51:43,158 INFO] Loading dataset from Data/SVO_NA/prepro.valid.0.pt
+[2019-12-27 11:51:43,510 INFO] number of examples: 16105
+[2019-12-27 11:51:48,597 INFO] Validation perplexity: 1.00659
+[2019-12-27 11:51:48,597 INFO] Validation accuracy: 100
+[2019-12-27 11:51:49,247 INFO] Step 400/  500; acc: 100.00; ppl:  1.00; xent: 0.00; lr: 1.00000; 2102/2365 tok/s;     97 sec
+[2019-12-27 11:51:49,247 INFO] Loading dataset from Data/SVO_NA/prepro.valid.0.pt
+[2019-12-27 11:51:49,314 INFO] number of examples: 16105
+[2019-12-27 11:51:54,613 INFO] Validation perplexity: 1.00138
+[2019-12-27 11:51:54,613 INFO] Validation accuracy: 100
+[2019-12-27 11:51:54,614 INFO] Saving checkpoint Models//SVO_NA/SVO_NA_model_step_400.pt
+[2019-12-27 11:51:55,321 INFO] Step 425/  500; acc: 100.00; ppl:  1.00; xent: 0.00; lr: 1.00000; 2107/2371 tok/s;    103 sec
+[2019-12-27 11:51:55,322 INFO] Loading dataset from Data/SVO_NA/prepro.valid.0.pt
+[2019-12-27 11:51:55,666 INFO] number of examples: 16105
+[2019-12-27 11:52:00,716 INFO] Validation perplexity: 1.00074
+[2019-12-27 11:52:00,717 INFO] Validation accuracy: 100
+[2019-12-27 11:52:01,370 INFO] Step 450/  500; acc: 100.00; ppl:  1.00; xent: 0.00; lr: 1.00000; 2116/2381 tok/s;    109 sec
+[2019-12-27 11:52:01,371 INFO] Loading dataset from Data/SVO_NA/prepro.valid.0.pt
+[2019-12-27 11:52:01,439 INFO] number of examples: 16105
+[2019-12-27 11:52:06,717 INFO] Validation perplexity: 1.00049
+[2019-12-27 11:52:06,717 INFO] Validation accuracy: 100
+[2019-12-27 11:52:06,718 INFO] Saving checkpoint Models//SVO_NA/SVO_NA_model_step_450.pt
+[2019-12-27 11:52:07,434 INFO] Step 475/  500; acc: 100.00; ppl:  1.00; xent: 0.00; lr: 1.00000; 2111/2375 tok/s;    115 sec
+[2019-12-27 11:52:07,435 INFO] Loading dataset from Data/SVO_NA/prepro.valid.0.pt
+[2019-12-27 11:52:07,782 INFO] number of examples: 16105
+[2019-12-27 11:52:12,846 INFO] Validation perplexity: 1.00036
+[2019-12-27 11:52:12,846 INFO] Validation accuracy: 100
+[2019-12-27 11:52:13,502 INFO] Step 500/  500; acc: 100.00; ppl:  1.00; xent: 0.00; lr: 1.00000; 2110/2373 tok/s;    121 sec
+[2019-12-27 11:52:13,502 INFO] Loading dataset from Data/SVO_NA/prepro.valid.0.pt
+[2019-12-27 11:52:13,568 INFO] number of examples: 16105
+[2019-12-27 11:52:18,730 INFO] Validation perplexity: 1.00028
+[2019-12-27 11:52:18,730 INFO] Validation accuracy: 100
+[2019-12-27 11:52:18,731 INFO] Saving checkpoint Models//SVO_NA/SVO_NA_model_step_500.pt
+[2019-12-27 11:52:21,404 INFO]  * src vocab size = 38
+[2019-12-27 11:52:21,819 INFO]  * tgt vocab size = 42
+[2019-12-27 11:52:21,819 INFO] Building model...
+[2019-12-27 11:52:26,135 INFO] NMTModel(
+  (encoder): RNNEncoder(
+    (embeddings): Embeddings(
+      (make_embedding): Sequential(
+        (emb_luts): Elementwise(
+          (0): Embedding(38, 500, padding_idx=1)
+        )
+      )
+    )
+    (rnn): LSTM(500, 500, num_layers=2, dropout=0.3)
+  )
+  (decoder): InputFeedRNNDecoder(
+    (embeddings): Embeddings(
+      (make_embedding): Sequential(
+        (emb_luts): Elementwise(
+          (0): Embedding(42, 500, padding_idx=1)
+        )
+      )
+    )
+    (dropout): Dropout(p=0.3, inplace=False)
+    (rnn): StackedLSTM(
+      (dropout): Dropout(p=0.3, inplace=False)
+      (layers): ModuleList(
+        (0): LSTMCell(1000, 500)
+        (1): LSTMCell(500, 500)
+      )
+    )
+    (attn): GlobalAttention(
+      (linear_in): Linear(in_features=500, out_features=500, bias=False)
+      (linear_out): Linear(in_features=1000, out_features=500, bias=False)
+    )
+  )
+  (generator): Sequential(
+    (0): Linear(in_features=500, out_features=42, bias=True)
+    (1): Cast()
+    (2): LogSoftmax()
+  )
+)
+[2019-12-27 11:52:26,136 INFO] encoder: 4027000
+[2019-12-27 11:52:26,136 INFO] decoder: 5800042
+[2019-12-27 11:52:26,136 INFO] * number of parameters: 9827042
+[2019-12-27 11:52:26,140 INFO] Starting training on GPU: [0]
+[2019-12-27 11:52:26,140 INFO] Start training loop and validate every 25 steps...
+[2019-12-27 11:52:26,140 INFO] Loading dataset from Data/SOV_AN/prepro.train.0.pt
+[2019-12-27 11:52:27,408 INFO] number of examples: 128841
+[2019-12-27 11:52:28,549 INFO] Step 25/  500; acc:  13.40; ppl: 154.37; xent: 5.04; lr: 1.00000; 5315/5979 tok/s;      2 sec
+[2019-12-27 11:52:28,549 INFO] Loading dataset from Data/SOV_AN/prepro.valid.0.pt
+[2019-12-27 11:52:29,022 INFO] number of examples: 16105
+[2019-12-27 11:52:34,888 INFO] Validation perplexity: 63.5041
+[2019-12-27 11:52:34,889 INFO] Validation accuracy: 19.1562
+[2019-12-27 11:52:35,556 INFO] Step 50/  500; acc:  13.58; ppl: 240.14; xent: 5.48; lr: 1.00000; 1827/2055 tok/s;      9 sec
+[2019-12-27 11:52:35,556 INFO] Loading dataset from Data/SOV_AN/prepro.valid.0.pt
+[2019-12-27 11:52:35,632 INFO] number of examples: 16105
+[2019-12-27 11:52:40,736 INFO] Validation perplexity: 35.0591
+[2019-12-27 11:52:40,736 INFO] Validation accuracy: 24.2733
+[2019-12-27 11:52:40,737 INFO] Saving checkpoint Models/SOV_AN/SOV_AN_model_step_50.pt
+[2019-12-27 11:52:41,492 INFO] Step 75/  500; acc:  20.94; ppl: 31.94; xent: 3.46; lr: 1.00000; 2156/2426 tok/s;     15 sec
+[2019-12-27 11:52:41,493 INFO] Loading dataset from Data/SOV_AN/prepro.valid.0.pt
+[2019-12-27 11:52:41,849 INFO] number of examples: 16105
+[2019-12-27 11:52:47,174 INFO] Validation perplexity: 13.6252
+[2019-12-27 11:52:47,174 INFO] Validation accuracy: 26.2562
+[2019-12-27 11:52:47,849 INFO] Step 100/  500; acc:  30.28; ppl: 13.03; xent: 2.57; lr: 1.00000; 2014/2265 tok/s;     22 sec
+[2019-12-27 11:52:47,850 INFO] Loading dataset from Data/SOV_AN/prepro.valid.0.pt
+[2019-12-27 11:52:47,916 INFO] number of examples: 16105
+[2019-12-27 11:52:53,186 INFO] Validation perplexity: 11.5934
+[2019-12-27 11:52:53,186 INFO] Validation accuracy: 33.2685
+[2019-12-27 11:52:53,187 INFO] Saving checkpoint Models/SOV_AN/SOV_AN_model_step_100.pt
+[2019-12-27 11:52:53,910 INFO] Step 125/  500; acc:  42.21; ppl:  5.35; xent: 1.68; lr: 1.00000; 2112/2376 tok/s;     28 sec
+[2019-12-27 11:52:53,911 INFO] Loading dataset from Data/SOV_AN/prepro.valid.0.pt
+[2019-12-27 11:52:54,281 INFO] number of examples: 16105
+[2019-12-27 11:52:59,405 INFO] Validation perplexity: 4.43879
+[2019-12-27 11:52:59,405 INFO] Validation accuracy: 45.0688
+[2019-12-27 11:53:00,043 INFO] Step 150/  500; acc:  44.70; ppl:  4.18; xent: 1.43; lr: 1.00000; 2087/2348 tok/s;     34 sec
+[2019-12-27 11:53:00,043 INFO] Loading dataset from Data/SOV_AN/prepro.valid.0.pt
+[2019-12-27 11:53:00,110 INFO] number of examples: 16105
+[2019-12-27 11:53:05,278 INFO] Validation perplexity: 3.95275
+[2019-12-27 11:53:05,278 INFO] Validation accuracy: 45.5269
+[2019-12-27 11:53:05,279 INFO] Saving checkpoint Models/SOV_AN/SOV_AN_model_step_150.pt
+[2019-12-27 11:53:06,072 INFO] Step 175/  500; acc:  44.94; ppl:  4.07; xent: 1.40; lr: 1.00000; 2123/2389 tok/s;     40 sec
+[2019-12-27 11:53:06,072 INFO] Loading dataset from Data/SOV_AN/prepro.valid.0.pt
+[2019-12-27 11:53:06,138 INFO] number of examples: 16105
+[2019-12-27 11:53:11,290 INFO] Validation perplexity: 3.99614
+[2019-12-27 11:53:11,290 INFO] Validation accuracy: 45.6511
+[2019-12-27 11:53:11,935 INFO] Step 200/  500; acc:  45.78; ppl:  3.93; xent: 1.37; lr: 1.00000; 2183/2456 tok/s;     46 sec
+[2019-12-27 11:53:11,935 INFO] Loading dataset from Data/SOV_AN/prepro.valid.0.pt
+[2019-12-27 11:53:12,294 INFO] number of examples: 16105
+[2019-12-27 11:53:17,404 INFO] Validation perplexity: 3.74537
+[2019-12-27 11:53:17,405 INFO] Validation accuracy: 49.2573
+[2019-12-27 11:53:17,406 INFO] Saving checkpoint Models/SOV_AN/SOV_AN_model_step_200.pt
+[2019-12-27 11:53:18,090 INFO] Step 225/  500; acc:  48.35; ppl:  4.02; xent: 1.39; lr: 1.00000; 2080/2340 tok/s;     52 sec
+[2019-12-27 11:53:18,091 INFO] Loading dataset from Data/SOV_AN/prepro.valid.0.pt
+[2019-12-27 11:53:18,154 INFO] number of examples: 16105
+[2019-12-27 11:53:23,189 INFO] Validation perplexity: 4.09356
+[2019-12-27 11:53:23,189 INFO] Validation accuracy: 50.6102
+[2019-12-27 11:53:23,877 INFO] Step 250/  500; acc:  50.03; ppl:  4.83; xent: 1.57; lr: 1.00000; 2212/2489 tok/s;     58 sec
+[2019-12-27 11:53:23,877 INFO] Loading dataset from Data/SOV_AN/prepro.valid.0.pt
+[2019-12-27 11:53:24,232 INFO] number of examples: 16105
+[2019-12-27 11:53:29,273 INFO] Validation perplexity: 4.48346
+[2019-12-27 11:53:29,274 INFO] Validation accuracy: 54.796
+[2019-12-27 11:53:29,274 INFO] Saving checkpoint Models/SOV_AN/SOV_AN_model_step_250.pt
+[2019-12-27 11:53:30,005 INFO] Step 275/  500; acc:  58.34; ppl:  3.08; xent: 1.12; lr: 1.00000; 2089/2350 tok/s;     64 sec
+[2019-12-27 11:53:30,006 INFO] Loading dataset from Data/SOV_AN/prepro.valid.0.pt
+[2019-12-27 11:53:30,071 INFO] number of examples: 16105
+[2019-12-27 11:53:35,712 INFO] Validation perplexity: 2.26055
+[2019-12-27 11:53:35,712 INFO] Validation accuracy: 66.1582
+[2019-12-27 11:53:36,371 INFO] Step 300/  500; acc:  67.10; ppl:  2.26; xent: 0.81; lr: 1.00000; 2011/2262 tok/s;     70 sec
+[2019-12-27 11:53:36,371 INFO] Loading dataset from Data/SOV_AN/prepro.valid.0.pt
+[2019-12-27 11:53:36,738 INFO] number of examples: 16105
+[2019-12-27 11:53:41,712 INFO] Validation perplexity: 2.19013
+[2019-12-27 11:53:41,712 INFO] Validation accuracy: 68.2693
+[2019-12-27 11:53:41,713 INFO] Saving checkpoint Models/SOV_AN/SOV_AN_model_step_300.pt
+[2019-12-27 11:53:42,460 INFO] Step 325/  500; acc:  66.51; ppl:  2.41; xent: 0.88; lr: 1.00000; 2102/2365 tok/s;     76 sec
+[2019-12-27 11:53:42,460 INFO] Loading dataset from Data/SOV_AN/prepro.valid.0.pt
+[2019-12-27 11:53:42,529 INFO] number of examples: 16105
+[2019-12-27 11:53:47,627 INFO] Validation perplexity: 2.95159
+[2019-12-27 11:53:47,627 INFO] Validation accuracy: 64.895
+[2019-12-27 11:53:48,257 INFO] Step 350/  500; acc:  79.40; ppl:  1.72; xent: 0.54; lr: 1.00000; 2208/2484 tok/s;     82 sec
+[2019-12-27 11:53:48,257 INFO] Loading dataset from Data/SOV_AN/prepro.valid.0.pt
+[2019-12-27 11:53:48,323 INFO] number of examples: 16105
+[2019-12-27 11:53:53,664 INFO] Validation perplexity: 1.87529
+[2019-12-27 11:53:53,664 INFO] Validation accuracy: 81.9718
+[2019-12-27 11:53:53,665 INFO] Saving checkpoint Models/SOV_AN/SOV_AN_model_step_350.pt
+[2019-12-27 11:53:54,845 INFO] Step 375/  500; acc:  87.69; ppl:  1.44; xent: 0.36; lr: 1.00000; 1943/2186 tok/s;     89 sec
+[2019-12-27 11:53:54,846 INFO] Loading dataset from Data/SOV_AN/prepro.valid.0.pt
+[2019-12-27 11:53:55,187 INFO] number of examples: 16105
+[2019-12-27 11:54:00,319 INFO] Validation perplexity: 1.07887
+[2019-12-27 11:54:00,320 INFO] Validation accuracy: 98.3132
+[2019-12-27 11:54:00,970 INFO] Step 400/  500; acc:  99.86; ppl:  1.01; xent: 0.01; lr: 1.00000; 2090/2351 tok/s;     95 sec
+[2019-12-27 11:54:00,970 INFO] Loading dataset from Data/SOV_AN/prepro.valid.0.pt
+[2019-12-27 11:54:01,035 INFO] number of examples: 16105
+[2019-12-27 11:54:06,357 INFO] Validation perplexity: 1.0018
+[2019-12-27 11:54:06,357 INFO] Validation accuracy: 100
+[2019-12-27 11:54:06,358 INFO] Saving checkpoint Models/SOV_AN/SOV_AN_model_step_400.pt
+[2019-12-27 11:54:09,316 INFO] Step 425/  500; acc: 100.00; ppl:  1.00; xent: 0.00; lr: 1.00000; 1534/1725 tok/s;    103 sec
+[2019-12-27 11:54:09,317 INFO] Loading dataset from Data/SOV_AN/prepro.valid.0.pt
+[2019-12-27 11:54:09,777 INFO] number of examples: 16105
+[2019-12-27 11:54:14,957 INFO] Validation perplexity: 1.00076
+[2019-12-27 11:54:14,958 INFO] Validation accuracy: 100
+[2019-12-27 11:54:15,619 INFO] Step 450/  500; acc: 100.00; ppl:  1.00; xent: 0.00; lr: 1.00000; 2031/2285 tok/s;    109 sec
+[2019-12-27 11:54:15,620 INFO] Loading dataset from Data/SOV_AN/prepro.valid.0.pt
+[2019-12-27 11:54:15,684 INFO] number of examples: 16105
+[2019-12-27 11:54:20,683 INFO] Validation perplexity: 1.00047
+[2019-12-27 11:54:20,683 INFO] Validation accuracy: 100
+[2019-12-27 11:54:20,684 INFO] Saving checkpoint Models/SOV_AN/SOV_AN_model_step_450.pt
+[2019-12-27 11:54:21,392 INFO] Step 475/  500; acc: 100.00; ppl:  1.00; xent: 0.00; lr: 1.00000; 2218/2495 tok/s;    115 sec
+[2019-12-27 11:54:21,392 INFO] Loading dataset from Data/SOV_AN/prepro.valid.0.pt
+[2019-12-27 11:54:21,757 INFO] number of examples: 16105
+[2019-12-27 11:54:26,831 INFO] Validation perplexity: 1.00034
+[2019-12-27 11:54:26,831 INFO] Validation accuracy: 100
+[2019-12-27 11:54:27,464 INFO] Step 500/  500; acc: 100.00; ppl:  1.00; xent: 0.00; lr: 1.00000; 2108/2372 tok/s;    121 sec
+[2019-12-27 11:54:27,464 INFO] Loading dataset from Data/SOV_AN/prepro.valid.0.pt
+[2019-12-27 11:54:27,529 INFO] number of examples: 16105
+[2019-12-27 11:54:32,684 INFO] Validation perplexity: 1.00025
+[2019-12-27 11:54:32,684 INFO] Validation accuracy: 100
+[2019-12-27 11:54:32,685 INFO] Saving checkpoint Models/SOV_AN/SOV_AN_model_step_500.pt
+[2019-12-27 11:54:35,322 INFO]  * src vocab size = 38
+[2019-12-27 11:54:35,393 INFO]  * tgt vocab size = 42
+[2019-12-27 11:54:35,393 INFO] Building model...
+[2019-12-27 11:54:39,786 INFO] NMTModel(
+  (encoder): RNNEncoder(
+    (embeddings): Embeddings(
+      (make_embedding): Sequential(
+        (emb_luts): Elementwise(
+          (0): Embedding(38, 500, padding_idx=1)
+        )
+      )
+    )
+    (rnn): LSTM(500, 500, num_layers=2, dropout=0.3)
+  )
+  (decoder): InputFeedRNNDecoder(
+    (embeddings): Embeddings(
+      (make_embedding): Sequential(
+        (emb_luts): Elementwise(
+          (0): Embedding(42, 500, padding_idx=1)
+        )
+      )
+    )
+    (dropout): Dropout(p=0.3, inplace=False)
+    (rnn): StackedLSTM(
+      (dropout): Dropout(p=0.3, inplace=False)
+      (layers): ModuleList(
+        (0): LSTMCell(1000, 500)
+        (1): LSTMCell(500, 500)
+      )
+    )
+    (attn): GlobalAttention(
+      (linear_in): Linear(in_features=500, out_features=500, bias=False)
+      (linear_out): Linear(in_features=1000, out_features=500, bias=False)
+    )
+  )
+  (generator): Sequential(
+    (0): Linear(in_features=500, out_features=42, bias=True)
+    (1): Cast()
+    (2): LogSoftmax()
+  )
+)
+[2019-12-27 11:54:39,787 INFO] encoder: 4027000
+[2019-12-27 11:54:39,787 INFO] decoder: 5800042
+[2019-12-27 11:54:39,787 INFO] * number of parameters: 9827042
+[2019-12-27 11:54:39,791 INFO] Starting training on GPU: [0]
+[2019-12-27 11:54:39,791 INFO] Start training loop and validate every 25 steps...
+[2019-12-27 11:54:39,792 INFO] Loading dataset from Data/SOV_NA/prepro.train.0.pt
+[2019-12-27 11:54:40,971 INFO] number of examples: 128841
+[2019-12-27 11:54:42,267 INFO] Step 25/  500; acc:  12.72; ppl: 130.80; xent: 4.87; lr: 1.00000; 5172/5818 tok/s;      2 sec
+[2019-12-27 11:54:42,267 INFO] Loading dataset from Data/SOV_NA/prepro.valid.0.pt
+[2019-12-27 11:54:42,758 INFO] number of examples: 16105
+[2019-12-27 11:54:47,943 INFO] Validation perplexity: 210.304
+[2019-12-27 11:54:47,943 INFO] Validation accuracy: 19.188
+[2019-12-27 11:54:48,597 INFO] Step 50/  500; acc:  17.55; ppl: 121.04; xent: 4.80; lr: 1.00000; 2022/2275 tok/s;      9 sec
+[2019-12-27 11:54:48,597 INFO] Loading dataset from Data/SOV_NA/prepro.valid.0.pt
+[2019-12-27 11:54:48,669 INFO] number of examples: 16105
+[2019-12-27 11:54:53,895 INFO] Validation perplexity: 133274
+[2019-12-27 11:54:53,896 INFO] Validation accuracy: 9.08827
+[2019-12-27 11:54:53,896 INFO] Saving checkpoint Models/SOV_NA/SOV_NA_model_step_50.pt
+[2019-12-27 11:54:54,614 INFO] Step 75/  500; acc:  23.53; ppl: 45.33; xent: 3.81; lr: 1.00000; 2128/2393 tok/s;     15 sec
+[2019-12-27 11:54:54,614 INFO] Loading dataset from Data/SOV_NA/prepro.valid.0.pt
+[2019-12-27 11:54:54,984 INFO] number of examples: 16105
+[2019-12-27 11:55:00,106 INFO] Validation perplexity: 14.4682
+[2019-12-27 11:55:00,107 INFO] Validation accuracy: 29.1793
+[2019-12-27 11:55:00,806 INFO] Step 100/  500; acc:  34.25; ppl: 14.96; xent: 2.71; lr: 1.00000; 2067/2326 tok/s;     21 sec
+[2019-12-27 11:55:00,806 INFO] Loading dataset from Data/SOV_NA/prepro.valid.0.pt
+[2019-12-27 11:55:00,871 INFO] number of examples: 16105
+[2019-12-27 11:55:06,379 INFO] Validation perplexity: 12.2233
+[2019-12-27 11:55:06,380 INFO] Validation accuracy: 38.2393
+[2019-12-27 11:55:06,381 INFO] Saving checkpoint Models/SOV_NA/SOV_NA_model_step_100.pt
+[2019-12-27 11:55:07,159 INFO] Step 125/  500; acc:  39.02; ppl:  7.60; xent: 2.03; lr: 1.00000; 2015/2267 tok/s;     27 sec
+[2019-12-27 11:55:07,159 INFO] Loading dataset from Data/SOV_NA/prepro.valid.0.pt
+[2019-12-27 11:55:07,551 INFO] number of examples: 16105
+[2019-12-27 11:55:12,766 INFO] Validation perplexity: 5.93796
+[2019-12-27 11:55:12,766 INFO] Validation accuracy: 43.4627
+[2019-12-27 11:55:13,436 INFO] Step 150/  500; acc:  42.60; ppl:  5.75; xent: 1.75; lr: 1.00000; 2039/2294 tok/s;     34 sec
+[2019-12-27 11:55:13,437 INFO] Loading dataset from Data/SOV_NA/prepro.valid.0.pt
+[2019-12-27 11:55:13,504 INFO] number of examples: 16105
+[2019-12-27 11:55:18,950 INFO] Validation perplexity: 4.77562
+[2019-12-27 11:55:18,951 INFO] Validation accuracy: 36.7567
+[2019-12-27 11:55:18,952 INFO] Saving checkpoint Models/SOV_NA/SOV_NA_model_step_150.pt
+[2019-12-27 11:55:19,716 INFO] Step 175/  500; acc:  47.35; ppl:  4.32; xent: 1.46; lr: 1.00000; 2038/2293 tok/s;     40 sec
+[2019-12-27 11:55:19,716 INFO] Loading dataset from Data/SOV_NA/prepro.valid.0.pt
+[2019-12-27 11:55:19,783 INFO] number of examples: 16105
+[2019-12-27 11:55:25,145 INFO] Validation perplexity: 5.53555
+[2019-12-27 11:55:25,145 INFO] Validation accuracy: 45.9657
+[2019-12-27 11:55:25,812 INFO] Step 200/  500; acc:  45.72; ppl:  4.92; xent: 1.59; lr: 1.00000; 2100/2362 tok/s;     46 sec
+[2019-12-27 11:55:25,812 INFO] Loading dataset from Data/SOV_NA/prepro.valid.0.pt
+[2019-12-27 11:55:26,176 INFO] number of examples: 16105
+[2019-12-27 11:55:31,563 INFO] Validation perplexity: 4.25129
+[2019-12-27 11:55:31,563 INFO] Validation accuracy: 50.4433
+[2019-12-27 11:55:31,564 INFO] Saving checkpoint Models/SOV_NA/SOV_NA_model_step_200.pt
+[2019-12-27 11:55:32,334 INFO] Step 225/  500; acc:  60.59; ppl:  3.17; xent: 1.15; lr: 1.00000; 1962/2208 tok/s;     53 sec
+[2019-12-27 11:55:32,335 INFO] Loading dataset from Data/SOV_NA/prepro.valid.0.pt
+[2019-12-27 11:55:32,402 INFO] number of examples: 16105
+[2019-12-27 11:55:37,646 INFO] Validation perplexity: 4.29491
+[2019-12-27 11:55:37,646 INFO] Validation accuracy: 57.3624
+[2019-12-27 11:55:38,290 INFO] Step 250/  500; acc:  73.91; ppl:  2.34; xent: 0.85; lr: 1.00000; 2149/2418 tok/s;     58 sec
+[2019-12-27 11:55:38,291 INFO] Loading dataset from Data/SOV_NA/prepro.valid.0.pt
+[2019-12-27 11:55:38,661 INFO] number of examples: 16105
+[2019-12-27 11:55:43,896 INFO] Validation perplexity: 1.39333
+[2019-12-27 11:55:43,896 INFO] Validation accuracy: 87.9085
+[2019-12-27 11:55:43,897 INFO] Saving checkpoint Models/SOV_NA/SOV_NA_model_step_250.pt
+[2019-12-27 11:55:44,620 INFO] Step 275/  500; acc:  90.51; ppl:  1.31; xent: 0.27; lr: 1.00000; 2022/2275 tok/s;     65 sec
+[2019-12-27 11:55:44,620 INFO] Loading dataset from Data/SOV_NA/prepro.valid.0.pt
+[2019-12-27 11:55:44,687 INFO] number of examples: 16105
+[2019-12-27 11:55:50,203 INFO] Validation perplexity: 1.23623
+[2019-12-27 11:55:50,203 INFO] Validation accuracy: 92.7593
+[2019-12-27 11:55:50,914 INFO] Step 300/  500; acc:  96.81; ppl:  1.11; xent: 0.11; lr: 1.00000; 2034/2288 tok/s;     71 sec
+[2019-12-27 11:55:50,915 INFO] Loading dataset from Data/SOV_NA/prepro.valid.0.pt
+[2019-12-27 11:55:51,328 INFO] number of examples: 16105
+[2019-12-27 11:55:56,757 INFO] Validation perplexity: 1.00501
+[2019-12-27 11:55:56,758 INFO] Validation accuracy: 100
+[2019-12-27 11:55:56,759 INFO] Saving checkpoint Models/SOV_NA/SOV_NA_model_step_300.pt
+[2019-12-27 11:55:57,511 INFO] Step 325/  500; acc: 100.00; ppl:  1.00; xent: 0.00; lr: 1.00000; 1941/2183 tok/s;     78 sec
+[2019-12-27 11:55:57,511 INFO] Loading dataset from Data/SOV_NA/prepro.valid.0.pt
+[2019-12-27 11:55:57,579 INFO] number of examples: 16105
+[2019-12-27 11:56:02,961 INFO] Validation perplexity: 1.00111
+[2019-12-27 11:56:02,961 INFO] Validation accuracy: 100
+[2019-12-27 11:56:03,617 INFO] Step 350/  500; acc: 100.00; ppl:  1.00; xent: 0.00; lr: 1.00000; 2096/2358 tok/s;     84 sec
+[2019-12-27 11:56:03,617 INFO] Loading dataset from Data/SOV_NA/prepro.valid.0.pt
+[2019-12-27 11:56:03,683 INFO] number of examples: 16105
+[2019-12-27 11:56:08,955 INFO] Validation perplexity: 1.00055
+[2019-12-27 11:56:08,955 INFO] Validation accuracy: 100
+[2019-12-27 11:56:08,956 INFO] Saving checkpoint Models/SOV_NA/SOV_NA_model_step_350.pt
+[2019-12-27 11:56:09,681 INFO] Step 375/  500; acc: 100.00; ppl:  1.00; xent: 0.00; lr: 1.00000; 2111/2375 tok/s;     90 sec
+[2019-12-27 11:56:09,681 INFO] Loading dataset from Data/SOV_NA/prepro.valid.0.pt
+[2019-12-27 11:56:10,040 INFO] number of examples: 16105
+[2019-12-27 11:56:15,272 INFO] Validation perplexity: 1.00037
+[2019-12-27 11:56:15,272 INFO] Validation accuracy: 100
+[2019-12-27 11:56:15,914 INFO] Step 400/  500; acc: 100.00; ppl:  1.00; xent: 0.00; lr: 1.00000; 2054/2310 tok/s;     96 sec
+[2019-12-27 11:56:15,915 INFO] Loading dataset from Data/SOV_NA/prepro.valid.0.pt
+[2019-12-27 11:56:15,980 INFO] number of examples: 16105
+[2019-12-27 11:56:21,110 INFO] Validation perplexity: 1.00027
+[2019-12-27 11:56:21,111 INFO] Validation accuracy: 100
+[2019-12-27 11:56:21,111 INFO] Saving checkpoint Models/SOV_NA/SOV_NA_model_step_400.pt
+[2019-12-27 11:56:21,886 INFO] Step 425/  500; acc: 100.00; ppl:  1.00; xent: 0.00; lr: 1.00000; 2070/2328 tok/s;    102 sec
+[2019-12-27 11:56:21,887 INFO] Loading dataset from Data/SOV_NA/prepro.valid.0.pt
+[2019-12-27 11:56:22,246 INFO] number of examples: 16105
+[2019-12-27 11:56:27,591 INFO] Validation perplexity: 1.00021
+[2019-12-27 11:56:27,591 INFO] Validation accuracy: 100
+[2019-12-27 11:56:28,232 INFO] Step 450/  500; acc: 100.00; ppl:  1.00; xent: 0.00; lr: 1.00000; 2017/2269 tok/s;    108 sec
+[2019-12-27 11:56:28,233 INFO] Loading dataset from Data/SOV_NA/prepro.valid.0.pt
+[2019-12-27 11:56:28,304 INFO] number of examples: 16105
+[2019-12-27 11:56:33,575 INFO] Validation perplexity: 1.00017
+[2019-12-27 11:56:33,576 INFO] Validation accuracy: 100
+[2019-12-27 11:56:33,577 INFO] Saving checkpoint Models/SOV_NA/SOV_NA_model_step_450.pt
+[2019-12-27 11:56:34,271 INFO] Step 475/  500; acc: 100.00; ppl:  1.00; xent: 0.00; lr: 1.00000; 2120/2385 tok/s;    114 sec
+[2019-12-27 11:56:34,272 INFO] Loading dataset from Data/SOV_NA/prepro.valid.0.pt
+[2019-12-27 11:56:34,637 INFO] number of examples: 16105
+[2019-12-27 11:56:39,693 INFO] Validation perplexity: 1.00014
+[2019-12-27 11:56:39,693 INFO] Validation accuracy: 100
+[2019-12-27 11:56:40,336 INFO] Step 500/  500; acc: 100.00; ppl:  1.00; xent: 0.00; lr: 1.00000; 2111/2374 tok/s;    121 sec
+[2019-12-27 11:56:40,337 INFO] Loading dataset from Data/SOV_NA/prepro.valid.0.pt
+[2019-12-27 11:56:40,401 INFO] number of examples: 16105
+[2019-12-27 11:56:45,504 INFO] Validation perplexity: 1.00012
+[2019-12-27 11:56:45,505 INFO] Validation accuracy: 100
+[2019-12-27 11:56:45,506 INFO] Saving checkpoint Models/SOV_NA/SOV_NA_model_step_500.pt
+Traceback (most recent call last):
+  File "/home/s2964007/Thesis/VirtualEnv/bin/onmt_translate", line 8, in <module>
+    sys.exit(main())
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 49, in main
+    translate(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 19, in translate
+    translator = build_translator(opt, report_score=True)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/translate/translator.py", line 28, in build_translator
+    fields, model, model_opt = load_test_model(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/model_builder.py", line 95, in load_test_model
+    map_location=lambda storage, loc: storage)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/torch/serialization.py", line 419, in load
+    f = open(f, 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: 'Models/SVO_AN_model*.pt'
+Traceback (most recent call last):
+  File "/home/s2964007/Thesis/VirtualEnv/bin/onmt_translate", line 8, in <module>
+    sys.exit(main())
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 49, in main
+    translate(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 19, in translate
+    translator = build_translator(opt, report_score=True)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/translate/translator.py", line 28, in build_translator
+    fields, model, model_opt = load_test_model(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/model_builder.py", line 95, in load_test_model
+    map_location=lambda storage, loc: storage)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/torch/serialization.py", line 419, in load
+    f = open(f, 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: 'Models/SVO_NA_model*.pt'
+Traceback (most recent call last):
+  File "/home/s2964007/Thesis/VirtualEnv/bin/onmt_translate", line 8, in <module>
+    sys.exit(main())
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 49, in main
+    translate(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 19, in translate
+    translator = build_translator(opt, report_score=True)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/translate/translator.py", line 28, in build_translator
+    fields, model, model_opt = load_test_model(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/model_builder.py", line 95, in load_test_model
+    map_location=lambda storage, loc: storage)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/torch/serialization.py", line 419, in load
+    f = open(f, 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: 'Models/SOV_AN_model*.pt'
+Traceback (most recent call last):
+  File "/home/s2964007/Thesis/VirtualEnv/bin/onmt_translate", line 8, in <module>
+    sys.exit(main())
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 49, in main
+    translate(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 19, in translate
+    translator = build_translator(opt, report_score=True)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/translate/translator.py", line 28, in build_translator
+    fields, model, model_opt = load_test_model(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/model_builder.py", line 95, in load_test_model
+    map_location=lambda storage, loc: storage)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/torch/serialization.py", line 419, in load
+    f = open(f, 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: 'Models/SOV_NA_model*.pt'
+
+
+###############################################################################
+Peregrine Cluster
+Job 9131838 for user 's2964007'
+Finished at: Fri Dec 27 11:56:54 CET 2019
+
+Job details:
+============
+
+Name                : OpenNMT
+User                : s2964007
+Partition           : gpu
+Nodes               : pg-gpu26
+Cores               : 12
+State               : FAILED
+Submit              : 2019-12-27T11:46:31
+Start               : 2019-12-27T11:47:05
+End                 : 2019-12-27T11:56:54
+Reserved walltime   : 01:00:00
+Used walltime       : 00:09:49
+Used CPU time       : 00:09:03 (efficiency:  7.69%)
+% User (Computation): 95.60%
+% System (I/O)      :  4.40%
+Mem reserved        : 4000M/node
+Max Mem used        : 2.75G (pg-gpu26)
+Max Disk Write      : 1.10G (pg-gpu26)
+Max Disk Read       : 438.74M (pg-gpu26)
+
+
+Acknowledgements:
+=================
+
+Please see this page if you want to acknowledge Peregrine in your publications:
+
+https://redmine.hpc.rug.nl/redmine/projects/peregrine/wiki/ScientificOutput
+
+################################################################################

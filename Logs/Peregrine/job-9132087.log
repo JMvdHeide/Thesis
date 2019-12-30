@@ -1,0 +1,1462 @@
+[2019-12-27 14:01:05,684 INFO] Extracting features...
+[2019-12-27 14:01:05,690 INFO]  * number of source features: 0.
+[2019-12-27 14:01:05,690 INFO]  * number of target features: 0.
+[2019-12-27 14:01:05,690 INFO] Building `Fields` object...
+[2019-12-27 14:01:05,690 INFO] Building & saving training data...
+[2019-12-27 14:01:05,892 INFO] Building shard 0.
+[2019-12-27 14:01:09,760 INFO]  * saving 0th train data shard to Data/SVO_AN/prepro.train.0.pt.
+[2019-12-27 14:01:12,951 INFO]  * tgt vocab size: 42.
+[2019-12-27 14:01:12,952 INFO]  * src vocab size: 38.
+[2019-12-27 14:01:12,958 INFO] Building & saving validation data...
+[2019-12-27 14:01:13,000 INFO] Building shard 0.
+[2019-12-27 14:01:13,258 INFO]  * saving 0th valid data shard to Data/SVO_AN/prepro.valid.0.pt.
+[2019-12-27 14:01:15,180 INFO] Extracting features...
+[2019-12-27 14:01:15,186 INFO]  * number of source features: 0.
+[2019-12-27 14:01:15,186 INFO]  * number of target features: 0.
+[2019-12-27 14:01:15,187 INFO] Building `Fields` object...
+[2019-12-27 14:01:15,187 INFO] Building & saving training data...
+[2019-12-27 14:01:15,398 INFO] Building shard 0.
+[2019-12-27 14:01:19,319 INFO]  * saving 0th train data shard to Data/SVO_NA/prepro.train.0.pt.
+[2019-12-27 14:01:22,554 INFO]  * tgt vocab size: 42.
+[2019-12-27 14:01:22,554 INFO]  * src vocab size: 38.
+[2019-12-27 14:01:22,560 INFO] Building & saving validation data...
+[2019-12-27 14:01:22,610 INFO] Building shard 0.
+[2019-12-27 14:01:22,879 INFO]  * saving 0th valid data shard to Data/SVO_NA/prepro.valid.0.pt.
+[2019-12-27 14:01:24,873 INFO] Extracting features...
+[2019-12-27 14:01:24,878 INFO]  * number of source features: 0.
+[2019-12-27 14:01:24,878 INFO]  * number of target features: 0.
+[2019-12-27 14:01:24,878 INFO] Building `Fields` object...
+[2019-12-27 14:01:24,879 INFO] Building & saving training data...
+[2019-12-27 14:01:25,079 INFO] Building shard 0.
+[2019-12-27 14:01:29,016 INFO]  * saving 0th train data shard to Data/SOV_AN/prepro.train.0.pt.
+[2019-12-27 14:01:32,139 INFO]  * tgt vocab size: 42.
+[2019-12-27 14:01:32,140 INFO]  * src vocab size: 38.
+[2019-12-27 14:01:32,159 INFO] Building & saving validation data...
+[2019-12-27 14:01:32,208 INFO] Building shard 0.
+[2019-12-27 14:01:32,470 INFO]  * saving 0th valid data shard to Data/SOV_AN/prepro.valid.0.pt.
+[2019-12-27 14:01:34,455 INFO] Extracting features...
+[2019-12-27 14:01:34,463 INFO]  * number of source features: 0.
+[2019-12-27 14:01:34,463 INFO]  * number of target features: 0.
+[2019-12-27 14:01:34,463 INFO] Building `Fields` object...
+[2019-12-27 14:01:34,463 INFO] Building & saving training data...
+[2019-12-27 14:01:34,678 INFO] Building shard 0.
+[2019-12-27 14:01:38,446 INFO]  * saving 0th train data shard to Data/SOV_NA/prepro.train.0.pt.
+[2019-12-27 14:01:41,042 INFO]  * tgt vocab size: 42.
+[2019-12-27 14:01:41,042 INFO]  * src vocab size: 38.
+[2019-12-27 14:01:41,048 INFO] Building & saving validation data...
+[2019-12-27 14:01:41,087 INFO] Building shard 0.
+[2019-12-27 14:01:41,318 INFO]  * saving 0th valid data shard to Data/SOV_NA/prepro.valid.0.pt.
+[2019-12-27 14:01:43,015 INFO]  * src vocab size = 38
+[2019-12-27 14:01:43,017 INFO]  * tgt vocab size = 42
+[2019-12-27 14:01:43,017 INFO] Building model...
+[2019-12-27 14:01:47,059 INFO] NMTModel(
+  (encoder): RNNEncoder(
+    (embeddings): Embeddings(
+      (make_embedding): Sequential(
+        (emb_luts): Elementwise(
+          (0): Embedding(38, 500, padding_idx=1)
+        )
+      )
+    )
+    (rnn): LSTM(500, 500, num_layers=2, dropout=0.3)
+  )
+  (decoder): InputFeedRNNDecoder(
+    (embeddings): Embeddings(
+      (make_embedding): Sequential(
+        (emb_luts): Elementwise(
+          (0): Embedding(42, 500, padding_idx=1)
+        )
+      )
+    )
+    (dropout): Dropout(p=0.3, inplace=False)
+    (rnn): StackedLSTM(
+      (dropout): Dropout(p=0.3, inplace=False)
+      (layers): ModuleList(
+        (0): LSTMCell(1000, 500)
+        (1): LSTMCell(500, 500)
+      )
+    )
+    (attn): GlobalAttention(
+      (linear_in): Linear(in_features=500, out_features=500, bias=False)
+      (linear_out): Linear(in_features=1000, out_features=500, bias=False)
+    )
+  )
+  (generator): Sequential(
+    (0): Linear(in_features=500, out_features=42, bias=True)
+    (1): Cast()
+    (2): LogSoftmax()
+  )
+)
+[2019-12-27 14:01:47,060 INFO] encoder: 4027000
+[2019-12-27 14:01:47,060 INFO] decoder: 5800042
+[2019-12-27 14:01:47,060 INFO] * number of parameters: 9827042
+[2019-12-27 14:01:47,063 INFO] Starting training on GPU: [0]
+[2019-12-27 14:01:47,063 INFO] Start training loop and validate every 25 steps...
+[2019-12-27 14:01:47,064 INFO] Loading dataset from Data/SVO_AN/prepro.train.0.pt
+[2019-12-27 14:01:48,022 INFO] number of examples: 128841
+[2019-12-27 14:01:49,142 INFO] Step 25/  400; acc:  11.55; ppl: 154.51; xent: 5.04; lr: 1.00000; 6157/6927 tok/s;      2 sec
+[2019-12-27 14:01:49,143 INFO] Loading dataset from Data/SVO_AN/prepro.valid.0.pt
+[2019-12-27 14:01:49,454 INFO] number of examples: 16105
+[2019-12-27 14:01:54,482 INFO] Validation perplexity: 4551.64
+[2019-12-27 14:01:54,482 INFO] Validation accuracy: 17.1134
+[2019-12-27 14:01:54,483 INFO] Saving checkpoint Models/SVO_AN/SVO_AN_model_step_25.pt
+[2019-12-27 14:01:55,184 INFO] Step 50/  400; acc:  13.19; ppl: 219.04; xent: 5.39; lr: 1.00000; 2119/2384 tok/s;      8 sec
+[2019-12-27 14:01:55,184 INFO] Loading dataset from Data/SVO_AN/prepro.valid.0.pt
+[2019-12-27 14:01:55,256 INFO] number of examples: 16105
+[2019-12-27 14:02:00,253 INFO] Validation perplexity: 204.677
+[2019-12-27 14:02:00,253 INFO] Validation accuracy: 21.9821
+[2019-12-27 14:02:00,254 INFO] Saving checkpoint Models/SVO_AN/SVO_AN_model_step_50.pt
+[2019-12-27 14:02:00,931 INFO] Step 75/  400; acc:  19.10; ppl: 54.54; xent: 4.00; lr: 1.00000; 2227/2506 tok/s;     14 sec
+[2019-12-27 14:02:00,932 INFO] Loading dataset from Data/SVO_AN/prepro.valid.0.pt
+[2019-12-27 14:02:01,277 INFO] number of examples: 16105
+[2019-12-27 14:02:06,184 INFO] Validation perplexity: 26.4036
+[2019-12-27 14:02:06,184 INFO] Validation accuracy: 24.1788
+[2019-12-27 14:02:06,185 INFO] Saving checkpoint Models/SVO_AN/SVO_AN_model_step_75.pt
+[2019-12-27 14:02:06,890 INFO] Step 100/  400; acc:  25.74; ppl: 22.55; xent: 3.12; lr: 1.00000; 2148/2417 tok/s;     20 sec
+[2019-12-27 14:02:06,890 INFO] Loading dataset from Data/SVO_AN/prepro.valid.0.pt
+[2019-12-27 14:02:06,953 INFO] number of examples: 16105
+[2019-12-27 14:02:11,895 INFO] Validation perplexity: 6.97193
+[2019-12-27 14:02:11,895 INFO] Validation accuracy: 36.3766
+[2019-12-27 14:02:11,896 INFO] Saving checkpoint Models/SVO_AN/SVO_AN_model_step_100.pt
+[2019-12-27 14:02:12,778 INFO] Step 125/  400; acc:  35.83; ppl:  9.92; xent: 2.29; lr: 1.00000; 2174/2446 tok/s;     26 sec
+[2019-12-27 14:02:12,778 INFO] Loading dataset from Data/SVO_AN/prepro.valid.0.pt
+[2019-12-27 14:02:13,142 INFO] number of examples: 16105
+[2019-12-27 14:02:18,160 INFO] Validation perplexity: 6.37316
+[2019-12-27 14:02:18,160 INFO] Validation accuracy: 44.3679
+[2019-12-27 14:02:18,161 INFO] Saving checkpoint Models/SVO_AN/SVO_AN_model_step_125.pt
+[2019-12-27 14:02:18,869 INFO] Step 150/  400; acc:  42.25; ppl:  5.64; xent: 1.73; lr: 1.00000; 2102/2364 tok/s;     32 sec
+[2019-12-27 14:02:18,869 INFO] Loading dataset from Data/SVO_AN/prepro.valid.0.pt
+[2019-12-27 14:02:18,935 INFO] number of examples: 16105
+[2019-12-27 14:02:23,978 INFO] Validation perplexity: 4.23747
+[2019-12-27 14:02:23,979 INFO] Validation accuracy: 46.4542
+[2019-12-27 14:02:23,979 INFO] Saving checkpoint Models/SVO_AN/SVO_AN_model_step_150.pt
+[2019-12-27 14:02:24,682 INFO] Step 175/  400; acc:  45.90; ppl:  4.03; xent: 1.39; lr: 1.00000; 2202/2477 tok/s;     38 sec
+[2019-12-27 14:02:24,682 INFO] Loading dataset from Data/SVO_AN/prepro.valid.0.pt
+[2019-12-27 14:02:24,749 INFO] number of examples: 16105
+[2019-12-27 14:02:29,805 INFO] Validation perplexity: 3.85288
+[2019-12-27 14:02:29,805 INFO] Validation accuracy: 48.842
+[2019-12-27 14:02:29,806 INFO] Saving checkpoint Models/SVO_AN/SVO_AN_model_step_175.pt
+[2019-12-27 14:02:30,481 INFO] Step 200/  400; acc:  45.28; ppl:  4.26; xent: 1.45; lr: 1.00000; 2208/2483 tok/s;     43 sec
+[2019-12-27 14:02:30,481 INFO] Loading dataset from Data/SVO_AN/prepro.valid.0.pt
+[2019-12-27 14:02:30,829 INFO] number of examples: 16105
+[2019-12-27 14:02:35,783 INFO] Validation perplexity: 3.885
+[2019-12-27 14:02:35,783 INFO] Validation accuracy: 50.0314
+[2019-12-27 14:02:35,784 INFO] Saving checkpoint Models/SVO_AN/SVO_AN_model_step_200.pt
+[2019-12-27 14:02:36,527 INFO] Step 225/  400; acc:  46.81; ppl:  4.52; xent: 1.51; lr: 1.00000; 2117/2382 tok/s;     49 sec
+[2019-12-27 14:02:36,528 INFO] Loading dataset from Data/SVO_AN/prepro.valid.0.pt
+[2019-12-27 14:02:36,594 INFO] number of examples: 16105
+[2019-12-27 14:02:41,685 INFO] Validation perplexity: 4.06011
+[2019-12-27 14:02:41,685 INFO] Validation accuracy: 42.543
+[2019-12-27 14:02:41,686 INFO] Saving checkpoint Models/SVO_AN/SVO_AN_model_step_225.pt
+[2019-12-27 14:02:42,358 INFO] Step 250/  400; acc:  49.64; ppl:  4.15; xent: 1.42; lr: 1.00000; 2196/2470 tok/s;     55 sec
+[2019-12-27 14:02:42,358 INFO] Loading dataset from Data/SVO_AN/prepro.valid.0.pt
+[2019-12-27 14:02:42,706 INFO] number of examples: 16105
+[2019-12-27 14:02:47,711 INFO] Validation perplexity: 4.06744
+[2019-12-27 14:02:47,711 INFO] Validation accuracy: 51.4574
+[2019-12-27 14:02:47,712 INFO] Saving checkpoint Models/SVO_AN/SVO_AN_model_step_250.pt
+[2019-12-27 14:02:48,384 INFO] Step 275/  400; acc:  62.56; ppl:  2.67; xent: 0.98; lr: 1.00000; 2124/2390 tok/s;     61 sec
+[2019-12-27 14:02:48,384 INFO] Loading dataset from Data/SVO_AN/prepro.valid.0.pt
+[2019-12-27 14:02:48,449 INFO] number of examples: 16105
+[2019-12-27 14:02:53,411 INFO] Validation perplexity: 2.14527
+[2019-12-27 14:02:53,411 INFO] Validation accuracy: 70.9573
+[2019-12-27 14:02:53,412 INFO] Saving checkpoint Models/SVO_AN/SVO_AN_model_step_275.pt
+[2019-12-27 14:02:54,082 INFO] Step 300/  400; acc:  71.06; ppl:  2.37; xent: 0.86; lr: 1.00000; 2246/2527 tok/s;     67 sec
+[2019-12-27 14:02:54,083 INFO] Loading dataset from Data/SVO_AN/prepro.valid.0.pt
+[2019-12-27 14:02:54,421 INFO] number of examples: 16105
+[2019-12-27 14:02:59,387 INFO] Validation perplexity: 1.94326
+[2019-12-27 14:02:59,387 INFO] Validation accuracy: 78.4373
+[2019-12-27 14:02:59,388 INFO] Saving checkpoint Models/SVO_AN/SVO_AN_model_step_300.pt
+[2019-12-27 14:03:00,151 INFO] Step 325/  400; acc:  90.33; ppl:  1.33; xent: 0.29; lr: 1.00000; 2109/2373 tok/s;     73 sec
+[2019-12-27 14:03:00,151 INFO] Loading dataset from Data/SVO_AN/prepro.valid.0.pt
+[2019-12-27 14:03:00,215 INFO] number of examples: 16105
+[2019-12-27 14:03:05,253 INFO] Validation perplexity: 1.01131
+[2019-12-27 14:03:05,254 INFO] Validation accuracy: 99.9558
+[2019-12-27 14:03:05,254 INFO] Saving checkpoint Models/SVO_AN/SVO_AN_model_step_325.pt
+[2019-12-27 14:03:06,006 INFO] Step 350/  400; acc: 100.00; ppl:  1.01; xent: 0.01; lr: 1.00000; 2186/2460 tok/s;     79 sec
+[2019-12-27 14:03:06,006 INFO] Loading dataset from Data/SVO_AN/prepro.valid.0.pt
+[2019-12-27 14:03:06,070 INFO] number of examples: 16105
+[2019-12-27 14:03:11,611 INFO] Validation perplexity: 1.00183
+[2019-12-27 14:03:11,611 INFO] Validation accuracy: 100
+[2019-12-27 14:03:11,612 INFO] Saving checkpoint Models/SVO_AN/SVO_AN_model_step_350.pt
+[2019-12-27 14:03:12,350 INFO] Step 375/  400; acc: 100.00; ppl:  1.00; xent: 0.00; lr: 1.00000; 2018/2270 tok/s;     85 sec
+[2019-12-27 14:03:12,351 INFO] Loading dataset from Data/SVO_AN/prepro.valid.0.pt
+[2019-12-27 14:03:12,687 INFO] number of examples: 16105
+[2019-12-27 14:03:17,698 INFO] Validation perplexity: 1.00091
+[2019-12-27 14:03:17,698 INFO] Validation accuracy: 100
+[2019-12-27 14:03:17,699 INFO] Saving checkpoint Models/SVO_AN/SVO_AN_model_step_375.pt
+[2019-12-27 14:03:18,379 INFO] Step 400/  400; acc: 100.00; ppl:  1.00; xent: 0.00; lr: 1.00000; 2123/2389 tok/s;     91 sec
+[2019-12-27 14:03:18,380 INFO] Loading dataset from Data/SVO_AN/prepro.valid.0.pt
+[2019-12-27 14:03:18,443 INFO] number of examples: 16105
+[2019-12-27 14:03:23,406 INFO] Validation perplexity: 1.00058
+[2019-12-27 14:03:23,407 INFO] Validation accuracy: 100
+[2019-12-27 14:03:23,408 INFO] Saving checkpoint Models/SVO_AN/SVO_AN_model_step_400.pt
+[2019-12-27 14:03:25,337 INFO]  * src vocab size = 38
+[2019-12-27 14:03:25,339 INFO]  * tgt vocab size = 42
+[2019-12-27 14:03:25,339 INFO] Building model...
+[2019-12-27 14:03:29,353 INFO] NMTModel(
+  (encoder): RNNEncoder(
+    (embeddings): Embeddings(
+      (make_embedding): Sequential(
+        (emb_luts): Elementwise(
+          (0): Embedding(38, 500, padding_idx=1)
+        )
+      )
+    )
+    (rnn): LSTM(500, 500, num_layers=2, dropout=0.3)
+  )
+  (decoder): InputFeedRNNDecoder(
+    (embeddings): Embeddings(
+      (make_embedding): Sequential(
+        (emb_luts): Elementwise(
+          (0): Embedding(42, 500, padding_idx=1)
+        )
+      )
+    )
+    (dropout): Dropout(p=0.3, inplace=False)
+    (rnn): StackedLSTM(
+      (dropout): Dropout(p=0.3, inplace=False)
+      (layers): ModuleList(
+        (0): LSTMCell(1000, 500)
+        (1): LSTMCell(500, 500)
+      )
+    )
+    (attn): GlobalAttention(
+      (linear_in): Linear(in_features=500, out_features=500, bias=False)
+      (linear_out): Linear(in_features=1000, out_features=500, bias=False)
+    )
+  )
+  (generator): Sequential(
+    (0): Linear(in_features=500, out_features=42, bias=True)
+    (1): Cast()
+    (2): LogSoftmax()
+  )
+)
+[2019-12-27 14:03:29,353 INFO] encoder: 4027000
+[2019-12-27 14:03:29,353 INFO] decoder: 5800042
+[2019-12-27 14:03:29,353 INFO] * number of parameters: 9827042
+[2019-12-27 14:03:29,357 INFO] Starting training on GPU: [0]
+[2019-12-27 14:03:29,357 INFO] Start training loop and validate every 25 steps...
+[2019-12-27 14:03:29,357 INFO] Loading dataset from Data/SVO_NA/prepro.train.0.pt
+[2019-12-27 14:03:30,316 INFO] number of examples: 128841
+[2019-12-27 14:03:31,433 INFO] Step 25/  400; acc:  13.52; ppl: 98.83; xent: 4.59; lr: 1.00000; 6166/6936 tok/s;      2 sec
+[2019-12-27 14:03:31,433 INFO] Loading dataset from Data/SVO_NA/prepro.valid.0.pt
+[2019-12-27 14:03:31,745 INFO] number of examples: 16105
+[2019-12-27 14:03:36,659 INFO] Validation perplexity: 1056.69
+[2019-12-27 14:03:36,659 INFO] Validation accuracy: 8.78057
+[2019-12-27 14:03:36,660 INFO] Saving checkpoint Models//SVO_NA/SVO_NA_model_step_25.pt
+[2019-12-27 14:03:37,365 INFO] Step 50/  400; acc:  15.98; ppl: 162.37; xent: 5.09; lr: 1.00000; 2158/2428 tok/s;      8 sec
+[2019-12-27 14:03:37,366 INFO] Loading dataset from Data/SVO_NA/prepro.valid.0.pt
+[2019-12-27 14:03:37,438 INFO] number of examples: 16105
+[2019-12-27 14:03:42,406 INFO] Validation perplexity: 370.752
+[2019-12-27 14:03:42,406 INFO] Validation accuracy: 0
+[2019-12-27 14:03:42,407 INFO] Saving checkpoint Models//SVO_NA/SVO_NA_model_step_50.pt
+[2019-12-27 14:03:43,147 INFO] Step 75/  400; acc:  15.15; ppl: 93.78; xent: 4.54; lr: 1.00000; 2214/2491 tok/s;     14 sec
+[2019-12-27 14:03:43,148 INFO] Loading dataset from Data/SVO_NA/prepro.valid.0.pt
+[2019-12-27 14:03:43,477 INFO] number of examples: 16105
+[2019-12-27 14:03:48,470 INFO] Validation perplexity: 59.2733
+[2019-12-27 14:03:48,470 INFO] Validation accuracy: 16.2144
+[2019-12-27 14:03:48,471 INFO] Saving checkpoint Models//SVO_NA/SVO_NA_model_step_75.pt
+[2019-12-27 14:03:49,161 INFO] Step 100/  400; acc:  26.44; ppl: 17.85; xent: 2.88; lr: 1.00000; 2128/2394 tok/s;     20 sec
+[2019-12-27 14:03:49,162 INFO] Loading dataset from Data/SVO_NA/prepro.valid.0.pt
+[2019-12-27 14:03:49,227 INFO] number of examples: 16105
+[2019-12-27 14:03:54,220 INFO] Validation perplexity: 7.18323
+[2019-12-27 14:03:54,220 INFO] Validation accuracy: 29.2918
+[2019-12-27 14:03:54,221 INFO] Saving checkpoint Models//SVO_NA/SVO_NA_model_step_100.pt
+[2019-12-27 14:03:54,939 INFO] Step 125/  400; acc:  38.33; ppl:  7.07; xent: 1.96; lr: 1.00000; 2216/2493 tok/s;     26 sec
+[2019-12-27 14:03:54,939 INFO] Loading dataset from Data/SVO_NA/prepro.valid.0.pt
+[2019-12-27 14:03:55,301 INFO] number of examples: 16105
+[2019-12-27 14:04:00,338 INFO] Validation perplexity: 4.95868
+[2019-12-27 14:04:00,338 INFO] Validation accuracy: 44.4224
+[2019-12-27 14:04:00,339 INFO] Saving checkpoint Models//SVO_NA/SVO_NA_model_step_125.pt
+[2019-12-27 14:04:01,002 INFO] Step 150/  400; acc:  45.50; ppl:  4.25; xent: 1.45; lr: 1.00000; 2111/2375 tok/s;     32 sec
+[2019-12-27 14:04:01,003 INFO] Loading dataset from Data/SVO_NA/prepro.valid.0.pt
+[2019-12-27 14:04:01,067 INFO] number of examples: 16105
+[2019-12-27 14:04:06,073 INFO] Validation perplexity: 4.24082
+[2019-12-27 14:04:06,073 INFO] Validation accuracy: 45.6104
+[2019-12-27 14:04:06,074 INFO] Saving checkpoint Models//SVO_NA/SVO_NA_model_step_150.pt
+[2019-12-27 14:04:06,737 INFO] Step 175/  400; acc:  43.77; ppl:  4.82; xent: 1.57; lr: 1.00000; 2232/2511 tok/s;     37 sec
+[2019-12-27 14:04:06,737 INFO] Loading dataset from Data/SVO_NA/prepro.valid.0.pt
+[2019-12-27 14:04:06,803 INFO] number of examples: 16105
+[2019-12-27 14:04:11,810 INFO] Validation perplexity: 5.21158
+[2019-12-27 14:04:11,810 INFO] Validation accuracy: 47.487
+[2019-12-27 14:04:11,811 INFO] Saving checkpoint Models//SVO_NA/SVO_NA_model_step_175.pt
+[2019-12-27 14:04:12,482 INFO] Step 200/  400; acc:  46.92; ppl:  4.15; xent: 1.42; lr: 1.00000; 2228/2507 tok/s;     43 sec
+[2019-12-27 14:04:12,482 INFO] Loading dataset from Data/SVO_NA/prepro.valid.0.pt
+[2019-12-27 14:04:12,817 INFO] number of examples: 16105
+[2019-12-27 14:04:17,838 INFO] Validation perplexity: 3.81913
+[2019-12-27 14:04:17,838 INFO] Validation accuracy: 47.0254
+[2019-12-27 14:04:17,839 INFO] Saving checkpoint Models//SVO_NA/SVO_NA_model_step_200.pt
+[2019-12-27 14:04:18,524 INFO] Step 225/  400; acc:  50.06; ppl:  3.93; xent: 1.37; lr: 1.00000; 2119/2383 tok/s;     49 sec
+[2019-12-27 14:04:18,524 INFO] Loading dataset from Data/SVO_NA/prepro.valid.0.pt
+[2019-12-27 14:04:18,590 INFO] number of examples: 16105
+[2019-12-27 14:04:23,600 INFO] Validation perplexity: 3.3017
+[2019-12-27 14:04:23,600 INFO] Validation accuracy: 55.3734
+[2019-12-27 14:04:23,601 INFO] Saving checkpoint Models//SVO_NA/SVO_NA_model_step_225.pt
+[2019-12-27 14:04:24,281 INFO] Step 250/  400; acc:  54.71; ppl:  3.99; xent: 1.38; lr: 1.00000; 2224/2501 tok/s;     55 sec
+[2019-12-27 14:04:24,281 INFO] Loading dataset from Data/SVO_NA/prepro.valid.0.pt
+[2019-12-27 14:04:24,619 INFO] number of examples: 16105
+[2019-12-27 14:04:30,567 INFO] Validation perplexity: 2.53373
+[2019-12-27 14:04:30,567 INFO] Validation accuracy: 66.6998
+[2019-12-27 14:04:30,569 INFO] Saving checkpoint Models//SVO_NA/SVO_NA_model_step_250.pt
+[2019-12-27 14:04:31,261 INFO] Step 275/  400; acc:  68.78; ppl:  2.45; xent: 0.90; lr: 1.00000; 1834/2063 tok/s;     62 sec
+[2019-12-27 14:04:31,261 INFO] Loading dataset from Data/SVO_NA/prepro.valid.0.pt
+[2019-12-27 14:04:31,325 INFO] number of examples: 16105
+[2019-12-27 14:04:36,252 INFO] Validation perplexity: 2.99528
+[2019-12-27 14:04:36,253 INFO] Validation accuracy: 62.0359
+[2019-12-27 14:04:36,253 INFO] Saving checkpoint Models//SVO_NA/SVO_NA_model_step_275.pt
+[2019-12-27 14:04:36,956 INFO] Step 300/  400; acc:  70.54; ppl:  2.61; xent: 0.96; lr: 1.00000; 2247/2528 tok/s;     68 sec
+[2019-12-27 14:04:36,957 INFO] Loading dataset from Data/SVO_NA/prepro.valid.0.pt
+[2019-12-27 14:04:37,316 INFO] number of examples: 16105
+[2019-12-27 14:04:42,266 INFO] Validation perplexity: 1.93029
+[2019-12-27 14:04:42,266 INFO] Validation accuracy: 79.486
+[2019-12-27 14:04:42,267 INFO] Saving checkpoint Models//SVO_NA/SVO_NA_model_step_300.pt
+[2019-12-27 14:04:42,960 INFO] Step 325/  400; acc:  85.59; ppl:  1.68; xent: 0.52; lr: 1.00000; 2132/2399 tok/s;     74 sec
+[2019-12-27 14:04:42,960 INFO] Loading dataset from Data/SVO_NA/prepro.valid.0.pt
+[2019-12-27 14:04:43,026 INFO] number of examples: 16105
+[2019-12-27 14:04:48,076 INFO] Validation perplexity: 1.31707
+[2019-12-27 14:04:48,076 INFO] Validation accuracy: 89.9631
+[2019-12-27 14:04:48,077 INFO] Saving checkpoint Models//SVO_NA/SVO_NA_model_step_325.pt
+[2019-12-27 14:04:48,862 INFO] Step 350/  400; acc:  90.60; ppl:  1.30; xent: 0.27; lr: 1.00000; 2169/2440 tok/s;     80 sec
+[2019-12-27 14:04:48,863 INFO] Loading dataset from Data/SVO_NA/prepro.valid.0.pt
+[2019-12-27 14:04:48,927 INFO] number of examples: 16105
+[2019-12-27 14:04:53,926 INFO] Validation perplexity: 1.25743
+[2019-12-27 14:04:53,926 INFO] Validation accuracy: 91.9397
+[2019-12-27 14:04:53,927 INFO] Saving checkpoint Models//SVO_NA/SVO_NA_model_step_350.pt
+[2019-12-27 14:04:54,689 INFO] Step 375/  400; acc:  97.15; ppl:  1.10; xent: 0.09; lr: 1.00000; 2197/2471 tok/s;     85 sec
+[2019-12-27 14:04:54,690 INFO] Loading dataset from Data/SVO_NA/prepro.valid.0.pt
+[2019-12-27 14:04:55,022 INFO] number of examples: 16105
+[2019-12-27 14:05:00,002 INFO] Validation perplexity: 1.00678
+[2019-12-27 14:05:00,002 INFO] Validation accuracy: 100
+[2019-12-27 14:05:00,003 INFO] Saving checkpoint Models//SVO_NA/SVO_NA_model_step_375.pt
+[2019-12-27 14:05:00,722 INFO] Step 400/  400; acc: 100.00; ppl:  1.00; xent: 0.00; lr: 1.00000; 2122/2387 tok/s;     91 sec
+[2019-12-27 14:05:00,722 INFO] Loading dataset from Data/SVO_NA/prepro.valid.0.pt
+[2019-12-27 14:05:00,787 INFO] number of examples: 16105
+[2019-12-27 14:05:05,866 INFO] Validation perplexity: 1.00133
+[2019-12-27 14:05:05,868 INFO] Validation accuracy: 100
+[2019-12-27 14:05:05,869 INFO] Saving checkpoint Models//SVO_NA/SVO_NA_model_step_400.pt
+[2019-12-27 14:05:07,746 INFO]  * src vocab size = 38
+[2019-12-27 14:05:07,748 INFO]  * tgt vocab size = 42
+[2019-12-27 14:05:07,748 INFO] Building model...
+[2019-12-27 14:05:11,817 INFO] NMTModel(
+  (encoder): RNNEncoder(
+    (embeddings): Embeddings(
+      (make_embedding): Sequential(
+        (emb_luts): Elementwise(
+          (0): Embedding(38, 500, padding_idx=1)
+        )
+      )
+    )
+    (rnn): LSTM(500, 500, num_layers=2, dropout=0.3)
+  )
+  (decoder): InputFeedRNNDecoder(
+    (embeddings): Embeddings(
+      (make_embedding): Sequential(
+        (emb_luts): Elementwise(
+          (0): Embedding(42, 500, padding_idx=1)
+        )
+      )
+    )
+    (dropout): Dropout(p=0.3, inplace=False)
+    (rnn): StackedLSTM(
+      (dropout): Dropout(p=0.3, inplace=False)
+      (layers): ModuleList(
+        (0): LSTMCell(1000, 500)
+        (1): LSTMCell(500, 500)
+      )
+    )
+    (attn): GlobalAttention(
+      (linear_in): Linear(in_features=500, out_features=500, bias=False)
+      (linear_out): Linear(in_features=1000, out_features=500, bias=False)
+    )
+  )
+  (generator): Sequential(
+    (0): Linear(in_features=500, out_features=42, bias=True)
+    (1): Cast()
+    (2): LogSoftmax()
+  )
+)
+[2019-12-27 14:05:11,817 INFO] encoder: 4027000
+[2019-12-27 14:05:11,817 INFO] decoder: 5800042
+[2019-12-27 14:05:11,817 INFO] * number of parameters: 9827042
+[2019-12-27 14:05:11,821 INFO] Starting training on GPU: [0]
+[2019-12-27 14:05:11,821 INFO] Start training loop and validate every 25 steps...
+[2019-12-27 14:05:11,821 INFO] Loading dataset from Data/SOV_AN/prepro.train.0.pt
+[2019-12-27 14:05:12,852 INFO] number of examples: 128841
+[2019-12-27 14:05:13,970 INFO] Step 25/  400; acc:  12.29; ppl: 119.10; xent: 4.78; lr: 1.00000; 5958/6702 tok/s;      2 sec
+[2019-12-27 14:05:13,970 INFO] Loading dataset from Data/SOV_AN/prepro.valid.0.pt
+[2019-12-27 14:05:14,305 INFO] number of examples: 16105
+[2019-12-27 14:05:19,292 INFO] Validation perplexity: 168.079
+[2019-12-27 14:05:19,293 INFO] Validation accuracy: 9.12553
+[2019-12-27 14:05:19,293 INFO] Saving checkpoint Models/SOV_AN/SOV_AN_model_step_25.pt
+[2019-12-27 14:05:20,081 INFO] Step 50/  400; acc:  14.56; ppl: 99.11; xent: 4.60; lr: 1.00000; 2094/2356 tok/s;      8 sec
+[2019-12-27 14:05:20,082 INFO] Loading dataset from Data/SOV_AN/prepro.valid.0.pt
+[2019-12-27 14:05:20,165 INFO] number of examples: 16105
+[2019-12-27 14:05:25,182 INFO] Validation perplexity: 17.1299
+[2019-12-27 14:05:25,182 INFO] Validation accuracy: 20.9859
+[2019-12-27 14:05:25,183 INFO] Saving checkpoint Models/SOV_AN/SOV_AN_model_step_50.pt
+[2019-12-27 14:05:25,878 INFO] Step 75/  400; acc:  19.12; ppl: 133.69; xent: 4.90; lr: 1.00000; 2208/2485 tok/s;     14 sec
+[2019-12-27 14:05:25,878 INFO] Loading dataset from Data/SOV_AN/prepro.valid.0.pt
+[2019-12-27 14:05:26,222 INFO] number of examples: 16105
+[2019-12-27 14:05:32,249 INFO] Validation perplexity: 165.699
+[2019-12-27 14:05:32,249 INFO] Validation accuracy: 13.1201
+[2019-12-27 14:05:32,250 INFO] Saving checkpoint Models/SOV_AN/SOV_AN_model_step_75.pt
+[2019-12-27 14:05:32,936 INFO] Step 100/  400; acc:  22.83; ppl: 30.48; xent: 3.42; lr: 1.00000; 1751/1970 tok/s;     21 sec
+[2019-12-27 14:05:32,937 INFO] Loading dataset from Data/SOV_AN/prepro.valid.0.pt
+[2019-12-27 14:05:33,000 INFO] number of examples: 16105
+[2019-12-27 14:05:38,016 INFO] Validation perplexity: 17.8925
+[2019-12-27 14:05:38,017 INFO] Validation accuracy: 32.2433
+[2019-12-27 14:05:38,017 INFO] Saving checkpoint Models/SOV_AN/SOV_AN_model_step_100.pt
+[2019-12-27 14:05:38,863 INFO] Step 125/  400; acc:  37.66; ppl:  9.26; xent: 2.23; lr: 1.00000; 2160/2430 tok/s;     27 sec
+[2019-12-27 14:05:38,863 INFO] Loading dataset from Data/SOV_AN/prepro.valid.0.pt
+[2019-12-27 14:05:39,222 INFO] number of examples: 16105
+[2019-12-27 14:05:44,146 INFO] Validation perplexity: 6.19416
+[2019-12-27 14:05:44,146 INFO] Validation accuracy: 36.6215
+[2019-12-27 14:05:44,147 INFO] Saving checkpoint Models/SOV_AN/SOV_AN_model_step_125.pt
+[2019-12-27 14:05:44,883 INFO] Step 150/  400; acc:  41.71; ppl:  6.25; xent: 1.83; lr: 1.00000; 2126/2392 tok/s;     33 sec
+[2019-12-27 14:05:44,883 INFO] Loading dataset from Data/SOV_AN/prepro.valid.0.pt
+[2019-12-27 14:05:44,947 INFO] number of examples: 16105
+[2019-12-27 14:05:49,946 INFO] Validation perplexity: 5.56212
+[2019-12-27 14:05:49,946 INFO] Validation accuracy: 43.9863
+[2019-12-27 14:05:49,947 INFO] Saving checkpoint Models/SOV_AN/SOV_AN_model_step_150.pt
+[2019-12-27 14:05:50,672 INFO] Step 175/  400; acc:  44.58; ppl:  5.10; xent: 1.63; lr: 1.00000; 2211/2488 tok/s;     39 sec
+[2019-12-27 14:05:50,672 INFO] Loading dataset from Data/SOV_AN/prepro.valid.0.pt
+[2019-12-27 14:05:50,736 INFO] number of examples: 16105
+[2019-12-27 14:05:55,800 INFO] Validation perplexity: 3.6618
+[2019-12-27 14:05:55,800 INFO] Validation accuracy: 52.66
+[2019-12-27 14:05:55,801 INFO] Saving checkpoint Models/SOV_AN/SOV_AN_model_step_175.pt
+[2019-12-27 14:05:56,513 INFO] Step 200/  400; acc:  50.31; ppl:  4.51; xent: 1.51; lr: 1.00000; 2191/2465 tok/s;     45 sec
+[2019-12-27 14:05:56,514 INFO] Loading dataset from Data/SOV_AN/prepro.valid.0.pt
+[2019-12-27 14:05:56,849 INFO] number of examples: 16105
+[2019-12-27 14:06:01,835 INFO] Validation perplexity: 3.98203
+[2019-12-27 14:06:01,835 INFO] Validation accuracy: 48.2045
+[2019-12-27 14:06:01,836 INFO] Saving checkpoint Models/SOV_AN/SOV_AN_model_step_200.pt
+[2019-12-27 14:06:02,527 INFO] Step 225/  400; acc:  63.85; ppl:  2.90; xent: 1.07; lr: 1.00000; 2128/2394 tok/s;     51 sec
+[2019-12-27 14:06:02,528 INFO] Loading dataset from Data/SOV_AN/prepro.valid.0.pt
+[2019-12-27 14:06:02,591 INFO] number of examples: 16105
+[2019-12-27 14:06:07,527 INFO] Validation perplexity: 1.62107
+[2019-12-27 14:06:07,527 INFO] Validation accuracy: 81.2729
+[2019-12-27 14:06:07,528 INFO] Saving checkpoint Models/SOV_AN/SOV_AN_model_step_225.pt
+[2019-12-27 14:06:08,229 INFO] Step 250/  400; acc:  83.63; ppl:  1.54; xent: 0.43; lr: 1.00000; 2245/2526 tok/s;     56 sec
+[2019-12-27 14:06:08,230 INFO] Loading dataset from Data/SOV_AN/prepro.valid.0.pt
+[2019-12-27 14:06:08,571 INFO] number of examples: 16105
+[2019-12-27 14:06:13,637 INFO] Validation perplexity: 1.45183
+[2019-12-27 14:06:13,637 INFO] Validation accuracy: 85.2013
+[2019-12-27 14:06:13,638 INFO] Saving checkpoint Models/SOV_AN/SOV_AN_model_step_250.pt
+[2019-12-27 14:06:14,348 INFO] Step 275/  400; acc:  90.83; ppl:  1.33; xent: 0.29; lr: 1.00000; 2092/2353 tok/s;     63 sec
+[2019-12-27 14:06:14,349 INFO] Loading dataset from Data/SOV_AN/prepro.valid.0.pt
+[2019-12-27 14:06:14,415 INFO] number of examples: 16105
+[2019-12-27 14:06:19,383 INFO] Validation perplexity: 1.0336
+[2019-12-27 14:06:19,384 INFO] Validation accuracy: 99.7302
+[2019-12-27 14:06:19,384 INFO] Saving checkpoint Models/SOV_AN/SOV_AN_model_step_275.pt
+[2019-12-27 14:06:20,085 INFO] Step 300/  400; acc:  99.97; ppl:  1.01; xent: 0.01; lr: 1.00000; 2231/2510 tok/s;     68 sec
+[2019-12-27 14:06:20,086 INFO] Loading dataset from Data/SOV_AN/prepro.valid.0.pt
+[2019-12-27 14:06:20,457 INFO] number of examples: 16105
+[2019-12-27 14:06:25,498 INFO] Validation perplexity: 1.00272
+[2019-12-27 14:06:25,498 INFO] Validation accuracy: 100
+[2019-12-27 14:06:25,499 INFO] Saving checkpoint Models/SOV_AN/SOV_AN_model_step_300.pt
+[2019-12-27 14:06:26,216 INFO] Step 325/  400; acc: 100.00; ppl:  1.00; xent: 0.00; lr: 1.00000; 2088/2349 tok/s;     74 sec
+[2019-12-27 14:06:26,216 INFO] Loading dataset from Data/SOV_AN/prepro.valid.0.pt
+[2019-12-27 14:06:26,280 INFO] number of examples: 16105
+[2019-12-27 14:06:31,175 INFO] Validation perplexity: 1.00118
+[2019-12-27 14:06:31,175 INFO] Validation accuracy: 100
+[2019-12-27 14:06:31,176 INFO] Saving checkpoint Models/SOV_AN/SOV_AN_model_step_325.pt
+[2019-12-27 14:06:31,857 INFO] Step 350/  400; acc: 100.00; ppl:  1.00; xent: 0.00; lr: 1.00000; 2269/2553 tok/s;     80 sec
+[2019-12-27 14:06:31,857 INFO] Loading dataset from Data/SOV_AN/prepro.valid.0.pt
+[2019-12-27 14:06:31,921 INFO] number of examples: 16105
+[2019-12-27 14:06:36,974 INFO] Validation perplexity: 1.0007
+[2019-12-27 14:06:36,975 INFO] Validation accuracy: 100
+[2019-12-27 14:06:36,975 INFO] Saving checkpoint Models/SOV_AN/SOV_AN_model_step_350.pt
+[2019-12-27 14:06:37,702 INFO] Step 375/  400; acc: 100.00; ppl:  1.00; xent: 0.00; lr: 1.00000; 2190/2464 tok/s;     86 sec
+[2019-12-27 14:06:37,702 INFO] Loading dataset from Data/SOV_AN/prepro.valid.0.pt
+[2019-12-27 14:06:38,032 INFO] number of examples: 16105
+[2019-12-27 14:06:43,071 INFO] Validation perplexity: 1.00048
+[2019-12-27 14:06:43,071 INFO] Validation accuracy: 100
+[2019-12-27 14:06:43,072 INFO] Saving checkpoint Models/SOV_AN/SOV_AN_model_step_375.pt
+[2019-12-27 14:06:43,759 INFO] Step 400/  400; acc: 100.00; ppl:  1.00; xent: 0.00; lr: 1.00000; 2113/2377 tok/s;     92 sec
+[2019-12-27 14:06:43,760 INFO] Loading dataset from Data/SOV_AN/prepro.valid.0.pt
+[2019-12-27 14:06:43,823 INFO] number of examples: 16105
+[2019-12-27 14:06:48,717 INFO] Validation perplexity: 1.00036
+[2019-12-27 14:06:48,717 INFO] Validation accuracy: 100
+[2019-12-27 14:06:48,718 INFO] Saving checkpoint Models/SOV_AN/SOV_AN_model_step_400.pt
+[2019-12-27 14:06:50,653 INFO]  * src vocab size = 38
+[2019-12-27 14:06:50,655 INFO]  * tgt vocab size = 42
+[2019-12-27 14:06:50,655 INFO] Building model...
+[2019-12-27 14:06:54,683 INFO] NMTModel(
+  (encoder): RNNEncoder(
+    (embeddings): Embeddings(
+      (make_embedding): Sequential(
+        (emb_luts): Elementwise(
+          (0): Embedding(38, 500, padding_idx=1)
+        )
+      )
+    )
+    (rnn): LSTM(500, 500, num_layers=2, dropout=0.3)
+  )
+  (decoder): InputFeedRNNDecoder(
+    (embeddings): Embeddings(
+      (make_embedding): Sequential(
+        (emb_luts): Elementwise(
+          (0): Embedding(42, 500, padding_idx=1)
+        )
+      )
+    )
+    (dropout): Dropout(p=0.3, inplace=False)
+    (rnn): StackedLSTM(
+      (dropout): Dropout(p=0.3, inplace=False)
+      (layers): ModuleList(
+        (0): LSTMCell(1000, 500)
+        (1): LSTMCell(500, 500)
+      )
+    )
+    (attn): GlobalAttention(
+      (linear_in): Linear(in_features=500, out_features=500, bias=False)
+      (linear_out): Linear(in_features=1000, out_features=500, bias=False)
+    )
+  )
+  (generator): Sequential(
+    (0): Linear(in_features=500, out_features=42, bias=True)
+    (1): Cast()
+    (2): LogSoftmax()
+  )
+)
+[2019-12-27 14:06:54,684 INFO] encoder: 4027000
+[2019-12-27 14:06:54,684 INFO] decoder: 5800042
+[2019-12-27 14:06:54,684 INFO] * number of parameters: 9827042
+[2019-12-27 14:06:54,688 INFO] Starting training on GPU: [0]
+[2019-12-27 14:06:54,688 INFO] Start training loop and validate every 25 steps...
+[2019-12-27 14:06:54,688 INFO] Loading dataset from Data/SOV_NA/prepro.train.0.pt
+[2019-12-27 14:06:55,711 INFO] number of examples: 128841
+[2019-12-27 14:06:56,888 INFO] Step 25/  400; acc:  12.14; ppl: 180.87; xent: 5.20; lr: 1.00000; 5817/6545 tok/s;      2 sec
+[2019-12-27 14:06:56,889 INFO] Loading dataset from Data/SOV_NA/prepro.valid.0.pt
+[2019-12-27 14:06:57,219 INFO] number of examples: 16105
+[2019-12-27 14:07:02,309 INFO] Validation perplexity: 43467.1
+[2019-12-27 14:07:02,310 INFO] Validation accuracy: 10.1432
+[2019-12-27 14:07:02,310 INFO] Saving checkpoint Models/SOV_NA/SOV_NA_model_step_25.pt
+[2019-12-27 14:07:03,014 INFO] Step 50/  400; acc:  13.60; ppl: 613.44; xent: 6.42; lr: 1.00000; 2090/2351 tok/s;      8 sec
+[2019-12-27 14:07:03,015 INFO] Loading dataset from Data/SOV_NA/prepro.valid.0.pt
+[2019-12-27 14:07:03,091 INFO] number of examples: 16105
+[2019-12-27 14:07:08,166 INFO] Validation perplexity: 69.0246
+[2019-12-27 14:07:08,166 INFO] Validation accuracy: 10.4557
+[2019-12-27 14:07:08,167 INFO] Saving checkpoint Models/SOV_NA/SOV_NA_model_step_50.pt
+[2019-12-27 14:07:08,875 INFO] Step 75/  400; acc:  18.52; ppl: 65.46; xent: 4.18; lr: 1.00000; 2184/2457 tok/s;     14 sec
+[2019-12-27 14:07:08,875 INFO] Loading dataset from Data/SOV_NA/prepro.valid.0.pt
+[2019-12-27 14:07:09,213 INFO] number of examples: 16105
+[2019-12-27 14:07:14,263 INFO] Validation perplexity: 73.0028
+[2019-12-27 14:07:14,263 INFO] Validation accuracy: 11.1111
+[2019-12-27 14:07:14,264 INFO] Saving checkpoint Models/SOV_NA/SOV_NA_model_step_75.pt
+[2019-12-27 14:07:14,943 INFO] Step 100/  400; acc:  26.82; ppl: 22.75; xent: 3.12; lr: 1.00000; 2110/2373 tok/s;     20 sec
+[2019-12-27 14:07:14,943 INFO] Loading dataset from Data/SOV_NA/prepro.valid.0.pt
+[2019-12-27 14:07:15,007 INFO] number of examples: 16105
+[2019-12-27 14:07:20,015 INFO] Validation perplexity: 9.48118
+[2019-12-27 14:07:20,016 INFO] Validation accuracy: 31.1221
+[2019-12-27 14:07:20,016 INFO] Saving checkpoint Models/SOV_NA/SOV_NA_model_step_100.pt
+[2019-12-27 14:07:20,691 INFO] Step 125/  400; acc:  36.91; ppl:  8.61; xent: 2.15; lr: 1.00000; 2227/2505 tok/s;     26 sec
+[2019-12-27 14:07:20,691 INFO] Loading dataset from Data/SOV_NA/prepro.valid.0.pt
+[2019-12-27 14:07:21,043 INFO] number of examples: 16105
+[2019-12-27 14:07:26,089 INFO] Validation perplexity: 5.68584
+[2019-12-27 14:07:26,089 INFO] Validation accuracy: 43.5883
+[2019-12-27 14:07:26,090 INFO] Saving checkpoint Models/SOV_NA/SOV_NA_model_step_125.pt
+[2019-12-27 14:07:26,771 INFO] Step 150/  400; acc:  42.61; ppl:  4.87; xent: 1.58; lr: 1.00000; 2105/2369 tok/s;     32 sec
+[2019-12-27 14:07:26,771 INFO] Loading dataset from Data/SOV_NA/prepro.valid.0.pt
+[2019-12-27 14:07:26,835 INFO] number of examples: 16105
+[2019-12-27 14:07:31,892 INFO] Validation perplexity: 4.18548
+[2019-12-27 14:07:31,892 INFO] Validation accuracy: 45.6001
+[2019-12-27 14:07:31,893 INFO] Saving checkpoint Models/SOV_NA/SOV_NA_model_step_150.pt
+[2019-12-27 14:07:32,603 INFO] Step 175/  400; acc:  45.41; ppl:  4.07; xent: 1.40; lr: 1.00000; 2195/2469 tok/s;     38 sec
+[2019-12-27 14:07:32,604 INFO] Loading dataset from Data/SOV_NA/prepro.valid.0.pt
+[2019-12-27 14:07:32,669 INFO] number of examples: 16105
+[2019-12-27 14:07:37,697 INFO] Validation perplexity: 3.94819
+[2019-12-27 14:07:37,697 INFO] Validation accuracy: 45.4414
+[2019-12-27 14:07:37,698 INFO] Saving checkpoint Models/SOV_NA/SOV_NA_model_step_175.pt
+[2019-12-27 14:07:38,389 INFO] Step 200/  400; acc:  45.09; ppl:  3.97; xent: 1.38; lr: 1.00000; 2212/2489 tok/s;     44 sec
+[2019-12-27 14:07:38,390 INFO] Loading dataset from Data/SOV_NA/prepro.valid.0.pt
+[2019-12-27 14:07:38,725 INFO] number of examples: 16105
+[2019-12-27 14:07:43,777 INFO] Validation perplexity: 3.98336
+[2019-12-27 14:07:43,777 INFO] Validation accuracy: 45.5897
+[2019-12-27 14:07:43,778 INFO] Saving checkpoint Models/SOV_NA/SOV_NA_model_step_200.pt
+[2019-12-27 14:07:44,460 INFO] Step 225/  400; acc:  45.33; ppl:  3.94; xent: 1.37; lr: 1.00000; 2109/2372 tok/s;     50 sec
+[2019-12-27 14:07:44,461 INFO] Loading dataset from Data/SOV_NA/prepro.valid.0.pt
+[2019-12-27 14:07:44,524 INFO] number of examples: 16105
+[2019-12-27 14:07:49,559 INFO] Validation perplexity: 3.8172
+[2019-12-27 14:07:49,560 INFO] Validation accuracy: 48.0161
+[2019-12-27 14:07:49,560 INFO] Saving checkpoint Models/SOV_NA/SOV_NA_model_step_225.pt
+[2019-12-27 14:07:50,267 INFO] Step 250/  400; acc:  46.12; ppl:  4.23; xent: 1.44; lr: 1.00000; 2204/2480 tok/s;     56 sec
+[2019-12-27 14:07:50,267 INFO] Loading dataset from Data/SOV_NA/prepro.valid.0.pt
+[2019-12-27 14:07:50,618 INFO] number of examples: 16105
+[2019-12-27 14:07:55,666 INFO] Validation perplexity: 3.95304
+[2019-12-27 14:07:55,666 INFO] Validation accuracy: 50.9807
+[2019-12-27 14:07:55,667 INFO] Saving checkpoint Models/SOV_NA/SOV_NA_model_step_250.pt
+[2019-12-27 14:07:56,363 INFO] Step 275/  400; acc:  47.26; ppl:  4.72; xent: 1.55; lr: 1.00000; 2100/2362 tok/s;     62 sec
+[2019-12-27 14:07:56,363 INFO] Loading dataset from Data/SOV_NA/prepro.valid.0.pt
+[2019-12-27 14:07:56,427 INFO] number of examples: 16105
+[2019-12-27 14:08:01,402 INFO] Validation perplexity: 3.84142
+[2019-12-27 14:08:01,402 INFO] Validation accuracy: 45.7477
+[2019-12-27 14:08:01,403 INFO] Saving checkpoint Models/SOV_NA/SOV_NA_model_step_275.pt
+[2019-12-27 14:08:02,085 INFO] Step 300/  400; acc:  53.14; ppl:  4.09; xent: 1.41; lr: 1.00000; 2237/2517 tok/s;     67 sec
+[2019-12-27 14:08:02,085 INFO] Loading dataset from Data/SOV_NA/prepro.valid.0.pt
+[2019-12-27 14:08:02,436 INFO] number of examples: 16105
+[2019-12-27 14:08:07,573 INFO] Validation perplexity: 2.41031
+[2019-12-27 14:08:07,573 INFO] Validation accuracy: 68.7951
+[2019-12-27 14:08:07,574 INFO] Saving checkpoint Models/SOV_NA/SOV_NA_model_step_300.pt
+[2019-12-27 14:08:08,317 INFO] Step 325/  400; acc:  69.92; ppl:  2.57; xent: 0.94; lr: 1.00000; 2054/2311 tok/s;     74 sec
+[2019-12-27 14:08:08,317 INFO] Loading dataset from Data/SOV_NA/prepro.valid.0.pt
+[2019-12-27 14:08:08,381 INFO] number of examples: 16105
+[2019-12-27 14:08:13,416 INFO] Validation perplexity: 2.68507
+[2019-12-27 14:08:13,417 INFO] Validation accuracy: 69.9465
+[2019-12-27 14:08:13,418 INFO] Saving checkpoint Models/SOV_NA/SOV_NA_model_step_325.pt
+[2019-12-27 14:08:14,132 INFO] Step 350/  400; acc:  81.85; ppl:  1.81; xent: 0.59; lr: 1.00000; 2202/2477 tok/s;     79 sec
+[2019-12-27 14:08:14,132 INFO] Loading dataset from Data/SOV_NA/prepro.valid.0.pt
+[2019-12-27 14:08:14,198 INFO] number of examples: 16105
+[2019-12-27 14:08:19,251 INFO] Validation perplexity: 1.31469
+[2019-12-27 14:08:19,251 INFO] Validation accuracy: 90.2184
+[2019-12-27 14:08:19,252 INFO] Saving checkpoint Models/SOV_NA/SOV_NA_model_step_350.pt
+[2019-12-27 14:08:19,930 INFO] Step 375/  400; acc:  91.76; ppl:  1.27; xent: 0.24; lr: 1.00000; 2208/2484 tok/s;     85 sec
+[2019-12-27 14:08:19,930 INFO] Loading dataset from Data/SOV_NA/prepro.valid.0.pt
+[2019-12-27 14:08:20,258 INFO] number of examples: 16105
+[2019-12-27 14:08:25,273 INFO] Validation perplexity: 1.17528
+[2019-12-27 14:08:25,274 INFO] Validation accuracy: 95.7777
+[2019-12-27 14:08:25,274 INFO] Saving checkpoint Models/SOV_NA/SOV_NA_model_step_375.pt
+[2019-12-27 14:08:25,945 INFO] Step 400/  400; acc:  94.53; ppl:  1.22; xent: 0.20; lr: 1.00000; 2128/2394 tok/s;     91 sec
+[2019-12-27 14:08:25,945 INFO] Loading dataset from Data/SOV_NA/prepro.valid.0.pt
+[2019-12-27 14:08:26,009 INFO] number of examples: 16105
+[2019-12-27 14:08:31,125 INFO] Validation perplexity: 1.00668
+[2019-12-27 14:08:31,125 INFO] Validation accuracy: 99.9979
+[2019-12-27 14:08:31,126 INFO] Saving checkpoint Models/SOV_NA/SOV_NA_model_step_400.pt
+Models/SVO_AN/SVO_AN_model_step_25.pt
+[2019-12-27 14:08:33,203 INFO] Translating shard 0.
+[2019-12-27 14:13:21,943 INFO] Translating shard 1.
+PRED AVG SCORE: -0.8036, PRED PPL: 2.2335
+PRED AVG SCORE: -0.8036, PRED PPL: 2.2336
+Models/SVO_AN/SVO_AN_model_step_50.pt
+[2019-12-27 14:16:17,712 INFO] Translating shard 0.
+[2019-12-27 14:16:36,880 INFO] Translating shard 1.
+PRED AVG SCORE: -1.5289, PRED PPL: 4.6132
+PRED AVG SCORE: -1.5282, PRED PPL: 4.6097
+Models/SVO_AN/SVO_AN_model_step_75.pt
+[2019-12-27 14:16:49,961 INFO] Translating shard 0.
+[2019-12-27 14:17:14,108 INFO] Translating shard 1.
+PRED AVG SCORE: -2.1695, PRED PPL: 8.7543
+PRED AVG SCORE: -2.1709, PRED PPL: 8.7665
+Models/SVO_AN/SVO_AN_model_step_100.pt
+[2019-12-27 14:17:30,970 INFO] Translating shard 0.
+[2019-12-27 14:17:50,459 INFO] Translating shard 1.
+PRED AVG SCORE: -2.6876, PRED PPL: 14.6967
+PRED AVG SCORE: -2.6880, PRED PPL: 14.7021
+Models/SVO_AN/SVO_AN_model_step_125.pt
+[2019-12-27 14:18:03,767 INFO] Translating shard 0.
+[2019-12-27 14:18:33,813 INFO] Translating shard 1.
+PRED AVG SCORE: -1.1877, PRED PPL: 3.2794
+PRED AVG SCORE: -1.1876, PRED PPL: 3.2793
+Models/SVO_AN/SVO_AN_model_step_150.pt
+[2019-12-27 14:18:54,070 INFO] Translating shard 0.
+[2019-12-27 14:19:28,222 INFO] Translating shard 1.
+PRED AVG SCORE: -1.3281, PRED PPL: 3.7737
+PRED AVG SCORE: -1.3281, PRED PPL: 3.7737
+Models/SVO_AN/SVO_AN_model_step_175.pt
+[2019-12-27 14:19:47,731 INFO] Translating shard 0.
+[2019-12-27 14:20:18,241 INFO] Translating shard 1.
+PRED AVG SCORE: -1.1107, PRED PPL: 3.0364
+PRED AVG SCORE: -1.1110, PRED PPL: 3.0374
+Models/SVO_AN/SVO_AN_model_step_200.pt
+[2019-12-27 14:20:38,236 INFO] Translating shard 0.
+[2019-12-27 14:21:08,333 INFO] Translating shard 1.
+PRED AVG SCORE: -1.1380, PRED PPL: 3.1204
+PRED AVG SCORE: -1.1379, PRED PPL: 3.1201
+Models/SVO_AN/SVO_AN_model_step_225.pt
+[2019-12-27 14:21:28,592 INFO] Translating shard 0.
+[2019-12-27 14:21:58,344 INFO] Translating shard 1.
+PRED AVG SCORE: -0.9936, PRED PPL: 2.7008
+PRED AVG SCORE: -0.9937, PRED PPL: 2.7012
+Models/SVO_AN/SVO_AN_model_step_250.pt
+[2019-12-27 14:22:18,779 INFO] Translating shard 0.
+[2019-12-27 14:22:50,425 INFO] Translating shard 1.
+PRED AVG SCORE: -0.9155, PRED PPL: 2.4980
+PRED AVG SCORE: -0.9158, PRED PPL: 2.4988
+Models/SVO_AN/SVO_AN_model_step_275.pt
+[2019-12-27 14:23:11,560 INFO] Translating shard 0.
+[2019-12-27 14:23:42,895 INFO] Translating shard 1.
+PRED AVG SCORE: -0.5705, PRED PPL: 1.7691
+PRED AVG SCORE: -0.5702, PRED PPL: 1.7686
+Models/SVO_AN/SVO_AN_model_step_300.pt
+[2019-12-27 14:24:04,385 INFO] Translating shard 0.
+[2019-12-27 14:24:40,985 INFO] Translating shard 1.
+PRED AVG SCORE: -0.2734, PRED PPL: 1.3144
+PRED AVG SCORE: -0.2735, PRED PPL: 1.3146
+Models/SVO_AN/SVO_AN_model_step_325.pt
+[2019-12-27 14:25:02,030 INFO] Translating shard 0.
+[2019-12-27 14:25:32,679 INFO] Translating shard 1.
+PRED AVG SCORE: -0.0123, PRED PPL: 1.0124
+PRED AVG SCORE: -0.0127, PRED PPL: 1.0128
+Models/SVO_AN/SVO_AN_model_step_350.pt
+[2019-12-27 14:25:53,516 INFO] Translating shard 0.
+[2019-12-27 14:26:24,158 INFO] Translating shard 1.
+PRED AVG SCORE: -0.0020, PRED PPL: 1.0020
+PRED AVG SCORE: -0.0021, PRED PPL: 1.0021
+Models/SVO_AN/SVO_AN_model_step_375.pt
+[2019-12-27 14:26:44,810 INFO] Translating shard 0.
+[2019-12-27 14:27:15,751 INFO] Translating shard 1.
+PRED AVG SCORE: -0.0010, PRED PPL: 1.0010
+PRED AVG SCORE: -0.0010, PRED PPL: 1.0010
+Models/SVO_AN/SVO_AN_model_step_400.pt
+[2019-12-27 14:27:36,487 INFO] Translating shard 0.
+[2019-12-27 14:28:10,739 INFO] Translating shard 1.
+PRED AVG SCORE: -0.0007, PRED PPL: 1.0007
+PRED AVG SCORE: -0.0007, PRED PPL: 1.0007
+Models/SVO_NA/SVO_AN_model_step_25.pt
+Traceback (most recent call last):
+  File "/home/s2964007/Thesis/VirtualEnv/bin/onmt_translate", line 8, in <module>
+    sys.exit(main())
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 49, in main
+    translate(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 19, in translate
+    translator = build_translator(opt, report_score=True)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/translate/translator.py", line 28, in build_translator
+    fields, model, model_opt = load_test_model(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/model_builder.py", line 95, in load_test_model
+    map_location=lambda storage, loc: storage)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/torch/serialization.py", line 419, in load
+    f = open(f, 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: 'Models/SVO_NA/SVO_AN_model_step_25.pt'
+Models/SVO_NA/SVO_AN_model_step_50.pt
+Traceback (most recent call last):
+  File "/home/s2964007/Thesis/VirtualEnv/bin/onmt_translate", line 8, in <module>
+    sys.exit(main())
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 49, in main
+    translate(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 19, in translate
+    translator = build_translator(opt, report_score=True)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/translate/translator.py", line 28, in build_translator
+    fields, model, model_opt = load_test_model(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/model_builder.py", line 95, in load_test_model
+    map_location=lambda storage, loc: storage)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/torch/serialization.py", line 419, in load
+    f = open(f, 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: 'Models/SVO_NA/SVO_AN_model_step_50.pt'
+Models/SVO_NA/SVO_AN_model_step_75.pt
+Traceback (most recent call last):
+  File "/home/s2964007/Thesis/VirtualEnv/bin/onmt_translate", line 8, in <module>
+    sys.exit(main())
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 49, in main
+    translate(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 19, in translate
+    translator = build_translator(opt, report_score=True)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/translate/translator.py", line 28, in build_translator
+    fields, model, model_opt = load_test_model(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/model_builder.py", line 95, in load_test_model
+    map_location=lambda storage, loc: storage)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/torch/serialization.py", line 419, in load
+    f = open(f, 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: 'Models/SVO_NA/SVO_AN_model_step_75.pt'
+Models/SVO_NA/SVO_AN_model_step_100.pt
+Traceback (most recent call last):
+  File "/home/s2964007/Thesis/VirtualEnv/bin/onmt_translate", line 8, in <module>
+    sys.exit(main())
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 49, in main
+    translate(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 19, in translate
+    translator = build_translator(opt, report_score=True)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/translate/translator.py", line 28, in build_translator
+    fields, model, model_opt = load_test_model(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/model_builder.py", line 95, in load_test_model
+    map_location=lambda storage, loc: storage)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/torch/serialization.py", line 419, in load
+    f = open(f, 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: 'Models/SVO_NA/SVO_AN_model_step_100.pt'
+Models/SVO_NA/SVO_AN_model_step_125.pt
+Traceback (most recent call last):
+  File "/home/s2964007/Thesis/VirtualEnv/bin/onmt_translate", line 8, in <module>
+    sys.exit(main())
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 49, in main
+    translate(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 19, in translate
+    translator = build_translator(opt, report_score=True)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/translate/translator.py", line 28, in build_translator
+    fields, model, model_opt = load_test_model(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/model_builder.py", line 95, in load_test_model
+    map_location=lambda storage, loc: storage)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/torch/serialization.py", line 419, in load
+    f = open(f, 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: 'Models/SVO_NA/SVO_AN_model_step_125.pt'
+Models/SVO_NA/SVO_AN_model_step_150.pt
+Traceback (most recent call last):
+  File "/home/s2964007/Thesis/VirtualEnv/bin/onmt_translate", line 8, in <module>
+    sys.exit(main())
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 49, in main
+    translate(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 19, in translate
+    translator = build_translator(opt, report_score=True)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/translate/translator.py", line 28, in build_translator
+    fields, model, model_opt = load_test_model(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/model_builder.py", line 95, in load_test_model
+    map_location=lambda storage, loc: storage)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/torch/serialization.py", line 419, in load
+    f = open(f, 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: 'Models/SVO_NA/SVO_AN_model_step_150.pt'
+Models/SVO_NA/SVO_AN_model_step_175.pt
+Traceback (most recent call last):
+  File "/home/s2964007/Thesis/VirtualEnv/bin/onmt_translate", line 8, in <module>
+    sys.exit(main())
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 49, in main
+    translate(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 19, in translate
+    translator = build_translator(opt, report_score=True)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/translate/translator.py", line 28, in build_translator
+    fields, model, model_opt = load_test_model(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/model_builder.py", line 95, in load_test_model
+    map_location=lambda storage, loc: storage)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/torch/serialization.py", line 419, in load
+    f = open(f, 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: 'Models/SVO_NA/SVO_AN_model_step_175.pt'
+Models/SVO_NA/SVO_AN_model_step_200.pt
+Traceback (most recent call last):
+  File "/home/s2964007/Thesis/VirtualEnv/bin/onmt_translate", line 8, in <module>
+    sys.exit(main())
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 49, in main
+    translate(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 19, in translate
+    translator = build_translator(opt, report_score=True)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/translate/translator.py", line 28, in build_translator
+    fields, model, model_opt = load_test_model(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/model_builder.py", line 95, in load_test_model
+    map_location=lambda storage, loc: storage)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/torch/serialization.py", line 419, in load
+    f = open(f, 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: 'Models/SVO_NA/SVO_AN_model_step_200.pt'
+Models/SVO_NA/SVO_AN_model_step_225.pt
+Traceback (most recent call last):
+  File "/home/s2964007/Thesis/VirtualEnv/bin/onmt_translate", line 8, in <module>
+    sys.exit(main())
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 49, in main
+    translate(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 19, in translate
+    translator = build_translator(opt, report_score=True)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/translate/translator.py", line 28, in build_translator
+    fields, model, model_opt = load_test_model(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/model_builder.py", line 95, in load_test_model
+    map_location=lambda storage, loc: storage)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/torch/serialization.py", line 419, in load
+    f = open(f, 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: 'Models/SVO_NA/SVO_AN_model_step_225.pt'
+Models/SVO_NA/SVO_AN_model_step_250.pt
+Traceback (most recent call last):
+  File "/home/s2964007/Thesis/VirtualEnv/bin/onmt_translate", line 8, in <module>
+    sys.exit(main())
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 49, in main
+    translate(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 19, in translate
+    translator = build_translator(opt, report_score=True)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/translate/translator.py", line 28, in build_translator
+    fields, model, model_opt = load_test_model(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/model_builder.py", line 95, in load_test_model
+    map_location=lambda storage, loc: storage)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/torch/serialization.py", line 419, in load
+    f = open(f, 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: 'Models/SVO_NA/SVO_AN_model_step_250.pt'
+Models/SVO_NA/SVO_AN_model_step_275.pt
+Traceback (most recent call last):
+  File "/home/s2964007/Thesis/VirtualEnv/bin/onmt_translate", line 8, in <module>
+    sys.exit(main())
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 49, in main
+    translate(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 19, in translate
+    translator = build_translator(opt, report_score=True)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/translate/translator.py", line 28, in build_translator
+    fields, model, model_opt = load_test_model(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/model_builder.py", line 95, in load_test_model
+    map_location=lambda storage, loc: storage)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/torch/serialization.py", line 419, in load
+    f = open(f, 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: 'Models/SVO_NA/SVO_AN_model_step_275.pt'
+Models/SVO_NA/SVO_AN_model_step_300.pt
+Traceback (most recent call last):
+  File "/home/s2964007/Thesis/VirtualEnv/bin/onmt_translate", line 8, in <module>
+    sys.exit(main())
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 49, in main
+    translate(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 19, in translate
+    translator = build_translator(opt, report_score=True)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/translate/translator.py", line 28, in build_translator
+    fields, model, model_opt = load_test_model(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/model_builder.py", line 95, in load_test_model
+    map_location=lambda storage, loc: storage)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/torch/serialization.py", line 419, in load
+    f = open(f, 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: 'Models/SVO_NA/SVO_AN_model_step_300.pt'
+Models/SVO_NA/SVO_AN_model_step_325.pt
+Traceback (most recent call last):
+  File "/home/s2964007/Thesis/VirtualEnv/bin/onmt_translate", line 8, in <module>
+    sys.exit(main())
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 49, in main
+    translate(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 19, in translate
+    translator = build_translator(opt, report_score=True)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/translate/translator.py", line 28, in build_translator
+    fields, model, model_opt = load_test_model(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/model_builder.py", line 95, in load_test_model
+    map_location=lambda storage, loc: storage)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/torch/serialization.py", line 419, in load
+    f = open(f, 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: 'Models/SVO_NA/SVO_AN_model_step_325.pt'
+Models/SVO_NA/SVO_AN_model_step_350.pt
+Traceback (most recent call last):
+  File "/home/s2964007/Thesis/VirtualEnv/bin/onmt_translate", line 8, in <module>
+    sys.exit(main())
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 49, in main
+    translate(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 19, in translate
+    translator = build_translator(opt, report_score=True)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/translate/translator.py", line 28, in build_translator
+    fields, model, model_opt = load_test_model(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/model_builder.py", line 95, in load_test_model
+    map_location=lambda storage, loc: storage)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/torch/serialization.py", line 419, in load
+    f = open(f, 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: 'Models/SVO_NA/SVO_AN_model_step_350.pt'
+Models/SVO_NA/SVO_AN_model_step_375.pt
+Traceback (most recent call last):
+  File "/home/s2964007/Thesis/VirtualEnv/bin/onmt_translate", line 8, in <module>
+    sys.exit(main())
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 49, in main
+    translate(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 19, in translate
+    translator = build_translator(opt, report_score=True)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/translate/translator.py", line 28, in build_translator
+    fields, model, model_opt = load_test_model(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/model_builder.py", line 95, in load_test_model
+    map_location=lambda storage, loc: storage)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/torch/serialization.py", line 419, in load
+    f = open(f, 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: 'Models/SVO_NA/SVO_AN_model_step_375.pt'
+Models/SVO_NA/SVO_AN_model_step_400.pt
+Traceback (most recent call last):
+  File "/home/s2964007/Thesis/VirtualEnv/bin/onmt_translate", line 8, in <module>
+    sys.exit(main())
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 49, in main
+    translate(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 19, in translate
+    translator = build_translator(opt, report_score=True)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/translate/translator.py", line 28, in build_translator
+    fields, model, model_opt = load_test_model(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/model_builder.py", line 95, in load_test_model
+    map_location=lambda storage, loc: storage)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/torch/serialization.py", line 419, in load
+    f = open(f, 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: 'Models/SVO_NA/SVO_AN_model_step_400.pt'
+Models/SOV_AN/SVO_AN_model_step_25.pt
+Traceback (most recent call last):
+  File "/home/s2964007/Thesis/VirtualEnv/bin/onmt_translate", line 8, in <module>
+    sys.exit(main())
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 49, in main
+    translate(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 19, in translate
+    translator = build_translator(opt, report_score=True)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/translate/translator.py", line 28, in build_translator
+    fields, model, model_opt = load_test_model(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/model_builder.py", line 95, in load_test_model
+    map_location=lambda storage, loc: storage)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/torch/serialization.py", line 419, in load
+    f = open(f, 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: 'Models/SOV_AN/SVO_AN_model_step_25.pt'
+Models/SOV_AN/SVO_AN_model_step_50.pt
+Traceback (most recent call last):
+  File "/home/s2964007/Thesis/VirtualEnv/bin/onmt_translate", line 8, in <module>
+    sys.exit(main())
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 49, in main
+    translate(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 19, in translate
+    translator = build_translator(opt, report_score=True)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/translate/translator.py", line 28, in build_translator
+    fields, model, model_opt = load_test_model(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/model_builder.py", line 95, in load_test_model
+    map_location=lambda storage, loc: storage)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/torch/serialization.py", line 419, in load
+    f = open(f, 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: 'Models/SOV_AN/SVO_AN_model_step_50.pt'
+Models/SOV_AN/SVO_AN_model_step_75.pt
+Traceback (most recent call last):
+  File "/home/s2964007/Thesis/VirtualEnv/bin/onmt_translate", line 8, in <module>
+    sys.exit(main())
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 49, in main
+    translate(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 19, in translate
+    translator = build_translator(opt, report_score=True)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/translate/translator.py", line 28, in build_translator
+    fields, model, model_opt = load_test_model(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/model_builder.py", line 95, in load_test_model
+    map_location=lambda storage, loc: storage)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/torch/serialization.py", line 419, in load
+    f = open(f, 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: 'Models/SOV_AN/SVO_AN_model_step_75.pt'
+Models/SOV_AN/SVO_AN_model_step_100.pt
+Traceback (most recent call last):
+  File "/home/s2964007/Thesis/VirtualEnv/bin/onmt_translate", line 8, in <module>
+    sys.exit(main())
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 49, in main
+    translate(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 19, in translate
+    translator = build_translator(opt, report_score=True)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/translate/translator.py", line 28, in build_translator
+    fields, model, model_opt = load_test_model(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/model_builder.py", line 95, in load_test_model
+    map_location=lambda storage, loc: storage)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/torch/serialization.py", line 419, in load
+    f = open(f, 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: 'Models/SOV_AN/SVO_AN_model_step_100.pt'
+Models/SOV_AN/SVO_AN_model_step_125.pt
+Traceback (most recent call last):
+  File "/home/s2964007/Thesis/VirtualEnv/bin/onmt_translate", line 8, in <module>
+    sys.exit(main())
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 49, in main
+    translate(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 19, in translate
+    translator = build_translator(opt, report_score=True)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/translate/translator.py", line 28, in build_translator
+    fields, model, model_opt = load_test_model(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/model_builder.py", line 95, in load_test_model
+    map_location=lambda storage, loc: storage)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/torch/serialization.py", line 419, in load
+    f = open(f, 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: 'Models/SOV_AN/SVO_AN_model_step_125.pt'
+Models/SOV_AN/SVO_AN_model_step_150.pt
+Traceback (most recent call last):
+  File "/home/s2964007/Thesis/VirtualEnv/bin/onmt_translate", line 8, in <module>
+    sys.exit(main())
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 49, in main
+    translate(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 19, in translate
+    translator = build_translator(opt, report_score=True)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/translate/translator.py", line 28, in build_translator
+    fields, model, model_opt = load_test_model(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/model_builder.py", line 95, in load_test_model
+    map_location=lambda storage, loc: storage)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/torch/serialization.py", line 419, in load
+    f = open(f, 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: 'Models/SOV_AN/SVO_AN_model_step_150.pt'
+Models/SOV_AN/SVO_AN_model_step_175.pt
+Traceback (most recent call last):
+  File "/home/s2964007/Thesis/VirtualEnv/bin/onmt_translate", line 8, in <module>
+    sys.exit(main())
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 49, in main
+    translate(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 19, in translate
+    translator = build_translator(opt, report_score=True)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/translate/translator.py", line 28, in build_translator
+    fields, model, model_opt = load_test_model(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/model_builder.py", line 95, in load_test_model
+    map_location=lambda storage, loc: storage)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/torch/serialization.py", line 419, in load
+    f = open(f, 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: 'Models/SOV_AN/SVO_AN_model_step_175.pt'
+Models/SOV_AN/SVO_AN_model_step_200.pt
+Traceback (most recent call last):
+  File "/home/s2964007/Thesis/VirtualEnv/bin/onmt_translate", line 8, in <module>
+    sys.exit(main())
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 49, in main
+    translate(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 19, in translate
+    translator = build_translator(opt, report_score=True)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/translate/translator.py", line 28, in build_translator
+    fields, model, model_opt = load_test_model(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/model_builder.py", line 95, in load_test_model
+    map_location=lambda storage, loc: storage)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/torch/serialization.py", line 419, in load
+    f = open(f, 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: 'Models/SOV_AN/SVO_AN_model_step_200.pt'
+Models/SOV_AN/SVO_AN_model_step_225.pt
+Traceback (most recent call last):
+  File "/home/s2964007/Thesis/VirtualEnv/bin/onmt_translate", line 8, in <module>
+    sys.exit(main())
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 49, in main
+    translate(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 19, in translate
+    translator = build_translator(opt, report_score=True)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/translate/translator.py", line 28, in build_translator
+    fields, model, model_opt = load_test_model(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/model_builder.py", line 95, in load_test_model
+    map_location=lambda storage, loc: storage)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/torch/serialization.py", line 419, in load
+    f = open(f, 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: 'Models/SOV_AN/SVO_AN_model_step_225.pt'
+Models/SOV_AN/SVO_AN_model_step_250.pt
+Traceback (most recent call last):
+  File "/home/s2964007/Thesis/VirtualEnv/bin/onmt_translate", line 8, in <module>
+    sys.exit(main())
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 49, in main
+    translate(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 19, in translate
+    translator = build_translator(opt, report_score=True)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/translate/translator.py", line 28, in build_translator
+    fields, model, model_opt = load_test_model(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/model_builder.py", line 95, in load_test_model
+    map_location=lambda storage, loc: storage)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/torch/serialization.py", line 419, in load
+    f = open(f, 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: 'Models/SOV_AN/SVO_AN_model_step_250.pt'
+Models/SOV_AN/SVO_AN_model_step_275.pt
+Traceback (most recent call last):
+  File "/home/s2964007/Thesis/VirtualEnv/bin/onmt_translate", line 8, in <module>
+    sys.exit(main())
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 49, in main
+    translate(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 19, in translate
+    translator = build_translator(opt, report_score=True)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/translate/translator.py", line 28, in build_translator
+    fields, model, model_opt = load_test_model(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/model_builder.py", line 95, in load_test_model
+    map_location=lambda storage, loc: storage)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/torch/serialization.py", line 419, in load
+    f = open(f, 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: 'Models/SOV_AN/SVO_AN_model_step_275.pt'
+Models/SOV_AN/SVO_AN_model_step_300.pt
+Traceback (most recent call last):
+  File "/home/s2964007/Thesis/VirtualEnv/bin/onmt_translate", line 8, in <module>
+    sys.exit(main())
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 49, in main
+    translate(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 19, in translate
+    translator = build_translator(opt, report_score=True)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/translate/translator.py", line 28, in build_translator
+    fields, model, model_opt = load_test_model(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/model_builder.py", line 95, in load_test_model
+    map_location=lambda storage, loc: storage)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/torch/serialization.py", line 419, in load
+    f = open(f, 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: 'Models/SOV_AN/SVO_AN_model_step_300.pt'
+Models/SOV_AN/SVO_AN_model_step_325.pt
+Traceback (most recent call last):
+  File "/home/s2964007/Thesis/VirtualEnv/bin/onmt_translate", line 8, in <module>
+    sys.exit(main())
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 49, in main
+    translate(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 19, in translate
+    translator = build_translator(opt, report_score=True)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/translate/translator.py", line 28, in build_translator
+    fields, model, model_opt = load_test_model(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/model_builder.py", line 95, in load_test_model
+    map_location=lambda storage, loc: storage)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/torch/serialization.py", line 419, in load
+    f = open(f, 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: 'Models/SOV_AN/SVO_AN_model_step_325.pt'
+Models/SOV_AN/SVO_AN_model_step_350.pt
+Traceback (most recent call last):
+  File "/home/s2964007/Thesis/VirtualEnv/bin/onmt_translate", line 8, in <module>
+    sys.exit(main())
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 49, in main
+    translate(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 19, in translate
+    translator = build_translator(opt, report_score=True)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/translate/translator.py", line 28, in build_translator
+    fields, model, model_opt = load_test_model(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/model_builder.py", line 95, in load_test_model
+    map_location=lambda storage, loc: storage)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/torch/serialization.py", line 419, in load
+    f = open(f, 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: 'Models/SOV_AN/SVO_AN_model_step_350.pt'
+Models/SOV_AN/SVO_AN_model_step_375.pt
+Traceback (most recent call last):
+  File "/home/s2964007/Thesis/VirtualEnv/bin/onmt_translate", line 8, in <module>
+    sys.exit(main())
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 49, in main
+    translate(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 19, in translate
+    translator = build_translator(opt, report_score=True)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/translate/translator.py", line 28, in build_translator
+    fields, model, model_opt = load_test_model(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/model_builder.py", line 95, in load_test_model
+    map_location=lambda storage, loc: storage)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/torch/serialization.py", line 419, in load
+    f = open(f, 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: 'Models/SOV_AN/SVO_AN_model_step_375.pt'
+Models/SOV_AN/SVO_AN_model_step_400.pt
+Traceback (most recent call last):
+  File "/home/s2964007/Thesis/VirtualEnv/bin/onmt_translate", line 8, in <module>
+    sys.exit(main())
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 49, in main
+    translate(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 19, in translate
+    translator = build_translator(opt, report_score=True)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/translate/translator.py", line 28, in build_translator
+    fields, model, model_opt = load_test_model(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/model_builder.py", line 95, in load_test_model
+    map_location=lambda storage, loc: storage)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/torch/serialization.py", line 419, in load
+    f = open(f, 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: 'Models/SOV_AN/SVO_AN_model_step_400.pt'
+Models/SOV_NA/SVO_AN_model_step_25.pt
+Traceback (most recent call last):
+  File "/home/s2964007/Thesis/VirtualEnv/bin/onmt_translate", line 8, in <module>
+    sys.exit(main())
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 49, in main
+    translate(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 19, in translate
+    translator = build_translator(opt, report_score=True)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/translate/translator.py", line 28, in build_translator
+    fields, model, model_opt = load_test_model(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/model_builder.py", line 95, in load_test_model
+    map_location=lambda storage, loc: storage)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/torch/serialization.py", line 419, in load
+    f = open(f, 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: 'Models/SOV_NA/SVO_AN_model_step_25.pt'
+Models/SOV_NA/SVO_AN_model_step_50.pt
+Traceback (most recent call last):
+  File "/home/s2964007/Thesis/VirtualEnv/bin/onmt_translate", line 8, in <module>
+    sys.exit(main())
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 49, in main
+    translate(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 19, in translate
+    translator = build_translator(opt, report_score=True)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/translate/translator.py", line 28, in build_translator
+    fields, model, model_opt = load_test_model(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/model_builder.py", line 95, in load_test_model
+    map_location=lambda storage, loc: storage)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/torch/serialization.py", line 419, in load
+    f = open(f, 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: 'Models/SOV_NA/SVO_AN_model_step_50.pt'
+Models/SOV_NA/SVO_AN_model_step_75.pt
+Traceback (most recent call last):
+  File "/home/s2964007/Thesis/VirtualEnv/bin/onmt_translate", line 8, in <module>
+    sys.exit(main())
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 49, in main
+    translate(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 19, in translate
+    translator = build_translator(opt, report_score=True)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/translate/translator.py", line 28, in build_translator
+    fields, model, model_opt = load_test_model(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/model_builder.py", line 95, in load_test_model
+    map_location=lambda storage, loc: storage)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/torch/serialization.py", line 419, in load
+    f = open(f, 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: 'Models/SOV_NA/SVO_AN_model_step_75.pt'
+Models/SOV_NA/SVO_AN_model_step_100.pt
+Traceback (most recent call last):
+  File "/home/s2964007/Thesis/VirtualEnv/bin/onmt_translate", line 8, in <module>
+    sys.exit(main())
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 49, in main
+    translate(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 19, in translate
+    translator = build_translator(opt, report_score=True)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/translate/translator.py", line 28, in build_translator
+    fields, model, model_opt = load_test_model(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/model_builder.py", line 95, in load_test_model
+    map_location=lambda storage, loc: storage)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/torch/serialization.py", line 419, in load
+    f = open(f, 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: 'Models/SOV_NA/SVO_AN_model_step_100.pt'
+Models/SOV_NA/SVO_AN_model_step_125.pt
+Traceback (most recent call last):
+  File "/home/s2964007/Thesis/VirtualEnv/bin/onmt_translate", line 8, in <module>
+    sys.exit(main())
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 49, in main
+    translate(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 19, in translate
+    translator = build_translator(opt, report_score=True)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/translate/translator.py", line 28, in build_translator
+    fields, model, model_opt = load_test_model(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/model_builder.py", line 95, in load_test_model
+    map_location=lambda storage, loc: storage)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/torch/serialization.py", line 419, in load
+    f = open(f, 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: 'Models/SOV_NA/SVO_AN_model_step_125.pt'
+Models/SOV_NA/SVO_AN_model_step_150.pt
+Traceback (most recent call last):
+  File "/home/s2964007/Thesis/VirtualEnv/bin/onmt_translate", line 8, in <module>
+    sys.exit(main())
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 49, in main
+    translate(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 19, in translate
+    translator = build_translator(opt, report_score=True)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/translate/translator.py", line 28, in build_translator
+    fields, model, model_opt = load_test_model(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/model_builder.py", line 95, in load_test_model
+    map_location=lambda storage, loc: storage)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/torch/serialization.py", line 419, in load
+    f = open(f, 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: 'Models/SOV_NA/SVO_AN_model_step_150.pt'
+Models/SOV_NA/SVO_AN_model_step_175.pt
+Traceback (most recent call last):
+  File "/home/s2964007/Thesis/VirtualEnv/bin/onmt_translate", line 8, in <module>
+    sys.exit(main())
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 49, in main
+    translate(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 19, in translate
+    translator = build_translator(opt, report_score=True)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/translate/translator.py", line 28, in build_translator
+    fields, model, model_opt = load_test_model(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/model_builder.py", line 95, in load_test_model
+    map_location=lambda storage, loc: storage)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/torch/serialization.py", line 419, in load
+    f = open(f, 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: 'Models/SOV_NA/SVO_AN_model_step_175.pt'
+Models/SOV_NA/SVO_AN_model_step_200.pt
+Traceback (most recent call last):
+  File "/home/s2964007/Thesis/VirtualEnv/bin/onmt_translate", line 8, in <module>
+    sys.exit(main())
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 49, in main
+    translate(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 19, in translate
+    translator = build_translator(opt, report_score=True)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/translate/translator.py", line 28, in build_translator
+    fields, model, model_opt = load_test_model(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/model_builder.py", line 95, in load_test_model
+    map_location=lambda storage, loc: storage)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/torch/serialization.py", line 419, in load
+    f = open(f, 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: 'Models/SOV_NA/SVO_AN_model_step_200.pt'
+Models/SOV_NA/SVO_AN_model_step_225.pt
+Traceback (most recent call last):
+  File "/home/s2964007/Thesis/VirtualEnv/bin/onmt_translate", line 8, in <module>
+    sys.exit(main())
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 49, in main
+    translate(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 19, in translate
+    translator = build_translator(opt, report_score=True)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/translate/translator.py", line 28, in build_translator
+    fields, model, model_opt = load_test_model(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/model_builder.py", line 95, in load_test_model
+    map_location=lambda storage, loc: storage)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/torch/serialization.py", line 419, in load
+    f = open(f, 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: 'Models/SOV_NA/SVO_AN_model_step_225.pt'
+Models/SOV_NA/SVO_AN_model_step_250.pt
+Traceback (most recent call last):
+  File "/home/s2964007/Thesis/VirtualEnv/bin/onmt_translate", line 8, in <module>
+    sys.exit(main())
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 49, in main
+    translate(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 19, in translate
+    translator = build_translator(opt, report_score=True)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/translate/translator.py", line 28, in build_translator
+    fields, model, model_opt = load_test_model(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/model_builder.py", line 95, in load_test_model
+    map_location=lambda storage, loc: storage)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/torch/serialization.py", line 419, in load
+    f = open(f, 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: 'Models/SOV_NA/SVO_AN_model_step_250.pt'
+Models/SOV_NA/SVO_AN_model_step_275.pt
+Traceback (most recent call last):
+  File "/home/s2964007/Thesis/VirtualEnv/bin/onmt_translate", line 8, in <module>
+    sys.exit(main())
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 49, in main
+    translate(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 19, in translate
+    translator = build_translator(opt, report_score=True)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/translate/translator.py", line 28, in build_translator
+    fields, model, model_opt = load_test_model(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/model_builder.py", line 95, in load_test_model
+    map_location=lambda storage, loc: storage)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/torch/serialization.py", line 419, in load
+    f = open(f, 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: 'Models/SOV_NA/SVO_AN_model_step_275.pt'
+Models/SOV_NA/SVO_AN_model_step_300.pt
+Traceback (most recent call last):
+  File "/home/s2964007/Thesis/VirtualEnv/bin/onmt_translate", line 8, in <module>
+    sys.exit(main())
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 49, in main
+    translate(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 19, in translate
+    translator = build_translator(opt, report_score=True)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/translate/translator.py", line 28, in build_translator
+    fields, model, model_opt = load_test_model(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/model_builder.py", line 95, in load_test_model
+    map_location=lambda storage, loc: storage)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/torch/serialization.py", line 419, in load
+    f = open(f, 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: 'Models/SOV_NA/SVO_AN_model_step_300.pt'
+Models/SOV_NA/SVO_AN_model_step_325.pt
+Traceback (most recent call last):
+  File "/home/s2964007/Thesis/VirtualEnv/bin/onmt_translate", line 8, in <module>
+    sys.exit(main())
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 49, in main
+    translate(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 19, in translate
+    translator = build_translator(opt, report_score=True)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/translate/translator.py", line 28, in build_translator
+    fields, model, model_opt = load_test_model(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/model_builder.py", line 95, in load_test_model
+    map_location=lambda storage, loc: storage)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/torch/serialization.py", line 419, in load
+    f = open(f, 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: 'Models/SOV_NA/SVO_AN_model_step_325.pt'
+Models/SOV_NA/SVO_AN_model_step_350.pt
+Traceback (most recent call last):
+  File "/home/s2964007/Thesis/VirtualEnv/bin/onmt_translate", line 8, in <module>
+    sys.exit(main())
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 49, in main
+    translate(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 19, in translate
+    translator = build_translator(opt, report_score=True)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/translate/translator.py", line 28, in build_translator
+    fields, model, model_opt = load_test_model(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/model_builder.py", line 95, in load_test_model
+    map_location=lambda storage, loc: storage)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/torch/serialization.py", line 419, in load
+    f = open(f, 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: 'Models/SOV_NA/SVO_AN_model_step_350.pt'
+Models/SOV_NA/SVO_AN_model_step_375.pt
+Traceback (most recent call last):
+  File "/home/s2964007/Thesis/VirtualEnv/bin/onmt_translate", line 8, in <module>
+    sys.exit(main())
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 49, in main
+    translate(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 19, in translate
+    translator = build_translator(opt, report_score=True)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/translate/translator.py", line 28, in build_translator
+    fields, model, model_opt = load_test_model(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/model_builder.py", line 95, in load_test_model
+    map_location=lambda storage, loc: storage)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/torch/serialization.py", line 419, in load
+    f = open(f, 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: 'Models/SOV_NA/SVO_AN_model_step_375.pt'
+Models/SOV_NA/SVO_AN_model_step_400.pt
+Traceback (most recent call last):
+  File "/home/s2964007/Thesis/VirtualEnv/bin/onmt_translate", line 8, in <module>
+    sys.exit(main())
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 49, in main
+    translate(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/bin/translate.py", line 19, in translate
+    translator = build_translator(opt, report_score=True)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/translate/translator.py", line 28, in build_translator
+    fields, model, model_opt = load_test_model(opt)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/onmt/model_builder.py", line 95, in load_test_model
+    map_location=lambda storage, loc: storage)
+  File "/home/s2964007/Thesis/VirtualEnv/lib/python3.7/site-packages/torch/serialization.py", line 419, in load
+    f = open(f, 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: 'Models/SOV_NA/SVO_AN_model_step_400.pt'
+
+
+###############################################################################
+Peregrine Cluster
+Job 9132087 for user 's2964007'
+Finished at: Fri Dec 27 14:29:37 CET 2019
+
+Job details:
+============
+
+Name                : OpenNMT
+User                : s2964007
+Partition           : gpu
+Nodes               : pg-gpu36
+Cores               : 12
+State               : FAILED
+Submit              : 2019-12-27T14:00:39
+Start               : 2019-12-27T14:01:01
+End                 : 2019-12-27T14:29:37
+Reserved walltime   : 01:00:00
+Used walltime       : 00:28:36
+Used CPU time       : 03:05:32 (efficiency: 54.06%)
+% User (Computation): 93.76%
+% System (I/O)      :  6.24%
+Mem reserved        : 4000M/node
+Max Mem used        : 2.76G (pg-gpu36)
+Max Disk Write      : 2.55G (pg-gpu36)
+Max Disk Read       : 1.74G (pg-gpu36)
+
+
+Acknowledgements:
+=================
+
+Please see this page if you want to acknowledge Peregrine in your publications:
+
+https://redmine.hpc.rug.nl/redmine/projects/peregrine/wiki/ScientificOutput
+
+################################################################################
