@@ -1,0 +1,6 @@
+[2019-12-30 22:28:42,573 INFO] Step 450/  450; acc: 100.00; ppl:  1.00; xent: 0.00; lr: 1.00000; 2092/2353 tok/s;    105 sec
+[2019-12-30 22:28:42,608 INFO] Loading dataset from Data/Final/SVO_NA/prepro.valid.0.pt
+[2019-12-30 22:28:42,672 INFO] number of examples: 16105
+[2019-12-30 22:28:47,667 INFO] Validation perplexity: 1.00047
+[2019-12-30 22:28:47,667 INFO] Validation accuracy: 100
+[2019-12-30 22:28:47,668 INFO] Saving checkpoint Models/Final/SVO_NA/SVO_NA_model_step_450.pt
