@@ -11,8 +11,7 @@ The Data/SCFG folder contains all the basics for data generation.
 To run the experiments on Peregrine a jobscript is needed. This is in the main Thesis folder.
     jobscript_final.sh is the final jobscript for my thesis.
     jobscript_val.sh was used for testing.
-    
-    for every test and the final run logs are in the Logs folder. This contains logs from OpenNMT and Peregrine. From this I have             extracted the intermediate validation accuracy scores from OpenNMT.
+    For every test and the final run logs are in the Logs folder. This contains logs from OpenNMT and Peregrine. From this I have             extracted the intermediate validation accuracy scores from OpenNMT.
 
 The results, or predictions, from the models are in the Results folder.
 accuracy.py in the main folder takes these predictions and determines an accuracy score per saved checkpoint of the models. (the models are not in the repository, because it takes up too much space.)
